@@ -67,12 +67,6 @@ const locations = [
     text: "You are fighting a monster."
   },
   {
-    name: "fight",
-    "button text": ["Attack", "Dodge", "Run"],
-    "button functions": [attack, dodge, goTown],
-    text: "You are fighting a monster."
-  },
-  {
     name: "kill monster",
     "button text": ["Go to town square", "Go to town square", "Go to town square"],
     "button functions": [goTown, goTown, goTown],
@@ -141,7 +135,7 @@ function buyHealth() {
 }
 
 function buyWeapon() {
-  if (currentWeapon < weapons.lengyh - 1) {
+  if (currentWeapon < weapons.length - 1) {
     if (gold >= 30) {
       gold -= 30;
       currentWeapon++;
@@ -235,7 +229,7 @@ function dodge() {
   text.innerText = "You dodge the attack from the " + monsters[fighting].name;
 }
 
-function defeatMonsters() {
+function defeatMonster() {
   gold += Math.floor(monsters[fighting].level * 6.7);
   xp += monsters[fighting].level;
   goldText.innerText = gold;
@@ -244,10 +238,10 @@ function defeatMonsters() {
 }
 
 function lose() {
-  update(location[5]);
+  update(locations[5]);
 }
 
-function win() {
+function winGame() {
   update(locations[6]);
 }
 
