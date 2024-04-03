@@ -1,4 +1,51 @@
 body {
   background-color: black;
+  background-image: radial-gradient(rgb(0, 0, 0) 40%,rgba(255, 0, 0, 0.452));
+  font-family: monospace;
+  font-size: 15px;
+  height: 50vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
+#game {
+  max-width: 500px;
+  max-height: 400px;
+  background-color: transparent;
+  margin-top: 40vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#controls, #stats {
+  padding: 10px;
+  color: white;
+}
+
+#monsterStats {
+  display: none;
+  padding: 10px;
+  color: red;
+  background-color: transparent;
+}
+
+#text {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.stat {
+  padding-right: 10px;
+}
+
+button {
+  cursor: pointer;
+  color: black;
+  background-color: #feac32;
+  background-image: linear-gradient(#fecc4c, #ffac33);
+  border: 3px solid #feac32;
+}
