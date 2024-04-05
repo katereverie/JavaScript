@@ -1,0 +1,72 @@
+:root {
+  --light-grey: #f5f6f7;
+  --dark-blue: #0a0a23;
+  --fcc-blue: #1b1b32;
+  --dark-yellow: #feac32;
+  --light-pink: #ffadad;
+  --dark-red: #850000;
+  --light-green: #acd157;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  background-color: var(--light-grey);
+  color: var(--dark-blue);
+}
+
+.header-container {
+  background-image: linear-gradient(var(--light-grey) 1%, var(--light-green) 10%, var(--dark-yellow) 30%, var(--dark-red) 80%);
+  text-align: center;
+  border-radius: 30px;
+  max-width: 550px;
+}
+
+#app-name {
+  color: rgba(41, 48, 5, 0.418);
+}
+#intro-text {
+  color: antiquewhite;
+}
+
+.tracker-container {
+  width: 90%;
+  max-width: 700px;
+}
+
+.header-container,
+.tracker-container,
+.output {
+  margin: 50px auto;
+}
+
+.budget-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+}
+
+#budget {
+  max-width: fit-content;
+}
+
+#budgetInput-hint {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 500;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: 10px;
+} 
+
+label {
+  font-weight: bolder;
+  display:block;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+legend {
+  font-weight: 600;
+}
+
