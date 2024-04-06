@@ -20,5 +20,5 @@ function cleanInputString() {
   // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
   // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
   const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
-
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
 }
