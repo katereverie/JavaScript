@@ -21,4 +21,11 @@ function cleanInputString() {
   // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
   const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
   const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  const HTMLString = `
+  <label></label>
+  <input>
+  <label></label>
+  <input>
+  `;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
