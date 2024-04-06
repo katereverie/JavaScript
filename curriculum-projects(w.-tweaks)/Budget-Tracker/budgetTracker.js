@@ -1,3 +1,4 @@
+// .getElementById targets directly HTML elements
 // query for the whole form of budget tracker (el.form)
 const budgetCounter = document.getElementById('budgetTracker');
 // query for the set budget number (el.input)
@@ -15,4 +16,9 @@ let isError = false;
 
 // since user input can be unformatted and unfit for processing data, it needs 'cleaning'
 // all user inputs are taken as strings.
-function cleanInputString
+function cleanInputString() {
+  // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
+  // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
+  const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
+
+}
