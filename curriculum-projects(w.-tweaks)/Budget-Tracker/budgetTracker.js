@@ -22,13 +22,14 @@ function cleanInputString() {
   const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
   const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   const HTMLString = `
-  <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Description</label>
-  <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Specify the item name" />
-  <label></label>
+  <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Item</label>
+  <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Specify The Item Name" />
+  <label for="${entryDropdown.value}-${entryNumber}-sum">Entry ${entryNumber} Sum</label>
   <input
     type="number"
     min="0"
-    id="${entryDropdown}"
+    id="${entryDropdown.value}-${entryNumber}-sum"
+    placeholder="Input Sum";
   />`;
   targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
