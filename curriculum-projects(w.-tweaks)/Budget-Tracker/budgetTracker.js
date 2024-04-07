@@ -1,6 +1,6 @@
 // .getElementById targets directly HTML elements
 // query for the whole form of budget tracker (el.form)
-const budgetCounter = document.getElementById('budget-Tracker');
+const budgetCounter = document.getElementById('budget-tracker');
 // query for the set budget number (el.input)
 const budgetNumberInput = document.getElementById('budget');
 // query for the entry-dropdown menu (el.select)
@@ -63,7 +63,7 @@ function calculateSums(e) {
   const transportNumberInputs = document.querySelectorAll('#transport input[type=number]');
   const entertainmentNumberInputs = document.querySelectorAll('#entertainment input[type=number]');
   const othersNumberInputs = document.querySelectorAll('#others input[type=number]');
-  const incomeNumberInputs = document.querySelectorAll('$income input[type=number]');
+  const incomeNumberInputs = document.querySelectorAll('#income input[type=number]');
 
   // get the entry inputs
   const clothingSums = getSumsFromInputs(clothingNumberInputs);
