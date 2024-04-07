@@ -41,7 +41,7 @@ function addClothingEntry() {
   const targetInputContainer = document.querySelector(`#clothing .input-container`);
   const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   const HTMLString = `
-  <label id="entry-label" for="clothing-${entryNumber}-name">Item ${entryNumber}</label>
+  <label id="entry-label" for="clothing-${entryNumber}-name">Entry ${entryNumber}</label>
   <input type="text" id="clothing-${entryNumber}-name" placeholder="Specify The Item Name" />
   <label id="entry-label" for="clothing-${entryNumber}-sum">Sum</label>
   <input
@@ -53,7 +53,7 @@ function addClothingEntry() {
   targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
 
-function saveEntry() {
+function saveClothingEntry() {
   const targetSavedEntryContainer = document.querySelector(`#clothing .input-container`);
 
   const HTMLString = `
@@ -71,6 +71,116 @@ function editEntry() {
 function deleteEntry() {
 
 }
+
+function addFoodEntry() {
+  // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
+  // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
+  const targetInputContainer = document.querySelector(`#food .input-container`);
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  const HTMLString = `
+  <label id="entry-label" for="food-${entryNumber}-name">Entry ${entryNumber}</label>
+  <input type="text" id="food-${entryNumber}-name" placeholder="Specify The Item Name" />
+  <label id="entry-label" for="food-${entryNumber}-sum">Sum</label>
+  <input
+    type="number"
+    min="0"
+    id="food-${entryNumber}-sum"
+    placeholder="Input Sum";
+  />`;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+function addLivingAndAccomodationEntry() {
+  // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
+  // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
+  const targetInputContainer = document.querySelector(`#living .input-container`);
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  const HTMLString = `
+  <label id="entry-label" for="living-${entryNumber}-name">Entry ${entryNumber}</label>
+  <input type="text" id="living-${entryNumber}-name" placeholder="Specify The Item Name" />
+  <label id="entry-label" for="living-${entryNumber}-sum">Sum</label>
+  <input
+    type="number"
+    min="0"
+    id="living-${entryNumber}-sum"
+    placeholder="Input Sum";
+  />`;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+function addTransportEntry() {
+  // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
+  // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
+  const targetInputContainer = document.querySelector(`#transport .input-container`);
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  const HTMLString = `
+  <label id="entry-label" for="transport-${entryNumber}-name">Entry ${entryNumber}</label>
+  <input type="text" id="transport-${entryNumber}-name" placeholder="Specify The Item Name" />
+  <label id="entry-label" for="transport-${entryNumber}-sum">Sum</label>
+  <input
+    type="number"
+    min="0"
+    id="transport-${entryNumber}-sum"
+    placeholder="Input Sum";
+  />`;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+function addEntertainmentEntry() {
+  // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
+  // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
+  const targetInputContainer = document.querySelector(`#entertainment .input-container`);
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  const HTMLString = `
+  <label id="entry-label" for="entertainment-${entryNumber}-name">Entry ${entryNumber}</label>
+  <input type="text" id="entertainment-${entryNumber}-name" placeholder="Specify The Item Name" />
+  <label id="entry-label" for="entertainment-${entryNumber}-sum">Sum</label>
+  <input
+    type="number"
+    min="0"
+    id="entertainment-${entryNumber}-sum"
+    placeholder="Input Sum";
+  />`;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+function addOthersEntry() {
+  // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
+  // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
+  const targetInputContainer = document.querySelector(`#others .input-container`);
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  const HTMLString = `
+  <label id="entry-label" for="others-${entryNumber}-name">Entry ${entryNumber}</label>
+  <input type="text" id="others-${entryNumber}-name" placeholder="Specify The Item Name" />
+  <label id="entry-label" for="others-${entryNumber}-sum">Sum</label>
+  <input
+    type="number"
+    min="0"
+    id="others-${entryNumber}-sum"
+    placeholder="Input Sum";
+  />`;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+function addIncomeEntry() {
+  // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
+  // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
+  const targetInputContainer = document.querySelector(`#income .input-container`);
+  const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+  const HTMLString = `
+  <label id="entry-label" for="income-${entryNumber}-name">Entry ${entryNumber}</label>
+  <input type="text" id="income-${entryNumber}-name" placeholder="Specify The Item Name" />
+  <label id="entry-label" for="income-${entryNumber}-sum">Sum</label>
+  <input
+    type="number"
+    min="0"
+    id="income-${entryNumber}-sum"
+    placeholder="Input Sum";
+  />`;
+  targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+
 
 function calculateSums(e) {
   // prevent event? What does this do?

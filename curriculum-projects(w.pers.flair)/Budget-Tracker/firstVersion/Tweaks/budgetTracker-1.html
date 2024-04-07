@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="budgetTracker-1.css">
+    <link rel="stylesheet" href="budgetTracker-1-2.css">
     <title>Your Personal Budget Tracker</title>
   </head>
   <body>
@@ -93,7 +94,7 @@
           </fieldset>
           <div class="controls">
             <span>
-              <label for="entry-dropdown">Select a category to add an entry: </label>
+              <label for="entry-dropdown">Select a category to add/save/edit/delete an entry: </label>
               <select id="entry-dropdown" name="options">
                 <option value="clothing" selected>Clothing</option>
                 <option value="food">Food</option>
@@ -104,6 +105,9 @@
                 <option value="income">Income</option>
               </select>
               <button type="button" id="add-entry">Add Entry</button>
+              <button type="button" id="save-entry">Save Entry</button>
+              <button type="button" id="edit-entry">Edit Entry</button>
+              <button type="button" id="delete-entry">Delete Entry</button>
             </span>
           </div>
           <div>

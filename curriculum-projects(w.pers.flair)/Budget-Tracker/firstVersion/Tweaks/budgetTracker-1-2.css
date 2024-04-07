@@ -1,0 +1,8 @@
+/* this css file modifies the input container related to events such as add, save, edit, and delete */
+
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+}
+
