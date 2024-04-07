@@ -16,11 +16,12 @@ body {
   color: var(--dark-blue);
 }
 
+
 .header-container {
   background-image: linear-gradient(var(--light-grey) 1%, var(--light-green) 10%, var(--dark-yellow) 30%, var(--dark-red) 80%);
   text-align: center;
   border-radius: 30px;
-  max-width: 550px;
+  max-width: 690px;
 }
 
 #app-name {
@@ -62,13 +63,12 @@ body {
 
 label {
   font-weight: bolder;
-  display:block;
-  font-size: 30px;
-  margin-bottom: 15px;
+  font-size: 25px;
 }
 
-legend {
-  font-weight: 600;
+.label-container {
+  display: flex;
+  justify-content: space-between;
 }
  
 .input-container {
@@ -79,9 +79,8 @@ legend {
 button {
   cursor: pointer;
   text-decoration: none;
-  background-color: var(--light-yellow);
-  border: 3px solid var(--dark-yellow);
   border-radius: 5px;
+  margin-top: 10px;
 }
 
 button,
@@ -105,8 +104,6 @@ select {
 
 .legend-container {
   display: flex;
-  position: relative;
-  top: 5px;
 }
 
 .button-container {
