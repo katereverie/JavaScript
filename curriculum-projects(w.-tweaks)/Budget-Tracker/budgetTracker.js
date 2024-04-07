@@ -16,7 +16,17 @@ let isError = false;
 
 // since user input can be unformatted and unfit for processing data, it needs 'cleaning'
 // all user inputs are taken as strings.
-function cleanInputString() {
+// this function should rid of user inputs of the characters defined below and replace them with an empty string
+function cleanInputString(str) {
+  const regex = /[+-\s]/g;
+  return str.replace(regex, '');
+}
+
+// 
+
+
+
+function addEntry() {
   // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
   // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
   const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
@@ -32,4 +42,38 @@ function cleanInputString() {
     placeholder="Input Sum";
   />`;
   targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+function calculateSums(e) {
+  // prevent event? What does this do?
+  e.preventDefault();
+  isError = false;
+  
+  // select all the entry inputs
+  const clothingNumberInputs = document.querySelectorAll('#clothing input[type=number]');
+  const foodNumberInputs = document.querySelectorAll('#food input[type=number]');
+  const livingNumberInputs = document.querySelectorAll('#living input[type=number]');
+  const transportNumberInputs = document.querySelectorAll('#transport input[type=number]');
+  const entertainmentNumberInputs = document.querySelectorAll('#entertainment input[type=number]');
+  const othersNumberInputs = document.querySelectorAll('#others input[type=number]');
+  const incomeNumberInputs = document.querySelectorAll('$income input[type=number]');
+
+  // get the entry inputs
+  const clothingSums = getSumsFromInputs(clothingNumberInputs);
+  const foodSums = getSumsFromInputs(clothingNumberInputs);
+  const livingSums = getSumsFromInputs(clothingNumberInputs);
+  const transportSums = getSumsFromInputs(clothingNumberInputs);
+  const entertainmentSums = getSumsFromInputs(clothingNumberInputs);
+  const othersSums = getSumsFromInputs(clothingNumberInputs);
+  const incomeSums = getSumsFromInputs(clothingNumberInputs);
+
+}
+
+// write a function to get the sums from user inputs
+function getSumsFromInputs(list) {
+  let sums= 0;
+  for (const item of list) {
+    const currVal = cleanInputString(item.value);
+    const invalidInputMatch = isInvalidInput();
+  }
 }
