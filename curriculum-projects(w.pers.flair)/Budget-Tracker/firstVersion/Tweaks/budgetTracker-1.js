@@ -7,7 +7,9 @@ const budgetNumberInput = document.getElementById('budget');
 const entryDropdown = document.getElementById('entry-dropdown');
 // query for the add entry button (el.button)
 const addEntryButton = document.getElementById('add-entry');
-// query for the clear button (el.button)
+const saveEntryButton = document.getElementById('save-entry');
+const editEntryButton = document.getElementById('edit-entry');
+const deleteEntryButton = document.getElementById('delete-entry');
 const clearButton = document.getElementById('clear');
 // query for the output (el.div)
 const output = document.getElementById('output');
@@ -33,22 +35,41 @@ function isInvalidInput(str) {
 
 
 
-function addEntry() {
+function addClothingEntry() {
   // .querySelector targets elements based on CSS selectors and returns the first element that matches the specified CSS selector or null if no match is found
   // more flexible in selecting elements by class, tag, name, attribute, or other CSS selectors
-  const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
+  const targetInputContainer = document.querySelector(`#clothing .input-container`);
   const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   const HTMLString = `
-  <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Item</label>
-  <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Specify The Item Name" />
-  <label for="${entryDropdown.value}-${entryNumber}-sum">Entry ${entryNumber} Sum</label>
+  <label id="entry-label" for="clothing-${entryNumber}-name">Item ${entryNumber}</label>
+  <input type="text" id="clothing-${entryNumber}-name" placeholder="Specify The Item Name" />
+  <label id="entry-label" for="clothing-${entryNumber}-sum">Sum</label>
   <input
     type="number"
     min="0"
-    id="${entryDropdown.value}-${entryNumber}-sum"
+    id="clothing-${entryNumber}-sum"
     placeholder="Input Sum";
   />`;
   targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
+}
+
+function saveEntry() {
+  const targetSavedEntryContainer = document.querySelector(`#clothing .input-container`);
+
+  const HTMLString = `
+  <div>
+    <span>${input}</span>
+    <span></span>
+  </div>
+  `;
+}
+
+function editEntry() {
+
+}
+
+function deleteEntry() {
+
 }
 
 function calculateSums(e) {
@@ -142,5 +163,9 @@ function clearForm() {
 
 // add events so that the web app is interactive
 addEntryButton.addEventListener("click", addEntry);
+saveEntryButton.addEventListener("click", saveEntry);
+editEntryButton.addEventListener("click", editEntry);
+deleteEntryButton.addEventListener("click", deleteEntry);
+
 budgetCounter.addEventListener("submit", calculateSums);
 clearButton.addEventListener("click", clearForm);
