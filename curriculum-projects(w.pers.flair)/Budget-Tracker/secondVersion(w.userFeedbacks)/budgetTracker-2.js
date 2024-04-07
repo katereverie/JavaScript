@@ -39,15 +39,20 @@ function addEntry() {
   const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
   const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
   const HTMLString = `
-  <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Item</label>
-  <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Specify The Item Name" />
-  <label for="${entryDropdown.value}-${entryNumber}-sum">Entry ${entryNumber} Sum</label>
-  <input
-    type="number"
-    min="0"
-    id="${entryDropdown.value}-${entryNumber}-sum"
-    placeholder="Input Sum";
-  />`;
+  <div class="entry-div">
+    <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Item</label>
+    <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Specify The Item Name" />
+  </div>
+  <div class="entry-div">
+    <label for="${entryDropdown.value}-${entryNumber}-sum">Entry ${entryNumber} Sum</label>
+    <input
+      type="number"
+      min="0"
+      id="${entryDropdown.value}-${entryNumber}-sum"
+      placeholder="Input Sum"
+    />
+  </div>
+  `;
   targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
 }
 

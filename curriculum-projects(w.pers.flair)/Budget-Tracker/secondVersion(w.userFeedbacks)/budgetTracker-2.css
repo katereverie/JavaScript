@@ -99,6 +99,20 @@ select {
   margin-bottom: 15px;
 }
 
+.entry-div {
+  border: 1px solid red;
+}
+
+.legend-container {
+  display: flex;
+  position: relative;
+  top: 5px;
+}
+
+.button-container {
+  margin-left: 30px;
+}
+
 .output {
   border: 2px solid var(--dark-blue);
   padding: 10px;

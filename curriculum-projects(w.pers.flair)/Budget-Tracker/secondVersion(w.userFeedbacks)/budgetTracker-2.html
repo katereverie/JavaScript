@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="budgetTracker.css">
+    <link rel="stylesheet" href="budgetTracker-2.css">
     <title>Your Personal Budget Tracker</title>
   </head>
   <body>
@@ -18,22 +18,40 @@
         <form id="budget-tracker">
           <div class="budget-container">
             <label for="budget">Set Budget</label>
-            <input 
+            <div class="budget-input-container">
+              <input 
             type="number"
             min="0"
             id="budget"
             placeholder="Enter a budget"
             required
             />
-            <span id="budgetInput-hint">* Positive Numbers Only *</span>
+              <span id="budgetInput-hint">* Positive Numbers Only *</span>
+            </div> 
           </div>
           
           <fieldset id="clothing">
-            <legend>Clothing</legend>
+            <legend> 
+              <div class="legend-container">
+                <span>Clothing</span>
+                <div class="button-container">
+                  <button type="button">add entry</button> 
+                  <button>edit entry</button></button> 
+                  <button>delete entry</button>
+                </div>
+              </div>
+            </legend>
             <div class="input-container"></div>
           </fieldset>
           <fieldset id="food">
-            <legend>Food</legend>
+            <legend>
+              <div class="legend-container">
+                <span style="margin-right: 30px;">Food</span>
+                <button>add entry</button>
+                <button>edit entry</button>
+                <button>delete entry</button>
+              </div>
+            </legend>
             <div class="input-container"></div>
           </fieldset>
           <fieldset id="living">
@@ -81,6 +99,6 @@
         <div id="output" class="output hide"></div>
       </div>
     </main>
-    <script src="budgetTracker.js"></script>    
+    <script src="budgetTracker-2.js"></script>    
   </body>
 </html>
