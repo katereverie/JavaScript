@@ -79,3 +79,23 @@ const allSongs = [
     src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/chasing-that-feeling.mp3",
   },
 ];
+
+// use Web Audio API to play songs on the web
+// this creates a new HTML5 audio element
+const audio = new Audio();
+
+// a music player to store information of the songs
+// and create a songs property with allSongs converted into an array as the value
+// currentSong handles the currentSong's information
+// songCurrentTime handles its playback time
+let userData = {
+  songs: [...allSongs],
+  currentSong: null,
+  songCurrentTime: 0
+};
+
+// create a function to display the songs in the UI
+const renderSongs = (array) => {
+  const songsHTML = array.map((song) => {});
+};
+
