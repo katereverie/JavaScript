@@ -101,6 +101,7 @@ const playSong = (id) => {
 
   playButton.classList.add("playing");
   highlightCurrentSong();
+  setPlayerDisplay();
   audio.play();
 };
 
@@ -133,6 +134,17 @@ const playPreviousSong = () => {
     const previousSong = userData?.songs[currentSongIndex - 1];
     playSong(previousSong);
   }
+};
+
+// define a func to display infos
+const setPlayerDisplay = () => {
+  const playingSong = document.getElementById("player-song-title");
+  const songArtist = document.getElementById("player-song-artist");
+  const currentTitle = userData?.currentSong?.title;
+  const currentArtist = userData?.currentSong?.artist;
+
+  playingSong.textContent = currentTitle ? currentTitle : "";
+  songArtist.textContent = currentArtist ? currentArtist : "";
 };
 
 // define a func to highlight currently playing song
