@@ -84,6 +84,25 @@ const allSongs = [
 // this creates a new HTML5 audio element
 const audio = new Audio();
 
+// define a func to play the displayed songs
+const playSong = (id) => {
+  const song = userData?.songs.find((song => song.id === id));
+  audio.src = song.src;
+  audio.title = song.title;
+  
+  // 检查播放列表播放的歌存不存在或者其id等不等于song.id
+  if (userData?.currentSong == null || userData?.currentSong.id !== song.id) {
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData?.songCurrentTime;
+  }
+
+  userData.currentSong = song;
+
+  playButton.classList.add("playing");
+  audio.play();
+};
+
 // a music player to store information of the songs
 // and create a songs property with allSongs converted into an array as the value
 // currentSong handles the currentSong's information
@@ -122,8 +141,17 @@ const sortSongs = () => {
     if (a.title < b.title) {
       return -1;
     }
+
+    if (a.title > b.title) {
+      return 1;
+    }
+
+    return 0;
+    
   });
+
+  return userData?.songs;
 };
 // call renderSongs func to render the stored songs in the playlist
 // ? will throws "null or undefined" if accessed nested properties aren't defined
-renderSongs(userData?.songs);
+renderSongs(sortSongs());
