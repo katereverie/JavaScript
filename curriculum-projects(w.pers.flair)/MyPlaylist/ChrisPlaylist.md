@@ -3,7 +3,7 @@
 2. Madonna - Deeper and depper
 3. Ariana - 7 rings
 4. Rafa Spunky - Total inferioridad
-JOHJI - JOHJI (Home)
+5. JOHJI - JOHJI (Home)
 
 * Pick a fitting background design for these songs
   - What are their common themes? 
