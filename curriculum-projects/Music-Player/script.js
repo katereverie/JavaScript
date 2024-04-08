@@ -112,6 +112,9 @@ const pauseSong = () => {
   audio.pause();
 };
 
+// define a playNextSong func 
+const playNextSong = () => {};
+
 
 // a music player to store information of the songs
 // and create a songs property with allSongs converted into an array as the value
@@ -146,7 +149,9 @@ const renderSongs = (array) => {
 };
 
 // define func to get the index of the current song
-const getCurrentSongIndex = () => {};
+const getCurrentSongIndex = () => {
+  return userData?.songs.indexOf(userData?.currentSong);
+};
 
 // add functionality to the playbutton
 playButton.addEventListener("click", () => {
