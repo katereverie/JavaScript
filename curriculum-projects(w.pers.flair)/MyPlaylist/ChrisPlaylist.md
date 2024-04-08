@@ -11,4 +11,4 @@ JOHJI - JOHJI (Home)
   - How would that vibe be represented in color schemes?
   - Confirm with Chris and ask for feedbacks.
 
-** TBC
+* (To be continued)
