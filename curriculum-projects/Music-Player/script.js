@@ -113,7 +113,20 @@ const pauseSong = () => {
 };
 
 // define a playNextSong func 
-const playNextSong = () => {};
+const playNextSong = () => {
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0].id);
+  } else {
+    const currentSongIndex = getCurrentSongIndex();
+    const nextSong = userData?.songs[currentSongIndex + 1];
+    playSong(nextSong.id);
+  }
+};
+
+// define a func to play previous song
+const playPreviousSong = () => {
+
+};
 
 
 // a music player to store information of the songs
@@ -163,6 +176,8 @@ playButton.addEventListener("click", () => {
 });
 // make the pause button interactive
 pauseButton.addEventListener("click", pauseSong);
+// make the play next button interactive
+nextButton.addEventListener("click", playNextSong);
 
 // create an arror function to sort the song list in alphabetical order by title
 const sortSongs = () => {
