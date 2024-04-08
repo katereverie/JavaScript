@@ -196,6 +196,10 @@ const renderSongs = (array) => {
   playlistSongs.innerHTML = songsHTML;
 };
 
+//  define func to display info of the song when clicking play
+const setPlayButtonAccessibleText = () {
+  
+};
 // define func to get the index of the current song
 const getCurrentSongIndex = () => {
   return userData?.songs.indexOf(userData?.currentSong);
