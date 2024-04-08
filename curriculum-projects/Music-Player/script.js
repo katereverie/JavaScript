@@ -91,7 +91,7 @@ const audio = new Audio();
 let userData = {
   songs: [...allSongs],
   currentSong: null,
-  songCurrentTime: 0
+  songCurrentTime: 0,
 };
 
 // create a function to display the songs in the UI
@@ -111,11 +111,13 @@ const renderSongs = (array) => {
       </button>
     </li>
     `;
-  }).join();
-  
+  }).join("");
+  // 如果join方法里没有参数的话, 就会按array的元素来连接, 这样每个元素之间会出现一个逗号
   playlistSongs.innerHTML = songsHTML;
 };
 
+// create an arror function to sort the song list in alphabetical order by title
+const sortSongs = () => {};
 // call renderSongs func to render the stored songs in the playlist
 // ? will throws "null or undefined" if accessed nested properties aren't defined
 renderSongs(userData?.songs);
