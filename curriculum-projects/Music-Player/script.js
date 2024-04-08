@@ -171,7 +171,7 @@ const deleteSong = (id) => {
   setPlayButtonAccessibleText();
 
   // check if the play list is empty; if empty, reset userData object
-  if (userData?.songs.lengtg === 0) {
+  if (userData?.songs.length === 0) {
     const resetButton = document.createElement("button");
     const resetText = document.createTextNode("Reset Playlist");
     resetButton.id = "reset";
