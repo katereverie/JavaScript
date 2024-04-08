@@ -184,6 +184,8 @@ playButton.addEventListener("click", () => {
 pauseButton.addEventListener("click", pauseSong);
 // make the play next button interactive
 nextButton.addEventListener("click", playNextSong);
+// make the play previous button interactive
+previousButton.addEventListener("click", playPreviousSong);
 
 // create an arror function to sort the song list in alphabetical order by title
 const sortSongs = () => {
