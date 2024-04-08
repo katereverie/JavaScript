@@ -103,6 +103,9 @@ const playSong = (id) => {
   audio.play();
 };
 
+// define a pause func
+const pauseSong = () => {};
+
 // a music player to store information of the songs
 // and create a songs property with allSongs converted into an array as the value
 // currentSong handles the currentSong's information
@@ -118,7 +121,7 @@ const renderSongs = (array) => {
   const songsHTML = array.map((song) => {
     return `
     <li id="song-${song.id}" class="playlist-song">
-      <button class="playlist-song-info">
+      <button class="playlist-song-info" onclick="playSong(${song.id})">
           <span class="playlist-song-title">${song.title}</span>
           <span class="playlist-song-artist">${song.artist}</span>
           <span class="playlist-song-duration">${song.duration}</span>
@@ -134,6 +137,15 @@ const renderSongs = (array) => {
   // 如果join方法里没有参数的话, 就会按array的元素来连接, 这样每个元素之间会出现一个逗号
   playlistSongs.innerHTML = songsHTML;
 };
+
+// add functionality to the playbutton
+playButton.addEventListener("click", () => {
+  if (!userData?.currentSong) {
+    playSong(userData?.songs[0].id);
+  } else {
+    playSong(userData?.currentSong.id);
+  }
+});
 
 // create an arror function to sort the song list in alphabetical order by title
 const sortSongs = () => {
