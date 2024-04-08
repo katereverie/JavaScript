@@ -104,7 +104,14 @@ const playSong = (id) => {
 };
 
 // define a pause func
-const pauseSong = () => {};
+const pauseSong = () => {
+  // store current time of the song when paused
+  userData.songCurrentTime = audio.currentTime;
+  // since the current song is paused, it should be removed from the playing class
+  playButton.classList.remove("playing");
+  audio.pause();
+};
+
 
 // a music player to store information of the songs
 // and create a songs property with allSongs converted into an array as the value
@@ -138,6 +145,9 @@ const renderSongs = (array) => {
   playlistSongs.innerHTML = songsHTML;
 };
 
+// define func to get the index of the current song
+const getCurrentSongIndex = () => {};
+
 // add functionality to the playbutton
 playButton.addEventListener("click", () => {
   if (!userData?.currentSong) {
@@ -146,6 +156,8 @@ playButton.addEventListener("click", () => {
     playSong(userData?.currentSong.id);
   }
 });
+// make the pause button interactive
+pauseButton.addEventListener("click", pauseSong);
 
 // create an arror function to sort the song list in alphabetical order by title
 const sortSongs = () => {
