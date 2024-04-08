@@ -100,6 +100,7 @@ const playSong = (id) => {
   userData.currentSong = song;
 
   playButton.classList.add("playing");
+  highlightCurrentSong();
   audio.play();
 };
 
@@ -132,6 +133,22 @@ const playPreviousSong = () => {
     const previousSong = userData?.songs[currentSongIndex - 1];
     playSong(previousSong);
   }
+};
+
+// define a func to highlight currently playing song
+// this func really got me ...
+const highlightCurrentSong = () => {
+  // why playlistSongs.querySelectorAll failed? 
+  const playlistSongElements = document.querySelectorAll('.playlist-song');
+  const sontToHighlight = document.getElementById(`song-${userData?.currentSong?.id}`);
+  playlistSongElements.forEach((songEl) => {
+    songEl.removeAttribute("aria-current");
+    
+    if (sontToHighlight) {
+      sontToHighlight.setAttribute("aria-current", "true");
+    }
+
+  });
 };
 
 
