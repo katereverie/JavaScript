@@ -117,7 +117,13 @@ const renderSongs = (array) => {
 };
 
 // create an arror function to sort the song list in alphabetical order by title
-const sortSongs = () => {};
+const sortSongs = () => {
+  userData?.songs.sort((a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+  });
+};
 // call renderSongs func to render the stored songs in the playlist
 // ? will throws "null or undefined" if accessed nested properties aren't defined
 renderSongs(userData?.songs);
