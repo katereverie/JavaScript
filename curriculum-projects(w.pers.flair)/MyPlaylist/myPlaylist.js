@@ -20,7 +20,7 @@ const allSongs = [
     title: "Deeper and Deeper",
     artist: "Madonna",
     duration: "5:34",
-    src: "https://soundcloud.com/madonnagr/deeper-and-deeper-acapella?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+    src: "https://ia802503.us.archive.org/11/items/03.-madonna-holiday/33.MADONNA%20-%20Deeper%20And%20Deeper.mp3",
   },
   {
     id: 2,
