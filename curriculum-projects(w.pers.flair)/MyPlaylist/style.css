@@ -91,7 +91,7 @@ ul {
   background-color: var(--highlight-color);
 }
 
-.ccs-title,
+.cs-title,
 .playlist-title {
   color: var(--secondary-color);
   margin: 0 10px;
