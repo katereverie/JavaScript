@@ -4,23 +4,22 @@ const resultInfo = document.getElementById("result"); // div section shows check
 
 // get the input value and clean it so that factors such as punctuation, case, and spacing become irrelavent
 // store the cleaned input value into an array variable and return it as the output of the function
-function cleanTextInput(input) {
+function checkTextInput(input) {
   const cleanedInput = input.toLowerCase().replace(/[\W\s]/g, "");
   const inputArray = cleanedInput.split("");
+  let output;
   
-  const emptyInputAlert = (cleanedInput === "") => alert("Please input a value");
-  if (inputArray === inputArray.reverse()) {
-    return `${input} is a palindrome`;
-  } else {
-    return `${input} is not a palindrome`;
+  if (cleanedInput === "") {
+    alert("Please input a value")
   }
+  
+  if (inputArray === inputArray.reverse()) {
+    output = `${input} is a palindrome`;
+  } else {
+    output = `${input} is not a palindrome`;
+  }
+  
+  resultInfo.innerText = output;
 }  
 
-function showResult() {
-   
-}
-
-// regardless of forwards/backwards, punctuation, case, and spacing
-// textInput is a string. To process it, store it in a variable. the document
-
-checkButton.addEventListener("click", showResultFunction);
+checkButton.addEventListener("click", checkTextInput(textInput.value));
