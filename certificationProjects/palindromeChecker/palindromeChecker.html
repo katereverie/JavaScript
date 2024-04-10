@@ -8,15 +8,21 @@
   </head>
   <body>
     <header>
-      <h1 id="app-title">Is This Word a Palindrome?</h1>
+      <h1 id="app-title">Is It A Palindrome?</h1>
       <p id="app-description">
-        <span>Definition:</span>
-        <span>A <em>palindrome</em> is a word or phrase that can be read the same way forwards and backwards, ignoring punctuation, case, and spacing.</span>
+        <span id="definition-title"><strong>Definition:<br><br></strong></span>
+        <span id="definition-content">A <em>palindrome</em> is a word or phrase that can be read the same way forwards and backwards, ignoring punctuation, case, and spacing.</span>
       </p>
     </header>
     <main>
-      <input id="text-input" type="text"></input>
-      <button id="check-btn">check</button>
+      <div id="input-section">
+        <label for="text-input">Input down below:</label>
+        <div id="input-container">
+          <input id="text-input" type="text"></input>
+          <button id="check-btn">check</button>
+        </div>
+        <img src="">
+      </div>
       <div id="result"></div>
     </main>
     <script src="palindromeChecker.js"></script> 

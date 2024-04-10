@@ -1,3 +1,85 @@
+html {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 body {
-  background-color: antiquewhite;
+  background-color: rgb(46, 121, 86);
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 28%;
+}
+
+header {
+  display: flex;
+  max-width: 400px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-style: dashed;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: monospace;
+  max-width: 30px;
+}
+
+p {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#definition-content,
+#definition-title {
+  margin: 0 0 0 30px;
+  width: 280px;
+}
+
+main {
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(129, 40, 13, 0.879);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+label {
+  font-family: monospace;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+#text-input {
+  background-color: rgba(165, 231, 202, 0.818);
+  border: 3px solid rgba(87, 84, 84, 0.482);
+  box-shadow: 0 0 5px;
+  margin-right: 15px;
+  height: 30px;
+  width: 200px;
+}
+
+#check-btn {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#check-btn:hover {
+  cursor: cell;
+}
+
+#result {
+  border: 3px dashed black;
+  display: none;
 }
