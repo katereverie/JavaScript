@@ -43,6 +43,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+}
+
+#input-section {
   background-color: rgba(129, 40, 13, 0.879);
   border-radius: 20px;
   padding: 40px;
@@ -81,5 +85,5 @@ label {
 
 #result {
   border: 3px dashed black;
-  display: none;
+  
 }
