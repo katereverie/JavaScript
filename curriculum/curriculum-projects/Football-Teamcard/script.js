@@ -178,4 +178,8 @@ const myFavoriteFootballTeam = {
 Object.freeze(myFavoriteFootballTeam);
 
 // access the keys (properties) from mFFT object
-const sport = myFavoriteFootballTeam.sport;
+// standard way: 
+// const sport = myFavoriteFootballTeam.sport;
+// const team = myFavoriteFootballTeam.team;
+// easier way: object destructing syntax
+const { sport, team } = myFavoriteFootballTeam;
