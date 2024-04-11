@@ -185,3 +185,11 @@ Object.freeze(myFavoriteFootballTeam);
 const { sport, team, year, players } = myFavoriteFootballTeam;
 // access keys(properties) of nested objects
 const { coachName } = myFavoriteFootballTeam.headCoach;
+// assign values of corresponding keys to the corresponding HTML elements
+typeOfSport.textContent = sport;
+teamName.textContent = team;
+worldCupYear.textContent = year;
+headCoach.textContent = coachName;
+
+// create arrow func to display player cards based on selected options from the dropdown
+const setPlayerCards = (arr = players) => {}
