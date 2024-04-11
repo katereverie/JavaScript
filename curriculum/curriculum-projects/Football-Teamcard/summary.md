@@ -4,3 +4,4 @@ Lessions, Syntax, What to pay attention
 3. object destructing syntax: const { objectName1, objectName2, ...} = objectVariable;
 4. default return value of a callback function: (parameter = defaultValue) => {...};
 5. "e.target.value".
+6. the map() method.
