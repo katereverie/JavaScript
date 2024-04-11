@@ -182,4 +182,6 @@ Object.freeze(myFavoriteFootballTeam);
 // const sport = myFavoriteFootballTeam.sport;
 // const team = myFavoriteFootballTeam.team;
 // easier way: object destructing syntax
-const { sport, team } = myFavoriteFootballTeam;
+const { sport, team, year, players } = myFavoriteFootballTeam;
+// access keys(properties) of nested objects
+const { coachName } = myFavoriteFootballTeam.headCoach;
