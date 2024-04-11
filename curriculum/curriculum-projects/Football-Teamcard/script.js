@@ -205,3 +205,31 @@ const setPlayerCards = (arr = players) => {
     `
   ).join("");
 };
+
+// addEventListener to the dropdown menu so that when an option is selected, the display should change according to the selected option
+playersDropdownList.addEventListener("change", 
+  (e) => {
+    // // see the targeted/selected value by the user in the console
+    // console.log(e.target.value);
+    // since changed is deteced, we replace the innerHTML of playerCards with an empty string
+    playerCards.innerHTML = "";
+    // then we switch the display of players according to the selected value from the dropdown
+    switch (e.target.value) {
+      case "nickname":
+        setPlayerCards(players.filter((player) => player.nickname !== null));
+        break;
+      case "forward":
+        setPlayerCards(players.filter(player => player.position === "forward"));
+        break;
+      case "midfielder":
+        setPlayerCards(players.filter((player) => player.position === "midfielder"));
+        break;
+      case "defender":
+        setPlayerCards(players.filter((player) => player.position === "defender"));
+        break;
+      case "goalkeeper":
+        setPlayerCards(players.filter((player => player.position === "goalkeeper")));
+        break;
+      default : setPlayerCards();
+    }
+  })
