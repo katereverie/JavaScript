@@ -15,7 +15,8 @@ const descriptionInput = document.getElementById("description-input");
 
 // stores all tasks with their associated data (title, due data, and description)
 // use this array variable to display the info on the page and save them to local storage
-const taskData = [];
+// storing tasks data in the local storage makes sure that once the page reloads, the saved tasks remain instead of disappearing.
+const taskData = JSON.parse(localStorage.getItem("data")) || [];
 // tracks the state when editting and discarding tasks
 let currentTask = {};
 
@@ -42,6 +43,9 @@ const addOrUpdateTask = () => {
     taskData[dataArrIndex] = taskObj;
   }
 
+  // persist data: save tasks to local storage when user adds, updates, or removes a task
+  localStorage.setItem("data", JSON.stringify(taskData));
+
   updateTaskContainer();
   reset();
 }
@@ -67,6 +71,9 @@ const updateTaskContainer = () => {
     buttonEl.parentElement.remove();
     // starts at specified index of taskData, and delete one item
     taskData.splice(dataArrIndex, 1);
+    // remove locally stored tasks from the local storage when deleted
+    // since taskData is already sliced, we need only update/save the task instead using removeItem() or clear()
+    localStorage.setItem("data", JSON.stringify(taskData));
   }
 
   const editTask = (buttonEl) => {

@@ -9,3 +9,4 @@ Lessons, Misunderstanding, etc.
 8. localStorage offers setItem(), getItem(), removeItem() and clear() methods. Syntax: localStorage.setItem("key", value); 
 9. to see the locally stored objects, wrap the data in JSON.stringify(), because everything you save in localStorage needs to be in string format. To view the data you restored in localStorage, you must retrieve it using localStorage.getItem(), pass in the key of the data. To view it in its original form BEFORE saving, use JSON.parse(); 
 10. use localStorage.removeItem(itemKey) to remove a specific item or use localStorage.clear() to remove all items in the local storage.
+11. About localStorage: storing user-created-data locally makes sure that when the page reloads, users can still access changes they've made before so that users won't lose their own data.
