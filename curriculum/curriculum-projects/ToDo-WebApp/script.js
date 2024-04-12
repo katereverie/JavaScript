@@ -23,4 +23,22 @@ let currentTask = {};
 // display task form when the open-task-form-btn is clicked
 openTaskFormBtn.addEventListener("click", () => {
   taskForm.classList.toggle("hidden");
-})
+});
+
+// display the dialog so that users can choose to cancel or discard changes
+closeTaskFormBtn.addEventListener("click", () => {
+  confirmCloseDialog.showModal();
+});
+// when cancel-btn in the dialog is clicked, close the dialog
+cancelBtn.addEventListener("click", () => {
+  confirmCloseDialog.close();
+});
+// when discard-btn in the dialog is clicked, close the dialog and hide the task form
+discardBtn.addEventListener("click", () => {
+  confirmCloseDialog.close();
+  taskForm.classList.toggle("hidden");
+});
+// prevent the browser from freshing when a task is submitted
+taskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
