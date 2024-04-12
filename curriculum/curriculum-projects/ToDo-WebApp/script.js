@@ -99,7 +99,7 @@ const reset = () => {
 }
 
 // if task data is not empty - there is task data stored locally, display it
-// Remember 0 is a falsy value
+// REMEMBER 0 is a falsy value!
 if (taskData.length) {
   updateTaskContainer();
 }
