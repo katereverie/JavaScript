@@ -19,6 +19,14 @@ const taskData = [];
 // tracks the state when editting and discarding tasks
 let currentTask = {};
 
+// reset task inputs
+const reset = () => {
+  titleInput.value = "";
+  dateInput.value = "";
+  descriptionInput.value = "";
+  taskForm.classList.toggle("hidden");
+  currentTask = {};
+}
 
 // display task form when the open-task-form-btn is clicked
 openTaskFormBtn.addEventListener("click", () => {
@@ -27,6 +35,14 @@ openTaskFormBtn.addEventListener("click", () => {
 
 // display the dialog so that users can choose to cancel or discard changes
 closeTaskFormBtn.addEventListener("click", () => {
+  const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value;
+  // if there is no input values in a newly open task form, reset without showing close dialog as cancel-btn is clicked
+  // if there is any input value in it, show confirm dialog
+  if (formInputsContainValues) {
+    confirmCloseDialog.showModal();
+  } else {
+    reset();
+  }
   confirmCloseDialog.showModal();
 });
 // when cancel-btn in the dialog is clicked, close the dialog
@@ -36,7 +52,7 @@ cancelBtn.addEventListener("click", () => {
 // when discard-btn in the dialog is clicked, close the dialog and hide the task form
 discardBtn.addEventListener("click", () => {
   confirmCloseDialog.close();
-  taskForm.classList.toggle("hidden");
+  reset();
 });
 // when a task is submitted, check its id in taskObj; if new, add it to taskData.
 taskForm.addEventListener("submit", (e) => {
@@ -49,7 +65,7 @@ taskForm.addEventListener("submit", (e) => {
     id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
     title: titleInput.value,
     date: dateInput.value,
-    descriptionInput: descriptionInput.value,
+    description: descriptionInput.value,
   };
   // // view task objects being created in the console
   // console.log(taskObj);
@@ -68,9 +84,11 @@ taskForm.addEventListener("submit", (e) => {
         <button type="button" class="btn">Edit</button>
         <button type="button" class="btn">Delete</button>
       </div>
-    `
+    `;
   });
   
-  taskForm.classList.toggle("hidden");
+  reset();
+
+
 });
 
