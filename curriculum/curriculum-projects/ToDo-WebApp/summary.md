@@ -8,4 +8,4 @@ Lessons, Misunderstanding, etc.
 7. call splice() on an array to modify it. This method takes up to 3 arguments. The first arg is mandatory and targets the starting index to be modified; the second arg specifies the number of items to be modified; the third arg is an optinal replacement element.
 8. localStorage offers setItem(), getItem(), removeItem() and clear() methods. Syntax: localStorage.setItem("key", value); 
 9. to see the locally stored objects, wrap the data in JSON.stringify(), because everything you save in localStorage needs to be in string format. To view the data you restored in localStorage, you must retrieve it using localStorage.getItem(), pass in the key of the data. To view it in its original form BEFORE saving, use JSON.parse(); 
-10. use localStorage.removeItem() to remove a specific item or use localStorage.clear() to remove all items in the local storage.
+10. use localStorage.removeItem(itemKey) to remove a specific item or use localStorage.clear() to remove all items in the local storage.
