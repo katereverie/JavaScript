@@ -98,6 +98,12 @@ const reset = () => {
   currentTask = {};
 }
 
+// if task data is not empty - there is task data stored locally, display it
+// Remember 0 is a falsy value
+if (taskData.length) {
+  updateTaskContainer();
+}
+
 // display task form when the open-task-form-btn is clicked
 openTaskFormBtn.addEventListener("click", () => {
   taskForm.classList.toggle("hidden");
