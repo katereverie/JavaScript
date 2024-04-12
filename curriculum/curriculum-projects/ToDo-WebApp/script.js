@@ -38,7 +38,39 @@ discardBtn.addEventListener("click", () => {
   confirmCloseDialog.close();
   taskForm.classList.toggle("hidden");
 });
-// prevent the browser from freshing when a task is submitted
+// when a task is submitted, check its id in taskObj; if new, add it to taskData.
 taskForm.addEventListener("submit", (e) => {
+  // prevent the browser from freshing when a task is submitted
   e.preventDefault();
+  // check if the added task already exists 
+  const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
+  // store user task inputs in an object
+  const taskObj = {
+    id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
+    title: titleInput.value,
+    date: dateInput.value,
+    descriptionInput: descriptionInput.value,
+  };
+  // // view task objects being created in the console
+  // console.log(taskObj);
+
+  // check if the added task already exists: If not (return -1), add/save task object to the beginning of the task array
+  if (dataArrIndex === -1) {
+    taskData.unshift(taskObj);
+  }
+  // now that the task object is saved to task data, display it
+  taskData.forEach(({id, title, date, description}) => {
+    tasksContainer.innerHTML += `
+      <div class="task" id="${id}">
+        <p><strong>Title:</strong> ${title}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Description:</strong> ${description}</p>
+        <button type="button" class="btn">Edit</button>
+        <button type="button" class="btn">Delete</button>
+      </div>
+    `
+  });
+  
+  taskForm.classList.toggle("hidden");
 });
+
