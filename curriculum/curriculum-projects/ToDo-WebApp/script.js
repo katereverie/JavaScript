@@ -99,9 +99,11 @@ openTaskFormBtn.addEventListener("click", () => {
 // display the dialog so that users can choose to cancel or discard changes
 closeTaskFormBtn.addEventListener("click", () => {
   const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value;
+  // check if there is any update made in the currentTask, if not, do not display dialog
+  const formInputValuesUpdated = titleInput.value !== currentTask.title || dateInput.value !== currentTask.date || descriptionInput.value !== currentTask.description;
   // if there is no input values in a newly open task form, reset without showing close dialog as cancel-btn is clicked
-  // if there is any input value in it, show confirm dialog
-  if (formInputsContainValues) {
+  // if there is any input value in it AND there is an update made on the currently open task, show confirm dialog
+  if (formInputsContainValues && formInputValuesUpdated) {
     confirmCloseDialog.showModal();
   } else {
     reset();
