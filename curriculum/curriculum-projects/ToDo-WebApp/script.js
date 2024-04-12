@@ -54,8 +54,10 @@ const addOrUpdateTask = () => {
 const updateTaskContainer = () => {
   // clean previously added tasks, if any, so that no duplication happens
   tasksContainer.innerHTML = ""; 
-  taskData.forEach(({id, title, date, description}) => {
-    tasksContainer.innerHTML += `
+
+  taskData.forEach(
+    ({id, title, date, description}) => {
+      (tasksContainer.innerHTML += `
       <div class="task" id="${id}">
         <p><strong>Title:</strong> ${title}</p>
         <p><strong>Date:</strong> ${date}</p>
@@ -63,31 +65,37 @@ const updateTaskContainer = () => {
         <button type="button" class="btn" onclick="editTask(this)">Edit</button>
         <button type="button" class="btn" onclick="deleteTask(this)">Delete</button>
       </div>
-    `;
-  });
+      `)
+    }
+  );
+};
 
-  const deleteTask = (buttonEl) => {
-    const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
-    buttonEl.parentElement.remove();
-    // starts at specified index of taskData, and delete one item
-    taskData.splice(dataArrIndex, 1);
-    // remove locally stored tasks from the local storage when deleted
-    // since taskData is already sliced, we need only update/save the task instead using removeItem() or clear()
-    localStorage.setItem("data", JSON.stringify(taskData));
-  }
-
-  const editTask = (buttonEl) => {
-    const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
-    currentTask = taskData[dataArrIndex];
-    title.value = currentTask.title;
-    dateInput.value = currentTask.date;
-    descriptionInput.value = currentTask.description;
-
-    addOrUpdateTaskBtn.innerText = "Update Task";
-
-    taskForm.classList.toggle("hidden");
-  }
+const deleteTask = (buttonEl) => {
+  const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
+  buttonEl.parentElement.remove();
+  // starts at specified index of taskData, and delete one item
+  taskData.splice(dataArrIndex, 1);
+  // remove locally stored tasks from the local storage when deleted
+  // since taskData is already sliced, we need only update/save the task instead using removeItem() or clear()
+  localStorage.setItem("data", JSON.stringify(taskData));
 }
+
+const editTask = (buttonEl) => {
+  const dataArrIndex = taskData.findIndex(
+    (item) => item.id === buttonEl.parentElement.id
+  );
+
+  currentTask = taskData[dataArrIndex];
+
+  titleInput.value = currentTask.title;
+  dateInput.value = currentTask.date;
+  descriptionInput.value = currentTask.description;
+
+  addOrUpdateTaskBtn.innerText = "Update Task";
+
+  taskForm.classList.toggle("hidden");
+}
+
 
 // reset task inputs
 const reset = () => {
@@ -114,6 +122,7 @@ closeTaskFormBtn.addEventListener("click", () => {
   const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value;
   // check if there is any update made in the currentTask, if not, do not display dialog
   const formInputValuesUpdated = titleInput.value !== currentTask.title || dateInput.value !== currentTask.date || descriptionInput.value !== currentTask.description;
+  
   // if there is no input values in a newly open task form, reset without showing close dialog as cancel-btn is clicked
   // if there is any input value in it AND there is an update made on the currently open task, show confirm dialog
   if (formInputsContainValues && formInputValuesUpdated) {
@@ -121,7 +130,6 @@ closeTaskFormBtn.addEventListener("click", () => {
   } else {
     reset();
   }
-  confirmCloseDialog.showModal();
 });
 // when cancel-btn in the dialog is clicked, close the dialog
 cancelBtn.addEventListener("click", () => {
