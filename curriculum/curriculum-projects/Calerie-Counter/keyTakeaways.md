@@ -3,3 +3,5 @@
 - To target exponential quotation (e), be aware that the program should only recognize "e" as an exponential symbol if and only if the character before and after "e" are numbers. That is, "meat" should not be recognized as an exponential number, even though it has "e" in itself. So, to avoid that, use character class *[0-9]* to match any digit between 0 and 9. 
 - The "+" modifer in a regular expression allows matching of an reoccuring pattern. So, that */[0-9]+e[0-9]+/* can match even, say,  "22e234", while */[0-9]e[0-9]/* can't. 
 - */[0-9]+...[0-9]+/* seems a lot to type. Use this shorthand class to match ANY digit: *\d*, e.g. */\d+...\d+/*.
+- call *match(regex)* on a string variable to return desired output. The output is an array if printed out in console. When no match is found, "null" will be returned. 
+- "null" is a special primitive that represents the INTENTIONAL absence of a value. It is considered *falsy* in boolean context.
