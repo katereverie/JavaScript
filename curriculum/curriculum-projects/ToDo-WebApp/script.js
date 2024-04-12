@@ -19,6 +19,45 @@ const taskData = [];
 // tracks the state when editting and discarding tasks
 let currentTask = {};
 
+const addOrUpdateTask = () => {
+  // check if the added task already exists 
+  const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
+  // store user task inputs in an object
+  const taskObj = {
+    id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
+    title: titleInput.value,
+    date: dateInput.value,
+    description: descriptionInput.value,
+  };
+  // // view task objects being created in the console
+  // console.log(taskObj);
+
+  // check if the added task already exists: If not (return -1), add/save task object to the beginning of the task array
+  if (dataArrIndex === -1) {
+    taskData.unshift(taskObj);
+  }
+
+  updateTaskContainer();
+  reset();
+}
+
+// display the task object saved to task data
+const updateTaskContainer = () => {
+  // clean previously added tasks, if any, so that no duplication happens
+  tasksContainer.innerHTML = ""; 
+  taskData.forEach(({id, title, date, description}) => {
+    tasksContainer.innerHTML += `
+      <div class="task" id="${id}">
+        <p><strong>Title:</strong> ${title}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Description:</strong> ${description}</p>
+        <button type="button" class="btn">Edit</button>
+        <button type="button" class="btn">Delete</button>
+      </div>
+    `;
+  });
+}
+
 // reset task inputs
 const reset = () => {
   titleInput.value = "";
@@ -58,37 +97,7 @@ discardBtn.addEventListener("click", () => {
 taskForm.addEventListener("submit", (e) => {
   // prevent the browser from freshing when a task is submitted
   e.preventDefault();
-  // check if the added task already exists 
-  const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
-  // store user task inputs in an object
-  const taskObj = {
-    id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
-    title: titleInput.value,
-    date: dateInput.value,
-    description: descriptionInput.value,
-  };
-  // // view task objects being created in the console
-  // console.log(taskObj);
-
-  // check if the added task already exists: If not (return -1), add/save task object to the beginning of the task array
-  if (dataArrIndex === -1) {
-    taskData.unshift(taskObj);
-  }
-  // now that the task object is saved to task data, display it
-  taskData.forEach(({id, title, date, description}) => {
-    tasksContainer.innerHTML += `
-      <div class="task" id="${id}">
-        <p><strong>Title:</strong> ${title}</p>
-        <p><strong>Date:</strong> ${date}</p>
-        <p><strong>Description:</strong> ${description}</p>
-        <button type="button" class="btn">Edit</button>
-        <button type="button" class="btn">Delete</button>
-      </div>
-    `;
-  });
-  
-  reset();
-
-
+  // check whether to add new tasks or update existing tasks
+  addOrUpdateTask();
 });
 
