@@ -20,6 +20,8 @@ const taskData = [];
 let currentTask = {};
 
 const addOrUpdateTask = () => {
+  // when called, the button should always display "Add Task"
+  addOrUpdateTaskBtn.innerText = "Add Task";
   // check if the added task already exists 
   const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
   // store user task inputs in an object
@@ -33,8 +35,11 @@ const addOrUpdateTask = () => {
   // console.log(taskObj);
 
   // check if the added task already exists: If not (return -1), add/save task object to the beginning of the task array
+  // if the task already exists, set taskData of dataArrayIndex to taskObj;
   if (dataArrIndex === -1) {
     taskData.unshift(taskObj);
+  } else {
+    taskData[dataArrIndex] = taskObj;
   }
 
   updateTaskContainer();
@@ -59,6 +64,21 @@ const updateTaskContainer = () => {
 
   const deleteTask = (buttonEl) => {
     const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
+    buttonEl.parentElement.remove();
+    // starts at specified index of taskData, and delete one item
+    taskData.splice(dataArrIndex, 1);
+  }
+
+  const editTask = (buttonEl) => {
+    const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
+    currentTask = taskData[dataArrIndex];
+    title.value = currentTask.title;
+    dateInput.value = currentTask.date;
+    descriptionInput.value = currentTask.description;
+
+    addOrUpdateTaskBtn.innerText = "Update Task";
+
+    taskForm.classList.toggle("hidden");
   }
 }
 

@@ -5,3 +5,4 @@ Lessons, Misunderstanding, etc.
 4. Date.now() returns the number of miliseconds elapsed since Jan 1, 1970 00:00:00 UTC(Coordinated Universal Time); giving an id a real time stamp can make the id more unique than without the time stamp. 
 5. onclick="functionVariable(this)" refers to the element to which the onclick attribute is added. Keyword "this".
 6. .parentElement accesses the parent element of a HTML element.
+7. call splice() on an array to modify it. This method takes up to 3 arguments. The first arg is mandatory and targets the starting index to be modified; the second arg specifies the number of items to be modified; the third arg is an optinal replacement element.
