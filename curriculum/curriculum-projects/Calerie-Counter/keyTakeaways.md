@@ -1,0 +1,5 @@
+- use console.log print statements to see how changes effected by functions - standard practice.
+- in regular expression, adding "i" to a regular expression makes the targeted string or single character case-insensitive; JavaScript is case-sensitive.
+- To target exponential quotation (e), be aware that the program should only recognize "e" as an exponential symbol if and only if the character before and after "e" are numbers. That is, "meat" should not be recognized as an exponential number, even though it has "e" in itself. So, to avoid that, use character class *[0-9]* to match any digit between 0 and 9. 
+- The "+" modifer in a regular expression allows matching of an reoccuring pattern. So, that */[0-9]+e[0-9]+/* can match even, say,  "22e234", while */[0-9]e[0-9]/* can't. 
+- */[0-9]+...[0-9]+/* seems a lot to type. Use this shorthand class to match ANY digit: *\d*, e.g. */\d+...\d+/*.
