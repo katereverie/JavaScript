@@ -1,1 +1,2 @@
 - the *keydown* event fires every time a user presses a key on their keyboard, which is a good way to add more interactivity to input elements. This is convenient for users who need to constantly click to get a certain output from their input. 
+e as a parameter to callback functions is a common parameter name for the *event object*.
