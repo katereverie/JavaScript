@@ -1,0 +1,4 @@
+- use 3 methods (split, reverse, join) to format dates.
+- split("separator") divides a spring into substrings based on a specified separator, returns these substrings as elements of an array
+- reverse() reverses every element in the array 
+- join("separator") joins every element based on a specified separator; if no separator is provided, the default separator is a comma.
