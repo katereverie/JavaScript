@@ -1,2 +1,5 @@
 - the *keydown* event fires every time a user presses a key on their keyboard, which is a good way to add more interactivity to input elements. This is convenient for users who need to constantly click to get a certain output from their input. 
-e as a parameter to callback functions is a common parameter name for the *event object*.
+- e as a parameter to callback functions is a common parameter name for the *event object*.
+- "!" can be used to check if a value is falsy, e.g. !null is true, while !true is false. Note: an empty string is also falsy.
+- parseInt() converts a string into an integer OR whole number. It takes at least one argument (a string to be converted), and returns either an integer or NaN (not a number). This method avoids characters such as ., +, and e that are invalid in this context. 
+- isNaN() function takes a string or a number as an argument, and returns true if it evaluates to NaN, and false if it doesn't. 
