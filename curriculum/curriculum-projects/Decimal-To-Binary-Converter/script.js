@@ -4,6 +4,10 @@ const result = document.getElementById("result");
 
 // check userinput when convertBtn is clicked
 const checkUserInput = () => {
+  if (!numberInput.value || isNaN(parseInt(numberInput.value))) {
+    alert("Please provide a decimal number");
+    return;
+  }
   console.log(numberInput.value);
 }
 convertBtn.addEventListener("click", checkUserInput);
