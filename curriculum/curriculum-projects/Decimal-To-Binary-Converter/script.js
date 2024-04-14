@@ -24,20 +24,21 @@ const decimalToBinary = (input) => {
   // }
 
   // result.innerText = remainders.reverse().join("");
+  
+  // the following block of codes is a more efficient way of writing a DtB converter function
+  // let binary = "";
 
-  let binary = "";
+  // if (input === 0) {
+  //   binary === "0";
+  //   return;
+  // }
 
-  if (input === 0) {
-    binary === "0";
-    return;
-  }
+  // while (input > 0) {
+  //   binary = (input % 2) + binary;
+  //   input = Math.floor(input / 2);
+  // }
 
-  while (input > 0) {
-    binary = (input % 2) + binary;
-    input = Math.floor(input / 2);
-  }
-
-  result.innerText = binary;
+  // result.innerText = binary;
 
 };
 
