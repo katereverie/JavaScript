@@ -3,3 +3,4 @@
 - "!" can be used to check if a value is falsy, e.g. !null is true, while !true is false. Note: an empty string is also falsy.
 - parseInt() converts a string into an integer OR whole number. It takes at least one argument (a string to be converted), and returns either an integer or NaN (not a number). This method avoids characters such as ., +, and e that are invalid in this context. 
 - isNaN() function takes a string or a number as an argument, and returns true if it evaluates to NaN, and false if it doesn't. 
+- *Stack* is a data structure where items are stored in a LIFO (last-in-first-out) manner. A *call stack* is then a collection of function calls stored in a stack structure. When you call a function, it is added to the top of the stack, and when it returns, it is removed from the top/end of the stack. 
