@@ -3,7 +3,28 @@ const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 
 // create converter function
-const decimalToBinary = (input) => {};
+const decimalToBinary = (input) => {
+  const inputs = [];
+  const quotients = [];
+  const remainders = [];
+
+  if (input === 0) {
+    result.innerText = "0";
+    return;
+  }
+
+  while (input > 0) {
+    const quotient = Math.floor(input / 2);
+    const remainder = input % 2;
+
+    inputs.push(input);
+    quotients.push(quotient);
+    remainders.push(remainder);
+  }
+
+  result.innerText = remainders.reverse().join("");
+  
+};
 
 // check userinput when convertBtn is clicked
 const checkUserInput = () => {
@@ -12,6 +33,8 @@ const checkUserInput = () => {
     return;
   }
   decimalToBinary(parseInt(numberInput.value));
+
+  numberInput.value = "";
 }
 convertBtn.addEventListener("click", checkUserInput);
 
