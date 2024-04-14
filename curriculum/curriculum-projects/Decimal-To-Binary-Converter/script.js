@@ -39,7 +39,11 @@ const decimalToBinary = (input) => {
   // }
 
   // result.innerText = binary;
-
+  if (input === 0 || input === 1) {
+    return String(input);
+  } else {
+    return decimalToBinary(Math.floor(input / 2)) + (input % 2);
+  }
 };
 
 // check userinput when convertBtn is clicked
@@ -50,8 +54,10 @@ const checkUserInput = () => {
   }
   decimalToBinary(parseInt(numberInput.value));
 
+  result.textContent = decimalToBinary(parseInt(numberInput.value));
   numberInput.value = "";
 }
+
 convertBtn.addEventListener("click", checkUserInput);
 
 // if users press enter or return, check user inputs - alternative to click

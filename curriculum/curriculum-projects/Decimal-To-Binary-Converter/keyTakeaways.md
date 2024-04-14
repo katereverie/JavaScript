@@ -4,3 +4,6 @@
 - parseInt() converts a string into an integer OR whole number. It takes at least one argument (a string to be converted), and returns either an integer or NaN (not a number). This method avoids characters such as ., +, and e that are invalid in this context. 
 - isNaN() function takes a string or a number as an argument, and returns true if it evaluates to NaN, and false if it doesn't. 
 - *Stack* is a data structure where items are stored in a LIFO (last-in-first-out) manner. A *call stack* is then a collection of function calls stored in a stack structure. When you call a function, it is added to the top of the stack, and when it returns, it is removed from the top/end of the stack. 
+- *recursive function* is a function that calls itself over and over; so, be careful to not create an infinite loop. To avoid creating an infinite loop in a recursive function, introducing a *base case* is helpful. A base case stops an infinite loop from running once it hits the base case. Once we have a base case, for example, when an input is equal to 0, the loop breaks (returns), we should introduce a *recursive case*, based on which the loop should run.
+- When writing the recursive case, remember 2 things: 1. What is the base case? 2. What is the least amount of work you need to do to get closer to the base case?
+String() turns its argument into a string. 
