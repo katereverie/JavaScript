@@ -17,6 +17,29 @@ const checkUserInput = () => {
     result.innerHTML = "Please enter a number less than or equal to 3999";
     return;
   }
+  
+  // valid input, now convert it
+  convertInput(inputInt);
+}
+
+const convertInput = (input) => {
+  const numberOfM = []; // 1000
+  const numberOfD = []; // 500
+  const numberOfC = []; // 100
+  const numberOfL = []; // 50
+  const numberOfX = []; // 10
+  const numberOfV = []; // 5
+  const numberOfI = []; // 1
+
+  if (Math.floor(input / 1000) !== 0 && input > 1000) {
+    numberOfM.push("M");
+    input -= 1000;
+    convertInput(input);
+  } 
+
+  if (Math.floor(input / 500) !==0 && input > 500) {
+    numberOfD.push("D")
+  }
 }
 
 convertBtn.addEventListener("click", checkUserInput);

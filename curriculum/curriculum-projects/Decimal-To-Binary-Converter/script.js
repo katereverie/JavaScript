@@ -39,6 +39,8 @@ const decimalToBinary = (input) => {
   // }
 
   // result.innerText = binary;
+
+  // recursive function
   if (input === 0 || input === 1) {
     return String(input);
   } else {
