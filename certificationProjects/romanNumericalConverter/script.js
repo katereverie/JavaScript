@@ -28,14 +28,16 @@ const convertInput = (input) => {
   const twoDigits = []; // 10 - 90
   const oneDigit = []; // 1 - 9
 
-  const countFourDigits = [];
-  const countThreeDigits = [];
-  const countTwoDigits = [];
-  const countOneDigit = [];
+  // const countFourDigitsQuotient = Math.floor(input / 1000);
+  // const countThreeDigits = [];
+  // const countTwoDigits = [];
+  // const countOneDigit = [];
 
-  if (Math.floor(input / 1000) > 0) {
-    count = Math.floor(input/1000)
-  }
+  while (input !== 0) {
+    
+  } 
+
+  
 
   result.innerText = numberOfM.join("") + numberOfD
 }
