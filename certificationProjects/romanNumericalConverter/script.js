@@ -7,10 +7,10 @@ const checkUserInput = () => {
   const inputInt = parseInt(numberInput.value);
   
   // check for invalid input
-  if (inputInt === NaN) {
+  if (isNaN(inputInt)) {
     result.innerHTML = "Please enter a valid number";
     return;
-  } else if (inputInt === -1) {
+  } else if (inputInt <= 0) {
     result.innerHTML = "Please enter a number greather than or equal to 1";
     return;
   } else if (inputInt >= 4000) {
@@ -20,3 +20,8 @@ const checkUserInput = () => {
 }
 
 convertBtn.addEventListener("click", checkUserInput);
+numberInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    checkUserInput();
+  }
+})
