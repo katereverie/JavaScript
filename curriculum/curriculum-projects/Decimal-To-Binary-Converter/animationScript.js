@@ -10,7 +10,33 @@ const decimalToBinary = (input) => {
   } else {
     return decimalToBinary(Math.floor(input / 2)) + (input % 2);
   }
-};
+}
+
+// add animation
+const animationData = [
+  
+  {
+    inputVal: 5,
+    marginTop: 300,
+    addElDelay: 1000
+  },
+  {
+    inputVal: 2,
+    marginTop: -200,
+    addElDelay: 1500
+  },
+  {
+    inputVal: 1,
+    marginTop: -200,
+    addElDelay: 2000
+  }
+];
+const showAnimation = () => {
+  result.innerText = "Call Stack Animation";
+
+  
+
+}
 
 // check userinput when convertBtn is clicked
 const checkUserInput = () => {
