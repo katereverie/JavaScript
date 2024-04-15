@@ -30,16 +30,30 @@ const convertInput = (input) => {
   const numberOfX = []; // 10
   const numberOfV = []; // 5
   const numberOfI = []; // 1
+  
 
-  if (Math.floor(input / 1000) !== 0 && input > 1000) {
-    numberOfM.push("M");
-    input -= 1000;
-    convertInput(input);
-  } 
-
-  if (Math.floor(input / 500) !==0 && input > 500) {
-    numberOfD.push("D")
+  if (input === 1) {
+    numberOfI.push("I");
   }
+  if (input >= 1000) {
+    
+    while (Math.floor(input / 1000) > 0) {
+      numberOfM.push("M");
+      input -= 1000;
+    }
+
+  }
+
+  if (input < 1000) {
+    numberOfD.push("CM");
+    input -+ 
+  } else {
+    while (Math.floor(input / 100) > 0 {
+      number
+    }
+  }
+
+  result.innerText = numberOfM.join("") + numberOfD
 }
 
 convertBtn.addEventListener("click", checkUserInput);
