@@ -8,3 +8,4 @@
 - When writing the recursive case, remember 2 things: 1. What is the base case? 2. What is the least amount of work you need to do to get closer to the base case?
 String() turns its argument into a string. 
 setTimeout(arg1, arg2) - arg1 should be a callback function, while arg2 should be a number representing the time in milliseconds to wait before executing the callback function. setTimeout() is asynchronus, meaning that if there are other lines of codes to be executed, they will be executed despite the line of code that has setTimeout. So, to maintain synchronisity, use multiple setTimeout().
+- regarding English: to set "a" to "b" means "a = b" in the context of code, as in, set the variable "a" to the value "b". By contrast, to assign "a" to "b" means "b = a", as in assign the value "a" to the variable "b".
