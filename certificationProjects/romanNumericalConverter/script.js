@@ -23,34 +23,18 @@ const checkUserInput = () => {
 }
 
 const convertInput = (input) => {
-  const numberOfM = []; // 1000
-  const numberOfD = []; // 500
-  const numberOfC = []; // 100
-  const numberOfL = []; // 50
-  const numberOfX = []; // 10
-  const numberOfV = []; // 5
-  const numberOfI = []; // 1
-  
+  const fourDigits = []; // 1000 - 3000
+  const threeDigits = []; // 100 - 900
+  const twoDigits = []; // 10 - 90
+  const oneDigit = []; // 1 - 9
 
-  if (input === 1) {
-    numberOfI.push("I");
-  }
-  if (input >= 1000) {
-    
-    while (Math.floor(input / 1000) > 0) {
-      numberOfM.push("M");
-      input -= 1000;
-    }
+  const countFourDigits = [];
+  const countThreeDigits = [];
+  const countTwoDigits = [];
+  const countOneDigit = [];
 
-  }
-
-  if (input < 1000) {
-    numberOfD.push("CM");
-    input -+ 
-  } else {
-    while (Math.floor(input / 100) > 0 {
-      number
-    }
+  if (Math.floor(input / 1000) > 0) {
+    count = Math.floor(input/1000)
   }
 
   result.innerText = numberOfM.join("") + numberOfD
