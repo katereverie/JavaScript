@@ -2,8 +2,6 @@ const numberInput = document.getElementById("number");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("output");
 
-let r;
-
 const checkUserInput = () => {
   // convert to int
   const inputInt = parseInt(numberInput.value);
@@ -13,7 +11,7 @@ const checkUserInput = () => {
     result.innerHTML = "Please enter a valid number";
     return;
   } else if (inputInt <= 0) {
-    result.innerHTML = "Please enter a number greather than or equal to 1";
+    result.innerHTML = "Please enter a number greater than or equal to 1";
     return;
   } else if (inputInt >= 4000) {
     result.innerHTML = "Please enter a number less than or equal to 3999";
@@ -30,28 +28,32 @@ const convertInput = (input) => {
   const twoDigits = []; // 10 - 90
   const oneDigit = []; // 1 - 9
 
-  // const countFourDigitsQuotient = Math.floor(input / 1000);
-  // const countThreeDigits = [];
-  // const countTwoDigits = [];
-  // const countOneDigit = [];
-
   if (input >= 1000) {
-    const quotient = Math.floor(input / 1000);
+    console.log(input);
+    let quotient = Math.floor(input / 1000);
+    console.log(quotient);
     const remainder = input % 1000;
+    console.log(remainder);
 
     while (quotient > 0) {
+      console.log(fourDigits)
       fourDigits.push("M");
-      quotient --;  
+      quotient--; 
+      console.log(quotient);
     }
 
-    convertInput(remainder);
+    console.log(fourDigits);
+    console.log(fourDigits.join(""));
+
+    return convertInput(remainder);
   } 
 
-  if (999 > input >= 100) {
-
-    const quotient = Math.floor(input / 100);
+  if (999 >= input >= 100) {
+    console.log(input);
+    let quotient = Math.floor(input / 100);
+    console.log(quotient);
     const remainder = input % 100;
-    
+    console.log(remainder);    
 
     if (quotient === 9) {
       threeDigits.push["CM"];
@@ -81,9 +83,9 @@ const convertInput = (input) => {
     convertInput(remainder);
   }
 
-  if (99 > input >= 10) {
+  if (99 >= input >= 10) {
 
-    const quotient = Math.floor(input / 10);
+    let quotient = Math.floor(input / 10);
     const remainder = input % 10;
     
 
@@ -115,38 +117,37 @@ const convertInput = (input) => {
     convertInput(remainder);
   }
 
-  if (9 > input >= 1) {
+  if (9 >= input >= 1) {
     
-    if (quotient === 9) {
+    if (input === 9) {
       threeDigits.push["IX"];
     }
 
-    if (9 > quotient >= 5) {
+    if (9 > input >= 5) {
       oneDigit.push["V"];
-      quotient -= 5;
+      input -= 5;
 
-      while (quotient > 0) {
+      while (input > 0) {
         oneDigit.push["I"];
-        quotient--;
+        input--;
       }
     }
 
-    if (quotient === 4) {
+    if (input === 4) {
       oneDigit.push("IV");
     }
 
-    if (4 > quotient > 0) {
+    if (4 > input > 0) {
 
-      while (quotient !== 0) {
-        oneDigits.push("I");
+      while (input !== 0) {
+        oneDigit.push("I");
       }
     }
 
-    convertInput(remainder);
   }
   
-
-  result.innerText = fourDigits.join("") + threeDigits.join("") + twoDigits.join("") + oneDigit.join("");
+  
+  result.innerHTMl = fourDigits.join("");
 }
 
 convertBtn.addEventListener("click", checkUserInput);
