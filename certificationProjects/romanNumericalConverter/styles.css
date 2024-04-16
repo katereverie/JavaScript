@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(from left to right, #f2caa2, #106b24, #b06d1a, #e72c2c,#c3baba);
+  background-color: #106b24;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -10,32 +10,37 @@ body {
 }
 
 header {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin-right: 30px;
-
+  margin-right: 50px;
   pointer-events: none;
   user-select: none;
+}
+
+span {
+  background-color: #e72c2c;
+  border-left: 2px groove black;
+  border-right: 2px groove black;
+  border-radius: 5px;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.577);
 }
 
 main {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
-  max-width: 300px;
-  max-height: 300px;
   width: 250px;
-  height: 200px;
+  height: 260px;
 }
 
 #number {
   background-color: black;
   color: white;
   height: 40px;
+  width: 200px;
   font-size: 25px;
 }
 
@@ -53,17 +58,25 @@ main {
 
 
 #output {
-  height: 40px;
+  width: 230px;
   padding: 20px;
-  font-size: 18px;
   background-color: black;
-  border: 3px groove white;
+  border: 5px groove white;
   color: white;
   text-align: center;
   display: flex;
   flex-direction: column;
 }
 
+#number, 
+#conver-btn,
+#output {
+  box-shadow: 5px 5px 5px 5px rgb(138, 137, 137);
+}
+
+footer {
+  
+}
 @media (max-width: 635px) {
   body {
     flex-direction: column;

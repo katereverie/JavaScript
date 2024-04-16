@@ -13,18 +13,26 @@ const checkUserInput = () => {
   
   // check for invalid input
   if (isNaN(inputInt)) {
+    result.style.backgroundColor = "red";
+    result.style.fontSize = "20px";
     result.innerHTML = "Please enter a valid number";
     return;
   } else if (inputInt <= 0) {
+    result.style.backgroundColor = "red";
+    result.style.fontSize = "20px";
     result.innerHTML = "Please enter a number greater than or equal to 1";
     return;
   } else if (inputInt >= 4000) {
+    result.style.backgroundColor = "red";
+    result.style.fontSize = "20px";
     result.innerHTML = "Please enter a number less than or equal to 3999";
     return;
+  } else if (inputInt === 13) {
+    alert('*Easter Egg Trivia*: Did you know that the number "13" represented in Chinese is "十三"?');
   }
-  
-  console.log(inputInt);
-  // valid input, now convert it
+
+  result.style.fontSize = "23px";
+  result.style.backgroundColor = "black";
   result.innerText = convertInput(inputInt);
   fourDigits = [];
   threeDigits = [];
