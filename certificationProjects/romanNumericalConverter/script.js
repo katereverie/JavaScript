@@ -2,10 +2,10 @@ const numberInput = document.getElementById("number");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("output");
 
-const fourDigits = []; // 1000 - 3000
-const threeDigits = []; // 100 - 900
-const twoDigits = []; // 10 - 90
-const oneDigit = []; // 1 - 9
+let fourDigits = []; // 1000 - 3000
+let threeDigits = []; // 100 - 900
+let twoDigits = []; // 10 - 90
+let oneDigit = []; // 1 - 9
 
 const checkUserInput = () => {
   // convert to int
@@ -23,8 +23,13 @@ const checkUserInput = () => {
     return;
   }
   
+  console.log(inputInt);
   // valid input, now convert it
   result.innerText = convertInput(inputInt);
+  fourDigits = [];
+  threeDigits = [];
+  twoDigits = [];
+  oneDigit = [];
 }
 
 const convertInput = (input) => {
@@ -41,8 +46,8 @@ const convertInput = (input) => {
     return convertInput(remainder);
   } else if (input >= 100 && input <= 999) {
     let quotient = Math.floor(input / 100);
-    let remainder = input & 100;
-    while (quotient !== 0) {
+    let remainder = input % 100;
+    while (quotient > 0) {
       if (quotient === 9) {
         threeDigits.push("CM");
         quotient -= 9;
@@ -50,17 +55,17 @@ const convertInput = (input) => {
         threeDigits.push("D");
         quotient -= 5;
       } else if (quotient === 4) {
-        threeDigits.push("CD");
+        threeDigits.push("CX");
         quotient -= 4;
-      } else if (quotient > 0 && quotient < 4) {
+      } else if (quotient >= 1 && quotient < 4) {
         threeDigits.push("C");
-        quotient -= 1;
+        quotient--;
       }
     }
     return convertInput(remainder);
   } else if (input >= 10 && input <= 99) {
     let quotient = Math.floor(input / 10);
-    let remainder = input & 10;
+    let remainder = input % 10;
     while (quotient !== 0) {
       if (quotient === 9) {
         twoDigits.push("XC");
@@ -73,16 +78,16 @@ const convertInput = (input) => {
         quotient -= 4;
       } else if (quotient > 0 && quotient < 4) {
         twoDigits.push("X");
-        quotient -= 1;
+        quotient--;
       }
     }
     return convertInput(remainder);
   } else if (input >= 1 && input <= 9) {
     let quotient = Math.floor(input / 1);
-    let remainder = input & 1;
+    let remainder = input % 1;
     while (quotient !== 0) {
       if (quotient === 9) {
-        oneDigit.push("XI");
+        oneDigit.push("IX");
         quotient -= 9;
       } else if (quotient >= 5 && quotient < 9  ) {
         oneDigit.push("V");
@@ -92,12 +97,11 @@ const convertInput = (input) => {
         quotient -= 4;
       } else if (quotient > 0 && quotient < 4) {
         oneDigit.push("I");
-        quotient -= 1;
+        quotient--;
       }
     }
     return convertInput(remainder);
   }
-
 }
 
 convertBtn.addEventListener("click", checkUserInput);
