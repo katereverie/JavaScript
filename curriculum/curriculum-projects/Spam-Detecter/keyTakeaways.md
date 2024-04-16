@@ -1,0 +1,2 @@
+- Strings have a .match() method, which accepts a regular expression as an argument and determines if the string matches the expression
+- .test() -> Syntax: regexVariable.test(testSubjectVariable);
