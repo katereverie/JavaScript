@@ -1,4 +1,3 @@
-Bugs & Lessions learned
 1. "let" missing in the while loop condition - syntax forgotten, unfamiliar
 2. scopes. Failed to grasp the scopes of arrow and non-arrow functions in JS.
 3. "===" compares if two nonprimitive variables (in this case, arrays) are in the same memory; to compare an array and its reversed version, one must first copy the array (array.slice()) and reverse the copied version (copiedArray.reverse())! If the two variables to be compared with each other are primitive variables, it does not matter.

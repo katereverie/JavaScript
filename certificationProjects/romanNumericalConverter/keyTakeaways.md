@@ -1,0 +1,5 @@
+- The scope of variables is crucial. Think carefully about where to locate your variables and in what types it should be declared. 
+- Break down an idea / a feature into executable ideas. Resist the temptation to abstraction immediately. Higher abstraction can come later. If an idea / a feature / user story contains several layers of complications, break them down by using concrete examples. Talk to someone and walk them through your thought process that it is clear to you as well as to them. 
+- The most difficult aspect of this project for me is implementing converter in code. Specifically, what kind of loop to utilize and what to pay attention to so that no infinite loop will be created. 
+- Test small section of code to see whether the program runs as expected. If not, find out what's causing problems. 
+- Be slow! Typos can take forever to debug. Make sure each syntax of each typed line of code at least has no syntax error and the variable numbers actually match. This includes symbols you use. For example, I wanted to use "%" to get the remainder of the input, but actually typed "&". 
