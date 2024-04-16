@@ -88,27 +88,27 @@ const convertInput = (input) => {
     
 
     if (quotient === 9) {
-      threeDigits.push["XC"];
+      twoDigits.push["XC"];
     }
 
     if (9 > quotient >= 5) {
-      threeDigits.push["L"];
+      twoDigits.push["L"];
       quotient -= 5;
 
       while (quotient > 0) {
-        threeDigits.push["X"];
+        twoDigits.push["X"];
         quotient--;
       }
     }
 
     if (quotient === 4) {
-      threeDigits.push("XL");
+      twoDigits.push("XL");
     }
 
     if (4 > quotient > 0) {
 
       while (quotient !== 0) {
-        threeDigits.push("X");
+        twoDigits.push("X");
       }
     }
 
@@ -122,23 +122,23 @@ const convertInput = (input) => {
     }
 
     if (9 > quotient >= 5) {
-      threeDigits.push["V"];
+      oneDigit.push["V"];
       quotient -= 5;
 
       while (quotient > 0) {
-        threeDigits.push["I"];
+        oneDigit.push["I"];
         quotient--;
       }
     }
 
     if (quotient === 4) {
-      threeDigits.push("IV");
+      oneDigit.push("IV");
     }
 
     if (4 > quotient > 0) {
 
       while (quotient !== 0) {
-        threeDigits.push("I");
+        oneDigits.push("I");
       }
     }
 
@@ -146,7 +146,7 @@ const convertInput = (input) => {
   }
   
 
-  result.innerText = numberOfM.join("") + numberOfD
+  result.innerText = fourDigits.join("") + threeDigits.join("") + twoDigits.join("") + oneDigit.join("");
 }
 
 convertBtn.addEventListener("click", checkUserInput);
