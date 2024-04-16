@@ -32,7 +32,7 @@ const convertInput = (input) => {
     console.log(input);
     let quotient = Math.floor(input / 1000);
     console.log(quotient);
-    const remainder = input % 1000;
+    let remainder = input % 1000;
     console.log(remainder);
 
     while (quotient > 0) {
@@ -44,7 +44,8 @@ const convertInput = (input) => {
 
     console.log(fourDigits);
     console.log(fourDigits.join(""));
-
+    result.innerText = fourDigits.join("");
+    
     return convertInput(remainder);
   } 
 
@@ -52,35 +53,33 @@ const convertInput = (input) => {
     console.log(input);
     let quotient = Math.floor(input / 100);
     console.log(quotient);
-    const remainder = input % 100;
+    let remainder = input % 100;
     console.log(remainder);    
-
-    if (quotient === 9) {
-      threeDigits.push["CM"];
-    }
-
-    if (9 > quotient >= 5) {
-      threeDigits.push["D"];
-      quotient -= 5;
-
-      while (quotient > 0) {
-        threeDigits.push["C"];
-        quotient--;
+    
+    while (quotient !== 0) {
+      
+      if (quotient === 9) {
+        threeDigits.push["CM"];
+        quotient = quotient - 9;
       }
-    }
-
-    if (quotient === 4) {
-      threeDigits.push("CD");
-    }
-
-    if (4 > quotient > 0) {
-
-      while (quotient !== 0) {
-        threeDigits.push("C");
+  
+      if (9 > quotient >= 5) {
+        threeDigits.push["D"];
+        quotient -= 5;
       }
-    }
+  
+      if (quotient === 4) {
+        threeDigits.push("CD");
+        quotient = quotient - 4;
+      }
+  
+      threeDigits.push("C");
+      quotient = quotient - 1;
+        
+    }  
 
     convertInput(remainder);
+
   }
 
   if (99 >= input >= 10) {
@@ -147,7 +146,7 @@ const convertInput = (input) => {
   }
   
   
-  result.innerHTMl = fourDigits.join("");
+  return result.innerHTMl = fourDigits.join("");
 }
 
 convertBtn.addEventListener("click", checkUserInput);
