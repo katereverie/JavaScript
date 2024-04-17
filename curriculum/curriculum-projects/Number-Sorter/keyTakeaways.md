@@ -37,3 +37,7 @@ const myFunction = (array = []) => {
 }
 
 ```
+
+### bubble sort
+Core mechanism of a bubble sort: 
+1. compare elements within an array.
