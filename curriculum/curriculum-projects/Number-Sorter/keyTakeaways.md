@@ -40,4 +40,12 @@ const myFunction = (array = []) => {
 
 ### bubble sort
 Core mechanism of a bubble sort: 
-1. compare elements within an array.
+1. compare elements within an array; 
+2. compares (n-1)(n) or (n) times where n is the number of elements in an array. (?)
+
+### selection sort
+Basic idea: find the smallest value in an array, and swaps it with the *first* value in the array. Then find the next smallest, and swaps it with the *second* value in the array. 
+Crucial factors of a selection sort:
+1. index of the smallest value in an array; 
+Implementation: use two for loops (outer and inner); compare the outer with the inner.
+2. compares 2n times where n is the number of elements in an array. 
