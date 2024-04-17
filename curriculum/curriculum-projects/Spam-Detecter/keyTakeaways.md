@@ -1,6 +1,6 @@
-- Strings have a .match() method, which accepts a regular expression as an argument and determines if the string matches the expression
-- .test() -> Syntax: regexVariable.test(testSubjectVariable);
-- arrayVariable.some(arg) checks if testing arg on any of the element of arrayVariable returns true. Take Step 12 from the Curriculum Project for example. This line of code: 
+### Strings have a .match() method, which accepts a regular expression as an argument and determines if the string matches the expression
+### .test() -> Syntax: regexVariable.test(testSubjectVariable);
+### arrayVariable.some(arg) checks if testing arg on any of the element of arrayVariable returns true. Take Step 12 from the Curriculum Project for example. This line of code: 
 ```
    const isSpam = (msg) => denyList.some((regex) => regex.test(msg));
 ``` 
