@@ -49,3 +49,17 @@ Crucial factors of a selection sort:
 1. index of the smallest value in an array; 
 Implementation: use two for loops (outer and inner); compare the outer with the inner.
 2. compares 2n times where n is the number of elements in an array. 
+
+### insertion sort 
+Basic idea: build up a sorted array at the beginning of the list. It begins the sorted array with the first element, and inspects the next element, and swaps it *backward* into the sorted array until it is in a sorted position, and so on.
+1. run a while loop within a for loop;
+2. the while loop stops either when j is out of the array bounds (j < 0) or when the value at j is less than the current value;
+
+### arrayToBeSorted.sort()
+sort() is an in-built JS method. 
+Since `.sort()` by default converts the values to strings, and sort them alphabetically, so - alphabetically - "10" would be "smaller" than "2". If you want to prevent this default behavior of the sort method, do this: 
+pass in a callback function which takes two parameters, say `a` and `b`. 
+- if `a` and `b` are both number-like strings, a numeric operation of two number-like strings should nevertheless return a number result. So, there is no need to convert the number strings into numbers first.
+
+## Thoughts on sorting arrays
+It becomes overwhelming to hold in mind what's going on in sorting an array. It helps making the picture clearer by inserting print statements here and there to see what's going on. 
