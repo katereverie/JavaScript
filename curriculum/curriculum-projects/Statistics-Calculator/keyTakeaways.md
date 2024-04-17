@@ -24,3 +24,11 @@ So, if you want to check whether there is only one single value in an array, you
 ### Object.values(objectVariable)
 
 ### Object.keys(objectVariable)
+
+### Math.min()
+gets the smallest number from a series of numbers
+### Math.max()
+gets the biggest number from a series of numbers.
+
+### sort() 
+Important: It mutates the array it sorts. To avoid this: `splice()` before `sort()`.
