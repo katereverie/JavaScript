@@ -1,0 +1,2 @@
+### HTML element <dfn></dfn>
+It is used to mark up the *defining* instance of a term within a document. It is typically used in conjunction with a glossary or to provide additional semantic meaning to specific terms within the content. 
