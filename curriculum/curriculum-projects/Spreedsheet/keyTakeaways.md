@@ -9,3 +9,9 @@ const outer = () => {
   };
 };
 ```
+
+### document.createElement();
+
+### Array(), map(), fill(), range()
+
+`range()` returns an array. 
