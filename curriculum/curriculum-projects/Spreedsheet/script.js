@@ -24,3 +24,9 @@ window.onload = () => {
     })
   });
 }
+
+const spreadsheetFunctions = {
+  sum,
+  average,
+  median,
+};
