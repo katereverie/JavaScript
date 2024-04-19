@@ -35,3 +35,8 @@ window.onload = () => {
 const update = event => {
   const element = event.target;
 }
+
+const highPrecedence = str => {
+  const regex = /(\d*\.*\d*)\s*([\*\/])\s*(\d*\.*\d*)/;
+  
+}
