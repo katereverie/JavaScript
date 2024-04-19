@@ -13,7 +13,7 @@ Example: const freeRegex = /(?:^|\s)fr[e3][e3] m[o0]n[e3]y(?:$|\s)/i;
 - A *character class* is defined by [] (square brackets) and matches *any* character within the brackets; A character class can more than one character. 
 - the "+" qualifier matches one or more consecutive occurence. e.g. `/a/+` matches one or more *consecutive* `a` characters.
 - the "a|b" qualifier allows string character(s) `a` *or* `b`. e.g. `hundred|thousand|million|` will be detected.
-- A *capture group* is a way to define a part of a regex that should be captured and saved for later reference. You wrap it in "()" parentheses. e.g. /h(i|hey) humans/ would match "hi humans" or "hey humans".
+- A *capture group* is a way to define a part of a regex that should be captured and *saved for later reference*. You wrap it in "()" parentheses. e.g. /h(i|hey) humans/ would match "hi humans" or "hey humans". Not using a *capture groupd* will still match but not remember them so that you won't be able to reference them later to make specific changes to them, and so on.
 - A *non-capture group* allows grouping characters together without preserving the result, using "?:" after the opening parenthesis. e.g. (?:a|b) will match either a or b, but it will not *capture* the result. (I am not sure what it means to not capture the result)
 - A "?" symbol marks a part of a regex that is optional for capture; add "?" to the end of a capture groupd. e.g. (......)?
 - meta character -> denoted by "\" to match *whole words* instead of "partial words": e.g. while "perfect chance for earning free money" should be a target, "hands-free money management" should not. We can introduce checking spaces between (before and after) words to avoid this. 
