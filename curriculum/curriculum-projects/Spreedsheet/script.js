@@ -3,6 +3,12 @@ const sum = nums => nums.reduce((acc, el) => acc + el, 0);
 const range = (start, end) => Array(end- start + 1).fill(start).map((element, index) => element + index);
 const charRange = (start, end) => range(start.charCodeAt(0), end.charCodeAt(0)).map(code => String.fromCharCode(code));
 
+const spreadsheetFunctions = {
+  sum,
+  average,
+  median,
+};
+
 window.onload = () => {
   const container = document.getElementById("container");
   const createLabel = (name) => {
@@ -20,13 +26,12 @@ window.onload = () => {
       input.type = "text";
       input.id = letter + number;
       input.ariaLabel = letter + number;
+      input.onchange = update;
       container.appendChild(input);
     })
   });
 }
 
-const spreadsheetFunctions = {
-  sum,
-  average,
-  median,
-};
+const update = event => {
+  const element = event.target;
+}
