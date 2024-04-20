@@ -51,3 +51,5 @@ Example 2:
 function(, par1, par2, ...)
 ```
 It is better practice to use example 1 because it is more readable. 
+
+### some(), every()
