@@ -53,3 +53,6 @@ function(, par1, par2, ...)
 It is better practice to use example 1 because it is more readable. 
 
 ### some(), every()
+
+### again, the spread prefix "..."
+Using the spread syntax (...) before new Set(array) is called "spreading" the elements of the array into the Set constructor. Without the spread syntax, new Set(array) would treat the entire array object as a single element, adding the array itself as an element of the Set, rather than adding each individual element of the array.
