@@ -65,6 +65,8 @@ function name(parameter) {
 
 }
 ```
+
+### arrow functions
 where parameter is a variable that represents a value that is passed into the function when it is used. Between the curly braces is the function body. 
 1. All functions *return* a value.
 2. In JS, if there is nothing to execute in the function body, calling the function returns the default value "undefined". Recall that "undefined" is also a value.
@@ -73,7 +75,9 @@ where parameter is a variable that represents a value that is passed into the fu
 5. Parameters are special variables that are given a value when you call the function. They can be used in your function to dynamically change the result of the function's code.  
 6. When you pass a *value* to a function call, e.g. functionName(value), that *value* is referred to as an *argument*. 
 ## Function scope:
-1. _Scope_: Where a variable is declared determines where it can be used in your code. 
-2. __Global Scope__: 
+1. __Scope__: Where a variable is declared determines where it can be used in your code. 
+2. __Global Scope__: Variables that are declared outside of any "block" like a function or for loop are in the globle scope. Any function can access global variables. 
+3. __Local/Block Scope__: Variables declared inside a function. If you try to access it *outside* of the function, you will get either `undefined` or an error.
+4. Any statement after `return` will not be executed because `return` also stops the execution of your function code. 
 
-### arrow functions
+
