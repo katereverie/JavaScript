@@ -38,7 +38,7 @@ Rules:
 
 ## Loops
 
-### for loop
+### `for` loop
 Syntax: 
 ```
   for (iterator; condition; iteration) {
@@ -46,7 +46,7 @@ Syntax:
 }
 ```
 
-### for ... of loop
+### `for ... of` loop
 Syntax: 
 ```
 for (const value of iterable) {
@@ -55,6 +55,15 @@ for (const value of iterable) {
 ```
 A for ... of loop iterates over each item of an iterable object and *temporarily* assigns it to a variable. 
 ! Note that you can use *const* because the variable only exists for a single iteration, not during the entire loop.
+
+### `while` loop
+Syntax: 
+```
+while (condition) {
+  logic;
+}
+
+```
 
 ## Function
 A function is a block of code reusable throughout the whole application.
@@ -80,4 +89,14 @@ where parameter is a variable that represents a value that is passed into the fu
 3. __Local/Block Scope__: Variables declared inside a function. If you try to access it *outside* of the function, you will get either `undefined` or an error.
 4. Any statement after `return` will not be executed because `return` also stops the execution of your function code. 
 
+## If-statements
+Syntax: 
+```
+if (condition) {
+  logic
+}
+```
+1. strings are truthy values in JS. While `false` always evaluates to false, the string "false", since it is a string, evalutes to true. 
+2. __truthy values__ are values that are considered true when evaluated as a boolean. So, truthy values in themselves are not boolean values - `true`, `false`; but when evaluated to a boolean value, truthy values will be `true`. 
+3. __falsey values__ are similar as __truthy values__ in this respect. Such values include `false`, `0`, `""`, `null`, `undefined`, `NaN`. 
 
