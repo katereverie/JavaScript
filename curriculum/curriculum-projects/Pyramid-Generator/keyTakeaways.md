@@ -55,3 +55,21 @@ for (const value of iterable) {
 ```
 A for ... of loop iterates over each item of an iterable object and *temporarily* assigns it to a variable. 
 ! Note that you can use *const* because the variable only exists for a single iteration, not during the entire loop.
+
+## Function
+A function is a block of code reusable throughout the whole application.
+Syntax:
+### regular functions
+```
+function name(parameter) {
+
+}
+```
+where parameter is a variable that represents a value that is passed into the function when it is used. Between the curly braces is the function body. 
+1. All functions *return* a value.
+2. In JS, if there is nothing to execute in the function body, calling the function returns the default value "undefined". Recall that "undefined" is also a value.
+3. To return something else, you must use the keyword *return*.
+4. If you have a value that is explictly writtin in your code, we call that value _Hard coded_. Hard coding a value into a function may make the function not as reusable as you'd like. Instead, we define paramters for the function. 
+5. Parameters are special variables that are given a value when you call the function. They can be used in your function to dynamically change the result of the function's code.  
+6. When you pass a *value* to a function call, e.g. functionName(value), that *value* is referred to as an *argument*. 
+### arrow functions
