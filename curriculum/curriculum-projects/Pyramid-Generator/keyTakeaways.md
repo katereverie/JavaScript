@@ -64,6 +64,11 @@ while (condition) {
 }
 
 ```
+1. A `while` loop will keep running until the specified condition is no longer true. 
+2. A while loop can keep running infinitely if the condition is always true. This is called an infinite loop. It *can* lock up your system, which will require a full restart to escape, sometimes. So, be careful. To avoid infinite loops, you want to make sure that there will come a point that the condition becomes false. 
+3. `==` is the equality operator used to check whetehr two values are *equal*. In JS, `"0" === 0` is true, even though one is a string, the other is a number.  
+4. `===` is the strict equality operator used to check if two values are *equal* AND *share the same type*. 
+Generally, it is good practice to always use this operator. 
 
 ## Function
 A function is a block of code reusable throughout the whole application.
