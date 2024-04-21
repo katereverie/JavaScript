@@ -72,4 +72,8 @@ where parameter is a variable that represents a value that is passed into the fu
 4. If you have a value that is explictly writtin in your code, we call that value _Hard coded_. Hard coding a value into a function may make the function not as reusable as you'd like. Instead, we define paramters for the function. 
 5. Parameters are special variables that are given a value when you call the function. They can be used in your function to dynamically change the result of the function's code.  
 6. When you pass a *value* to a function call, e.g. functionName(value), that *value* is referred to as an *argument*. 
+## Function scope:
+1. _Scope_: Where a variable is declared determines where it can be used in your code. 
+2. __Global Scope__: 
+
 ### arrow functions
