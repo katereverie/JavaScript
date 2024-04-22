@@ -11,29 +11,142 @@ body {
   align-items: center;
 
   position: relative;
-  top: 25%;
+  top: 5%;
 
   border: 1px solid red;
   background-color:teal;
 }
 
 header {
-  font-family: 'Space Grotesk';
-  font-size: 20px;
+  font-family: Silkscreen, Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
   color: rgba(255, 255, 255, 0.5);
+
+  margin-bottom: 10%;
 }
 
 main {
-  width: 250px;
-  height: 541.67px;
+  width: 300px;
+  height: 650px;
   display: flex;
   flex-direction: column;
 
   border: 3px solid black;
+  border-radius: 20px;
+  background-color: black;
+}
+
+#camera-div,
+#btn-div {
+  height: 7%;
+}
+
+#camera-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#camera {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: grey;
+}
+
+#camera-eye {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+#input-result-container {
+  background-color: whitesmoke;
+  height: 86%;
+  margin: 0 15px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
   border-radius: 10px;
 }
+
+#input-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+legend {
+  font-family: Silkscreen, Arial, Helvetica, sans-serif;
+  font-size: 1.14rem;
+  margin-bottom: 10px;
+}
+
+#user-input {
+  height: 25px;
+  width: 90%;
+  font-size: 20px;
+  font-family: Silkscreen, Arial, Helvetica, sans-serif;
+}
+
+#results-div {
+  font-family: Silkscreen;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+#btn-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#check-btn,
+#clear-btn {
+  width: 70px;
+  height: 35px;
+  border-radius: 10px;
+  border: 3px groove whitesmoke;
+  border-color: rgba(255, 255, 254, 0.5);
+  font-family: Silkscreen;
+  text-align: center;
+  
+}
+
 
 footer {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 700;
+  opacity: 0.5;
+
+  border: 2px solid red;
+  margin-top: 10%;
+}
+
+#author {
+  color: rgba(255, 255, 255);
+  font-family: 'Space Grotesk';
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.app-info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  
+  
+  margin-top: 20px;
 }
