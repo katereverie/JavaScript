@@ -1,5 +1,7 @@
 const checkBtn = document.getElementById("check-btn");
+const clearBtn = document.getElementById("clear-btn");
 const userInput = document.getElementById("user-input");
+const result = document.getElementById("results-div");
 
 // const cleanUserInput = () => {
 //   const cleanedUserInput = userInput.value;
@@ -20,4 +22,10 @@ const checkUserInput = () => {
 
 }
 
+const clear = () => {
+  result.textContent = "";
+  userInput.value = "";
+}
+
 checkBtn.addEventListener("click", checkUserInput);
+clearBtn.addEventListener("click", clear);

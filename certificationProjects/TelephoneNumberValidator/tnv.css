@@ -14,6 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 
   position: relative;
   top: 5%;
@@ -27,7 +28,7 @@ header {
   font-weight: 700;
   color: var(--pale-night-sky-grey);
 
-  margin-bottom: 10%;
+  margin-bottom: 100px;
 }
 
 main {
@@ -100,6 +101,7 @@ legend {
   border-radius: 10px;
 }
 
+label,
 #results-div {
   font-family: Silkscreen;
   font-size: 25px;
@@ -143,7 +145,7 @@ footer {
   font-weight: 700;
   color: var(--light-night-sky-blue);
   
-  margin-top: 10%;
+  margin-top: 100px;
 }
 
 #author {
