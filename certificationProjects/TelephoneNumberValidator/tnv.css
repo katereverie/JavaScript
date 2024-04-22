@@ -1,3 +1,7 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
 main {
   width: 200px;
   height: 433.33px;
@@ -6,4 +10,9 @@ main {
 
   border: 2px solid black;
   border-radius: 10px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
 }
