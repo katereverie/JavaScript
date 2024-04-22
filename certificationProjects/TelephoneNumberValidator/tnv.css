@@ -1,14 +1,35 @@
+html {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 3px dashed black;
+}
+
 body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  top: 25%;
+
+  border: 1px solid red;
+  background-color:teal;
 }
+
+header {
+  font-family: 'Space Grotesk';
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 main {
-  width: 200px;
-  height: 433.33px;
+  width: 250px;
+  height: 541.67px;
   display: flex;
   flex-direction: column;
 
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 10px;
 }
 
