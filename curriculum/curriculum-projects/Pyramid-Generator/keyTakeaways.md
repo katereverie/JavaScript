@@ -31,10 +31,10 @@ Rules:
 
 ## Method
 1. A method in JS is a *function* _associated_ with certain *values* or *objects*.
-2. So, every unique object has their own methods. For example, array objects have their own methods, such as `.push()`, `.pop()`; console object has their own methods, such as `.log()`; string objects have their own methods, such as `.repeat()`.
+2. So, every unique object has their own methods. For example, array objects have their own methods, such as `.push()`, `.pop()`, `.unshift()`, `.shift()`; console object has their own methods, such as `.log()`; string objects have their own methods, such as `.repeat()`.
 3. So, arrays are a type of data structures, non-primitive data types, and *also* a type of object.
 4. So, what are objects in JS? 
-5. Crucial: Pay attention to what values a method _returns_! For example, `.pop()` returns the last value removed from an array, while `.pushed()` (without any argument) returns the new length of the array after adding a new value to the end of the array. So, `.pushed()` actually returns a number instead of a certain value in the array. 
+5. Crucial: Pay attention to what values a method _returns_! For example, `.pop()` returns the last value removed from an array, while `.pushed()` (without any argument) as well as `.unshift()` returns the new length of the array after adding a new value to the end or beginning of the array . So, `.pushed()` actually returns a number instead of a certain value in the array. 
 
 ## Loops
 
@@ -69,6 +69,8 @@ while (condition) {
 3. `==` is the equality operator used to check whetehr two values are *equal*. In JS, `"0" === 0` is true, even though one is a string, the other is a number.  
 4. `===` is the strict equality operator used to check if two values are *equal* AND *share the same type*. 
 Generally, it is good practice to always use this operator. 
+5. `!==` is the strictly inequality operator used to check if two values not equal and not the same type. 
+6. If refractoring makes certain variables unused, remember to delete them so as not to cause potential confusion. 
 
 ## Function
 A function is a block of code reusable throughout the whole application.
@@ -94,12 +96,15 @@ where parameter is a variable that represents a value that is passed into the fu
 3. __Local/Block Scope__: Variables declared inside a function. If you try to access it *outside* of the function, you will get either `undefined` or an error.
 4. Any statement after `return` will not be executed because `return` also stops the execution of your function code. 
 
-## If-statements
+## If-else statements
 Syntax: 
 ```
 if (condition) {
   logic
+} else {
+  logic
 }
+
 ```
 1. strings are truthy values in JS. While `false` always evaluates to false, the string "false", since it is a string, evalutes to true. 
 2. __truthy values__ are values that are considered true when evaluated as a boolean. So, truthy values in themselves are not boolean values - `true`, `false`; but when evaluated to a boolean value, truthy values will be `true`. 
