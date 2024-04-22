@@ -1,8 +1,13 @@
+:root {
+  --dark-night-sky-blue: #131862;
+  --light-night-sky-blue: #546bab;
+  --pale-night-sky-grey: #87889c;
+}
+
 html {
   width: 100%;
   height: 100%;
   position: absolute;
-  border: 3px dashed black;
 }
 
 body {
@@ -13,15 +18,14 @@ body {
   position: relative;
   top: 5%;
 
-  border: 1px solid red;
-  background-color:teal;
+  background-color:var(--dark-night-sky-blue);
 }
 
 header {
   font-family: Silkscreen, Arial, Helvetica, sans-serif;
   font-size: 25px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--pale-night-sky-grey);
 
   margin-bottom: 10%;
 }
@@ -31,15 +35,14 @@ main {
   height: 650px;
   display: flex;
   flex-direction: column;
-
-  border: 3px solid black;
+  
   border-radius: 20px;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 #camera-div,
 #btn-div {
-  height: 7%;
+  height: 7.5%;
 }
 
 #camera-div {
@@ -52,7 +55,7 @@ main {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: grey;
+  background-color: var(--light-night-sky-blue);
 }
 
 #camera-eye {
@@ -63,9 +66,9 @@ main {
 }
 
 #input-result-container {
-  background-color: whitesmoke;
-  height: 86%;
-  margin: 0 15px;
+  background-color: var(--pale-night-sky-grey);
+  height: 85%;
+  margin: 0 25px;
   
   display: flex;
   flex-direction: column;
@@ -84,15 +87,17 @@ main {
 
 legend {
   font-family: Silkscreen, Arial, Helvetica, sans-serif;
-  font-size: 1.14rem;
+  font-size: 1.08rem;
   margin-bottom: 10px;
 }
 
 #user-input {
-  height: 25px;
+  height: 30px;
   width: 90%;
-  font-size: 20px;
+  font-size: 18px;
   font-family: Silkscreen, Arial, Helvetica, sans-serif;
+  border: 2px groove var(--dark-night-sky-blue);
+  border-radius: 10px;
 }
 
 #results-div {
@@ -113,11 +118,18 @@ legend {
   width: 70px;
   height: 35px;
   border-radius: 10px;
-  border: 3px groove whitesmoke;
-  border-color: rgba(255, 255, 254, 0.5);
+  border: 1px groove var(--pale-night-sky-grey);
+  background-color: var(--light-night-sky-blue);
   font-family: Silkscreen;
+  font-weight: 600;
   text-align: center;
-  
+  color: var(--dark-night-sky-blue);
+
+}
+
+#check-btn:hover,
+#clear-btn:hover {
+  cursor: pointer;
 }
 
 
@@ -129,14 +141,14 @@ footer {
   font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
   font-weight: 700;
-  opacity: 0.5;
+  color: var(--light-night-sky-blue);
 
   border: 2px solid red;
   margin-top: 10%;
 }
 
 #author {
-  color: rgba(255, 255, 255);
+  color: var(--pale-night-sky-grey);
   font-family: 'Space Grotesk';
   font-size: 25px;
   margin-left: 10px;
@@ -146,7 +158,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  
   
   margin-top: 20px;
 }
