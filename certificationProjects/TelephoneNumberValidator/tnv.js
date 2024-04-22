@@ -56,7 +56,8 @@ const checkUserInput = () => {
   
   if (cleanedUserInput.length === 10 && parseInt(cleanedUserInput[0]) < 2) {
     console.log("error5")
-    return result.textContent += `Invalid US number: ${userInput.value} \n`;
+    result.appendChild(document.createElement("br"));
+    return result.textContent += `Invalid US number: ${userInput.value}`;
   }
 
   // check the use of parentheses
