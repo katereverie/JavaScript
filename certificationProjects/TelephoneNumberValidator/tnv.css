@@ -101,11 +101,19 @@ legend {
   border-radius: 10px;
 }
 
-label,
-#results-div {
+label {
   font-family: Silkscreen;
   font-size: 25px;
   margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#results-div {
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  
+  padding: 15px;
+  justify-content: center;
 }
 
 #btn-div {
