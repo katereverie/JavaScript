@@ -76,7 +76,8 @@ const checkUserInput = () => {
   } else if (numberOfLeftParenthesisMatched !== null && numberOfRightParenthesisMatched === null) {
     return result.textContent += `Invalid US number: ${userInput.value} \n`;
   }
-
+ 
+  
   if (hyphenMatched !== null) {
     if (numberOfHyphens >= 3) {
       console.log("error8")
