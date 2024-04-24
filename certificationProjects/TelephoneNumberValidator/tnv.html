@@ -15,14 +15,14 @@
   <body>
     <header>
       <nav id="theme-nav-bar">
-        <label id="label-for-theme-toggle-btn" for="theme-toggle-btn">
+        <label id="theme-toggle-btn-label" for="theme-toggle-btn">
           Theme
         </label>
         <div id="theme-icon-container">
-          <button id="theme-toggle-btn"></button>
+          <button id="theme-toggle-btn" class="moon"></button>
         </div>
       </nav>
-      <h1>Telephone Number Validator</h1>
+      <h1 id="app-name">Telephone Number Validator</h1>
     </header>
 
     <main>
@@ -32,12 +32,7 @@
         </div>
       </div>
       <div id="camera-sun-div">
-        <div class="ray"></div>
-        <div class="ray"></div>
-        <div class="ray"></div>
-        <div class="ray"></div>
-        <div class="ray"></div>
-        <div class="ray"></div>
+        
       </div>
       <div id="input-result-container">
 
@@ -45,7 +40,9 @@
           <legend for="user-input">Enter a Phone Number</legend>
           <input id="user-input" />
         </div>
-        <label for="results-div">Result:</label>
+        <legend id="results-div-label" for="results-div">
+          Result:
+        </legend>
         <div id="results-div"></div>
 
       </div>
@@ -60,7 +57,7 @@
 
     <footer>
       <div class="author-info-section">
-        Powered by <span id="author"><strong>Katereverie</strong></span>
+        <span>Powered by</span><span id="author">Katereverie</span>
       </div>
       <div class="app-info-section">
         <span id="date">22. April 2024</span>

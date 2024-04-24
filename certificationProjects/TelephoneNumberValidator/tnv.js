@@ -2,7 +2,11 @@ const checkBtn = document.getElementById("check-btn");
 const clearBtn = document.getElementById("clear-btn");
 const userInput = document.getElementById("user-input");
 const result = document.getElementById("results-div");
-const themeToggleBtn = document.getElementById("camera-sun-div");
+const getThemeToggleBtn = document.getElementById("theme-toggle-btn");
+const getBody = document.body;
+const getAppName = document.getElementById("app-name");
+const getFooter = document.querySelector("footer");
+const getAuthorName = document.getElementById("author");
 
 const checkUserInput = () => {
 
@@ -96,7 +100,12 @@ const clear = () => {
 }
 
 checkBtn.addEventListener("click", checkUserInput);
-// themeToggleBtn.addEventListener("click", () => {
-
-// })
+getThemeToggleBtn.addEventListener("click", () => {
+  getThemeToggleBtn.classList.toggle("sun");
+  getBody.classList.toggle("sun-body");
+  getAppName.classList.toggle("sun-app-name");
+  getFooter.classList.toggle("sun-footer");
+  getAuthorName.classList.toggle("sun-author");
+  getThemeToggleBtn.classList.toggle("moon");
+})
 clearBtn.addEventListener("click", clear);
