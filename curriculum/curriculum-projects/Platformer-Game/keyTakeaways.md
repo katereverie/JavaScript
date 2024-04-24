@@ -18,3 +18,17 @@ Syntax:
 ```
 canvas.getContext("2D");
 ``` 
+
+### canvas.width
+is a positive number that represents the width of the canvas.
+### innerWidth
+the `innerWidth` property is a number that represents the interior width of the *broswer window*!
+### innerHeight
+similar to `innerWidth`.
+### canvasVariable.fillStyle = ...
+### canvasVariable.fillRect(x, y, width, height)
+
+## How to represent gravity in platformers?
+
+## How to design a platformer in which the size of the elements in the game are *responsive* and *adapt* to different *screen sizes*?
+
