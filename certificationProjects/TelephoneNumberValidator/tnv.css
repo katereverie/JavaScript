@@ -7,6 +7,8 @@
   --bright-day-sky-blue: #81b3e7;
   --bright-day-ground-yellow: #fff6cf;
   --bright-day-text-beige: rgb(255, 255, 255);
+  --bright-day-milk: #fefcf6;
+  --cloud-grey:	#dde7ee;
 }
 
 html {
@@ -91,6 +93,10 @@ h1 {
   right: 10px;
 }
 
+.moon-hidden {
+  display: none;
+}
+
 /* sun theme */
 .sun {
   width: 30px;
@@ -98,17 +104,39 @@ h1 {
   border-radius: 50%;
   border: 1px groove var(--bright-day-ground-yellow);
   box-shadow: 0 0 5px var(--bright-day-ground-yellow);
-  background-color: #f0d800; /* Yellow background */
+  background-color: #f0d800; 
   position: relative;
-  overflow: hidden; /* Hide overflowed parts */
+  overflow: hidden;
+}
+
+.sun-hidden {
+  display: none;
+}
+
+.sun-theme-label {
+  color: #ff01018a !important;
 }
 
 .sun-body {
   background-color: var(--bright-day-sky-blue);
 }
 
+.sun-main {
+  background-color: var(--bright-day-milk);
+  border: 2px groove black;
+  box-shadow: 0 0 5px black;
+}
+
+.sun-input-result-container {
+  background-color: var(--bright-day-sky-blue) !important; 
+}
+
+.sun-result-label,
+.sun-input-label {
+  color: var(--bright-day-milk);
+}
+
 .sun-app-name {
-  text-decoration:dotted;
   color: #ff01018a;
 }
 
@@ -121,6 +149,12 @@ h1 {
   color: #ff01018a !important;
 }
 
+.sun-check-clear-btn {
+  background-color: var(--bright-day-sky-blue) !important;
+  border: 1px none var(--pale-night-sky-grey) !important;
+  color: #000000;
+}
+
 
 main {
   width: 300px;
@@ -128,33 +162,50 @@ main {
   display: flex;
   flex-direction: column;
   
+  padding: 10px;
+  border: 3px groove silver;
   border-radius: 20px;
-  background-color: rgb(0, 0, 0);
+  box-shadow: 0 0 5px #000000;
+  background-color: #000000;
 }
 
-#camera-moon-div,
+#camera-div,
 #btn-div {
   height: 7.5%;
 }
 
-#camera-moon-div {
+#camera-div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#camera {
-  width: 20px;
-  height: 20px;
+#camera-moon {
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
+  box-shadow: 0 0 5px var(--pale-night-sky-grey);
   background-color: var(--light-night-sky-blue);
+  position: relative;
 }
 
 #camera-eye {
-  width: 17px;
-  height: 17px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background-color: black;
+  position: absolute;
+  top: -3px;
+  left: -5px;
+}
+
+#camera-sun {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--bright-day-milk);
+  background-color: var(--bright-day-sun-yellow);
+  position: relative;
 }
 
 #input-result-container {
@@ -167,7 +218,7 @@ main {
   align-items: center;
   justify-content: flex-start;
 
-  border-radius: 10px;
+  border-radius: 25px;
 }
 
 #input-div {
@@ -177,24 +228,26 @@ main {
   margin-top: 20px;
 }
 
-legend {
+label {
   font-family: monospace, Arial, Helvetica, sans-serif;
+  font-weight: 600;
   font-size: 1.08rem;
   margin-bottom: 10px;
 }
 
 #user-input {
   height: 30px;
-  width: 90%;
+  width: 80%;
   font-size: 18px;
   font-family: Silkscreen, Arial, Helvetica, sans-serif;
-  border: 2px groove var(--dark-night-sky-blue);
+  border: 2px groove var(--pale-night-sky-grey);
   border-radius: 10px;
+  outline: none;
 }
 
 #results-div-label {
- font-family: Silkscreen, Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  font-size: 20px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -217,19 +270,21 @@ legend {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  margin-top: 10px;
 }
 
 #check-btn,
 #clear-btn {
-  width: 70px;
-  height: 35px;
-  border-radius: 10px;
+  width: 80px;
+  height: 38px;
+  border-radius: 20px;
   border: 1px groove var(--pale-night-sky-grey);
-  background-color: var(--light-night-sky-blue);
-  font-family: Silkscreen;
+  background-color: var(--pale-night-sky-grey);
+  font-family: "Space Grotesk";
   font-weight: 600;
+  font-size: 16px;
   text-align: center;
-  color: var(--dark-night-sky-blue);
+  color: #000000;
 
 }
 

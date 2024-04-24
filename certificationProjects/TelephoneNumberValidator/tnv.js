@@ -3,10 +3,18 @@ const clearBtn = document.getElementById("clear-btn");
 const userInput = document.getElementById("user-input");
 const result = document.getElementById("results-div");
 const getThemeToggleBtn = document.getElementById("theme-toggle-btn");
+const getThemeToggleLabel = document.getElementById("theme-toggle-btn-label");
 const getBody = document.body;
+const getMain = document.querySelector("main");
+const getInputResultContainer = document.getElementById("input-result-container");
 const getAppName = document.getElementById("app-name");
 const getFooter = document.querySelector("footer");
 const getAuthorName = document.getElementById("author-name");
+const getResultLabel = document.getElementById("results-div-label");
+const getInputLabel = document.getElementById("user-input-label");
+const getCameraMoon = document.getElementById("camera-moon");
+const getCameraSun = document.getElementById("camera-sun")
+
 
 const checkUserInput = () => {
 
@@ -100,12 +108,23 @@ const clear = () => {
 }
 
 checkBtn.addEventListener("click", checkUserInput);
-getThemeToggleBtn.addEventListener("click", () => {
-  getThemeToggleBtn.classList.toggle("sun");
-  getBody.classList.toggle("sun-body");
-  getAppName.classList.toggle("sun-app-name");
-  getFooter.classList.toggle("sun-footer");
-  getAuthorName.classList.toggle("sun-author");
-  getThemeToggleBtn.classList.toggle("moon");
-})
+  getThemeToggleBtn.addEventListener("click", () => {
+    getThemeToggleBtn.classList.toggle("sun");
+    getCameraSun.classList.toggle("sun-hidden");
+    getThemeToggleLabel.classList.toggle("sun-theme-label");
+    getBody.classList.toggle("sun-body");
+    getMain.classList.toggle("sun-main");
+    getInputResultContainer.classList.toggle("sun-input-result-container");
+    getResultLabel.classList.toggle("sun-result-label");
+    getInputLabel.classList.toggle("sun-input-label");
+    getAppName.classList.toggle("sun-app-name");
+    getFooter.classList.toggle("sun-footer");
+    getAuthorName.classList.toggle("sun-author");
+    checkBtn.classList.toggle("sun-check-clear-btn");
+    clearBtn.classList.toggle("sun-check-clear-btn");
+    
+    getThemeToggleBtn.classList.toggle("moon");
+    getCameraMoon.classList.toggle("moon-hidden");
+  }
+)
 clearBtn.addEventListener("click", clear);

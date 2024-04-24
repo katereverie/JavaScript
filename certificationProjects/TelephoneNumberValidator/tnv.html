@@ -26,27 +26,24 @@
     </header>
 
     <main>
-      <div id="camera-moon-div">
-        <div id="camera">
+      <div id="camera-div">
+        <div id="camera-moon">
           <div id="camera-eye"></div>
         </div>
-      </div>
-      <div id="camera-sun-div">
-        
+        <div id="camera-sun" class="sun-hidden"></div>
       </div>
       <div id="input-result-container">
 
         <div id="input-div">
-          <legend for="user-input">Enter a Phone Number</legend>
+          <label id="user-input-label" for="user-input">Enter a Phone Number</label>
           <input id="user-input" />
         </div>
-        <legend id="results-div-label" for="results-div">
+        <label id="results-div-label" for="results-div">
           Result:
-        </legend>
+        </label>
         <div id="results-div"></div>
 
       </div>
-
       <div id="btn-div">
 
         <button id="check-btn">Check</button>
