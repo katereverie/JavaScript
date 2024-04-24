@@ -33,8 +33,12 @@ takes a callback and is used to update the animation on screen.
 This is how players' positions are updated in real time. 
 ## `clearRect(x, y, width, height)` web API
 takes four arguments as shown above. 
+You can call this method on a canvas object to update players' motion attributes.
 
 ## How to represent gravity in platformers?
 
 ## How to design a platformer in which the size of the elements in the game are *responsive* and *adapt* to different *screen sizes*?
 
+## How to manage players' movement?
+1. monitor when the left and right keys are pressed
+2. how to monitor keys? Create a keys object to track whether it is true that the left or the right key is pressed. 
