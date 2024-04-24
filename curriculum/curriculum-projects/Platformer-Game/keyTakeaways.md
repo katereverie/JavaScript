@@ -28,6 +28,12 @@ similar to `innerWidth`.
 ### canvasVariable.fillStyle = ...
 ### canvasVariable.fillRect(x, y, width, height)
 
+## `requestAnimationFrame()` web API
+takes a callback and is used to update the animation on screen.
+This is how players' positions are updated in real time. 
+## `clearRect(x, y, width, height)` web API
+takes four arguments as shown above. 
+
 ## How to represent gravity in platformers?
 
 ## How to design a platformer in which the size of the elements in the game are *responsive* and *adapt* to different *screen sizes*?
