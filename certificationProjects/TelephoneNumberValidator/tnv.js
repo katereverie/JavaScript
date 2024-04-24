@@ -2,6 +2,7 @@ const checkBtn = document.getElementById("check-btn");
 const clearBtn = document.getElementById("clear-btn");
 const userInput = document.getElementById("user-input");
 const result = document.getElementById("results-div");
+const themeToggleBtn = document.getElementById("camera-sun-div");
 
 const checkUserInput = () => {
 
@@ -95,4 +96,7 @@ const clear = () => {
 }
 
 checkBtn.addEventListener("click", checkUserInput);
+// themeToggleBtn.addEventListener("click", () => {
+
+// })
 clearBtn.addEventListener("click", clear);
