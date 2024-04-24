@@ -14,7 +14,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 
   position: relative;
   top: 5%;
@@ -174,4 +173,25 @@ footer {
   align-items: flex-end;
   
   margin-top: 20px;
+}
+
+@media (max-width: 1921px) {
+  body {
+    max-height: 850px;
+    top: 0;
+  }
+
+  #input-result-container {
+    height: 85%;
+    margin: 0 25px;
+  }
+
+  header {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  footer {
+    margin: 10px 0;
+  }
 }
