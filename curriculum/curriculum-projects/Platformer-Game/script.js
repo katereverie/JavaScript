@@ -60,3 +60,12 @@ class Player {
 }
 
 const player = new Player();
+
+const startGame = () => {
+  canvas.style.display = "block";
+  startScreen.style.display = "none";
+  // call the draw method on the player object to visualize the player
+  player.draw()
+}
+
+startBtn.addEventListener("click", startGame);
