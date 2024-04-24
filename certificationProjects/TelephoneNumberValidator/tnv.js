@@ -6,7 +6,7 @@ const getThemeToggleBtn = document.getElementById("theme-toggle-btn");
 const getBody = document.body;
 const getAppName = document.getElementById("app-name");
 const getFooter = document.querySelector("footer");
-const getAuthorName = document.getElementById("author");
+const getAuthorName = document.getElementById("author-name");
 
 const checkUserInput = () => {
 

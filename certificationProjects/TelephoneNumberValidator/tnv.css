@@ -4,7 +4,7 @@
   --pale-night-sky-grey: #87889c;
   
   --bright-day-sun-yellow: #ffdb00; 
-  --bright-day-sky-blue: #a9f1f6;
+  --bright-day-sky-blue: #81b3e7;
   --bright-day-ground-yellow: #fff6cf;
   --bright-day-text-beige: rgb(255, 255, 255);
 }
@@ -109,7 +109,7 @@ h1 {
 
 .sun-app-name {
   text-decoration:dotted;
-  color: black;
+  color: #ff01018a;
 }
 
 .sun-footer {
@@ -117,7 +117,8 @@ h1 {
 }
 
 .sun-author {
-  color: var(--dark-night-sky-blue);
+  font-size: 40px;
+  color: #ff01018a !important;
 }
 
 
@@ -251,7 +252,7 @@ footer {
   margin-top: 100px;
 }
 
-#author {
+#author-name {
   color: var(--pale-night-sky-grey);
   font-family: Silkscreen;
   font-size: 22px;
@@ -318,7 +319,7 @@ footer {
     font-size: 16px;
   }
 
-  #author {
+  #author-name {
     font-size: 20px;
   }
 }
