@@ -108,7 +108,8 @@ const clear = () => {
 }
 
 checkBtn.addEventListener("click", checkUserInput);
-  getThemeToggleBtn.addEventListener("click", () => {
+  
+getThemeToggleBtn.addEventListener("click", () => {
     getThemeToggleBtn.classList.toggle("sun");
     getCameraSun.classList.toggle("sun-hidden");
     getThemeToggleLabel.classList.toggle("sun-theme-label");
