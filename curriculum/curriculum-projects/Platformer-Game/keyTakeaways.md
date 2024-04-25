@@ -42,3 +42,4 @@ You can call this method on a canvas object to update players' motion attributes
 ## How to manage players' movement?
 1. monitor when the left and right keys are pressed
 2. how to monitor keys? Create a keys object to track whether it is true that the left or the right key is pressed. 
+3. Use switch cases to manage each key relevant for movement changes.
