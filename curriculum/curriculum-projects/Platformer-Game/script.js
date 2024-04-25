@@ -60,6 +60,7 @@ class Player {
 }
 
 const player = new Player();
+
 const animate = () => {
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -97,7 +98,19 @@ const movePlayer = (key, xVelocity, isPressed) => {
       if (xVelocity === 0) {
         player.velocity.x = xVelocity;
       }
-      
+      player.velocity.x -= xVelocity;
+      break;
+    case "ArrowUp":
+    case " ":
+    case "Spacebar":
+      player.velocity.y -= 8;
+      break;
+    case "ArrowRight":
+      keys.rightKey.pressed = isPressed;
+      if (xVelocity === 0) {
+        player.velocity.x = xVelocity;
+      }
+      player.velocity.x += xVelocity;
   }
 }
 
@@ -105,7 +118,17 @@ const startGame = () => {
   canvas.style.display = "block";
   startScreen.style.display = "none";
   // call the draw method on the player object to visualize the player
-  player.draw()
+  // player.draw()
+  // animate players' motion
+  animate();
 }
 
 startBtn.addEventListener("click", startGame);
+
+window.addEventListener("keydown", ({key}) => {
+  movePlayer(key, 8, true);
+});
+
+window.addEventListener("keyup", ({ key }) => {
+  movePlayer(key, 0, false);
+});
