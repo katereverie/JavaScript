@@ -72,4 +72,22 @@ You can call this method on a canvas object to update players' motion attributes
 9. Players need to land *on* the platform. Add collision detection logic to the game. How?
 10. Call `forEach` on the platforms array inside the animate function. 
 11. Declare a const array var named collisionDetectionRules to store different rules (boolean expressions) to account for different situation of interactions between the player and the platform.
+12. Declare a const array var named platformDetectionRules, which should boolean expressions that check 
+  - whether player's x position is greater than or equal to (platform's x position - half of player's width)
+  - whether player's x position is less than or equal to (platform's x position + platform's width - 1/3 of player's width) ??? Visualize to see
+  - whether player's y position + player's height is greater than or equal to platform's y position.
+  - whether player's y position is less than or equal to platform's y position + platform's height
+13. You need to check if every platform detection rule is true. Add an if statement to check that using `every()`. If every rule is true, meaning that player collides with the platform, add platform's y position + player's height to player's y position. This will determine the player's position on the y axis. Since the player is practically on the platform now, make sure that the gravity rule still applies to the player's velocity at the y axis by assigning gravity's value to player's y velocity. 
+
+## What if the player reaches/collides with the checkpoint(s)? 
+1. To start with, you must set checkpoints in the game. So, start by creating a CheckPoint class to create checkpoint instances.
+2. What properties should each checkpoint instance have? First coming to mind: 
+  I. position (x, y) on the screen; 
+  II. width and height so that we can draw the checkpoint to make it visible to the eyes - or else checkpoints would reduce to a point on the screen. Also make sure that its width and height are proportional to the screen size. 
+  III. a boolean value to confirm whether player/checkpoint collision takes place or not
+3. Now we want to checkpoint instances appear on the screen, if there is nothing else to add to the constructor. 
+  3.1. (Method name is up to you) Add, for example, `draw() {}` method to the class. Inside the curly brackets, remember to give each checkpoint instance a style by assigning a color scheme value to `canvasVariable.fillStyle`. 
+  3.2. Besides style, each checkpoint instance also needs a shape. So, pass in each property of a checkpoint instance to `canvasVariable.fillRect()`. Remember: You are passing the properties of each unique instance. So, it's crucial to use `this` keyword. 
+4. Now we want to collided checkpoint instance to disappear from the screen. A method should cover this functionality. 
+  4.1. (the method name is up to you) Add, for example, `claim () {}` method to the class. Inside the body, make sure that the collided checkpoint is gone by assigning `0` to its width and height property, `Infinity` to its position on the y axis, and also `true` to the boolean property of the instance because collision happened. 
 
