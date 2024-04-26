@@ -9,14 +9,11 @@ canvas.height = innerHeight;
 const gravity = 0.5;
 let isCheckpointCollisionDetectionActive = true;
 
-// make sure player sizes are responsive
 const proportionalSize = (size) => {
   return innerHeight < 500 ? Math.ceil((size / 500) * innerHeight) : size;
 }
 
-// create player class
 class Player {
-  // player attributes include: position, velocity, width, height
   constructor() {
     this.position = {
       x: proportionalSize(10),
@@ -29,7 +26,6 @@ class Player {
     this.width = proportionalSize(40);
     this.height = proportionalSize(40);
   }
-
   draw() {
     ctx.fillStyle = "#99c9ff";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
@@ -60,9 +56,7 @@ class Player {
   }
 }
 
-// create Platform class to instantiate platform object
 class Platform {
-
   constructor(x, y) {
     this.position = {
       x,
@@ -71,16 +65,13 @@ class Platform {
     this.width = 200;
     this.height = proportionalSize(40);
   }
-
   draw() {
     ctx.fillStyle = "#acd157";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 }
 
-// create CheckPoint class to instantiate checkpoint object
 class CheckPoint {
-
   constructor(x, y, z) {
     this.position = {
       x,
@@ -95,7 +86,6 @@ class CheckPoint {
     ctx.fillStyle = "#f1be32";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
-
   claim() {
     this.width = 0;
     this.height = 0;
@@ -121,7 +111,6 @@ const platformPositions = [
   { x: 4700, y: proportionalSize(150) },
 ];
 
-// instantiate platform instances and store them in an array
 const platforms = platformPositions.map(
   (platform) => new Platform(platform.x, platform.y)
 );
@@ -132,7 +121,6 @@ const checkpointPositions = [
   { x: 4800, y: proportionalSize(80), z: 3 },
 ];
 
-// instantiate checkpoint instances and store them in an array
 const checkpoints = checkpointPositions.map(
   (checkpoint) => new CheckPoint(checkpoint.x, checkpoint.y, checkpoint.z)
 );
@@ -140,20 +128,17 @@ const checkpoints = checkpointPositions.map(
 const animate = () => {
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  // make each platform instances appear on screen
+
   platforms.forEach((platform) => {
     platform.draw();
   });
-  
-  // make each checkpoint instance appear on screen
+
   checkpoints.forEach(checkpoint => {
     checkpoint.draw();
   });
 
   player.update();
 
-  // monitor player's positions, keys, and collision with checkpoint instances, and adjust player's position accordingly
   if (keys.rightKey.pressed && player.position.x < proportionalSize(400)) {
     player.velocity.x = 5;
   } else if (keys.leftKey.pressed && player.position.x > proportionalSize(100)) {
@@ -169,7 +154,7 @@ const animate = () => {
       checkpoints.forEach((checkpoint) => {
         checkpoint.position.x -= 5;
       });
-
+    
     } else if (keys.leftKey.pressed && isCheckpointCollisionDetectionActive) {
       platforms.forEach((platform) => {
         platform.position.x += 5;
@@ -180,7 +165,7 @@ const animate = () => {
       });
     }
   }
-  // monitor and adjust player/platform interaction
+
   platforms.forEach((platform) => {
     const collisionDetectionRules = [
       player.position.y + player.height <= platform.position.y,
@@ -213,16 +198,17 @@ const animate = () => {
     const checkpointDetectionRules = [
       player.position.x >= checkpoint.position.x,
       player.position.y >= checkpoint.position.y,
-      player.position.y + player.height <= 
+      player.position.y + player.height <=
         checkpoint.position.y + checkpoint.height,
       isCheckpointCollisionDetectionActive,
-      player.position.x - player.width <= 
+      player.position.x - player.width <=
         checkpoint.position.x - checkpoint.width + player.width * 0.9,
-      index === 0 || checkpoints[index - 1].claimed === true
+      index === 0 || checkpoints[index - 1].claimed === true,
     ];
 
     if (checkpointDetectionRules.every((rule) => rule)) {
       checkpoint.claim();
+
 
       if (index === checkpoints.length - 1) {
         isCheckpointCollisionDetectionActive = false;
@@ -232,11 +218,11 @@ const animate = () => {
         showCheckpointScreen("You reached a checkpoint!");
       }
 
+
     };
-
   });
-
 }
+
 
 const keys = {
   rightKey: {
@@ -276,13 +262,9 @@ const movePlayer = (key, xVelocity, isPressed) => {
   }
 }
 
-
 const startGame = () => {
   canvas.style.display = "block";
   startScreen.style.display = "none";
-  // call the draw method on the player object to visualize the player
-  // player.draw()
-  // animate players' motion
   animate();
 }
 
