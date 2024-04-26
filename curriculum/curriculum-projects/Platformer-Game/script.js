@@ -101,6 +101,7 @@ class CheckPoint {
 
 const player = new Player();
 
+
 const platformPositions = [
   { x: 500, y: proportionalSize(450) },
   { x: 700, y: proportionalSize(400) },
@@ -116,20 +117,95 @@ const platformPositions = [
   { x: 4700, y: proportionalSize(150) },
 ];
 
+// instantiate platform instances and store them in an array
+const platforms = platformPositions.map(
+  (platform) => new Platform(platform.x, platform.y)
+);
+
+const checkpointPositions = [
+  { x: 1170, y: proportionalSize(80), z: 1 },
+  { x: 2900, y: proportionalSize(330), z: 2 },
+  { x: 4800, y: proportionalSize(80), z: 3 },
+];
+
+// instantiate checkpoint instances and store them in an array
+const checkpoints = checkpointPositions.map(
+  (checkpoint) => new CheckPoint(checkpoint.x, checkpoint.y, checkpoint.z)
+);
+
+
 const animate = () => {
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // make each platform instances appear on screen
+  platforms.forEach((platform) => {
+    platform.draw();
+  });
+  
+  // make each checkpoint instance appear on screen
+  checkpoints.forEach(checkpoint => {
+    checkpoint.draw();
+  });
+
   player.update();
 
+  
+  // monitor player's positions, keys, and collision with checkpoint instances, and adjust player's position accordingly
   if (keys.rightKey.pressed && player.position.x < proportionalSize(400)) {
     player.velocity.x = 5;
   } else if (keys.leftKey.pressed && player.position.x > proportionalSize(100)) {
     player.velocity.x = -5;
   } else {
     player.velocity.x = 0;
-  }
-}
 
+    if (keys.rightKey.pressed && isCheckpointCollisionDetectionActive) {
+      platforms.forEach((platform) => {
+        platform.position.x -= 5;
+      });
+
+      checkpoints.forEach((checkpoint) => {
+        checkpoint.position.x -= 5;
+      });
+
+    } else if (keys.leftKey.pressed && isCheckpointCollisionDetectionActive) {
+
+      platforms.forEach((platform) => {
+        platform.position.x += 5;
+      });
+
+    }
+  }
+
+  // monitor and adjust player/platform interaction
+  platforms.forEach((platform) => {
+    const collisionDetectionRules = [
+      player.position.y + player.height <= platform.position.y,
+      player.position.y + player.height + player.velocity.y >= platform.position.y,
+      player.position.x >= platform.position.x - player.width / 2,
+      player.position.x <=
+        platform.position.x + platform.width - player.width / 3,
+    ];
+
+    if (collisionDetectionRules.every((rule) => rule)) {
+      player.velocity.y = 0;
+      return;
+    }
+
+    const platformDetectionRules = [
+      player.position.x >= platform.position.x - player.width / 2,
+      player.position.x <=
+        platform.position.x + platform.width - player.width / 3,
+      player.position.y + player.height >= platform.position.y,
+      player.position.y <= platform.position.y + platform.height,
+    ];
+
+    if (platformDetectionRules.every(rule => rule)) {
+      player.position.y = platform.position.y + player.height;
+      player.velocity.y = gravity;
+    };
+  });
+}
 
 const keys = {
   rightKey: {

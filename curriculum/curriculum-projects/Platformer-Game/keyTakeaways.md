@@ -91,3 +91,9 @@ You can call this method on a canvas object to update players' motion attributes
 4. Now we want to collided checkpoint instance to disappear from the screen. A method should cover this functionality. 
   4.1. (the method name is up to you) Add, for example, `claim () {}` method to the class. Inside the body, make sure that the collided checkpoint is gone by assigning `0` to its width and height property, `Infinity` to its position on the y axis, and also `true` to the boolean property of the instance because collision happened. 
 
+5. Now that we've finished `CheckPoint` class, we need to instantiate class objects. 
+  5.1. You must determine where you want the checkpoint(s) to be. Assume we have in mind where the checkpoints should be. That means, we also have concrete coordinates of the checkpoints on the screen: position on the x axis, and on the y axis, the corresponding index of the checkpoint
+  5.2. Assuming we've determined where the checkpoints should be. We can store their coordinates as objects (with 3 key/value pairs - x, y, z) in an array variable. 
+6. Now that the coordinates array and `CheckPoint` class are ready, we are also ready to generate checkpoint objects. 
+  6.1. Instantiate checkpoint objects by mapping every element (coordinate object) of the checkpointPositions array to a new array that stores each instantiated checkpoint object. The callback passed into `.map()` should take checkpoint parameter and return a checkpoint object with properties from the checkpoint parameter, by passing the properties of the checkpoint paramter into the `CheckPoint` class.
+7. Now that we have an array consisting of checkpoint *class objects*, we can animate them on the screen by calling the *draw()* method on each *class object*, inside the `animate` function. 
