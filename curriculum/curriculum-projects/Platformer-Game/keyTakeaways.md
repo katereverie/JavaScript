@@ -68,6 +68,8 @@ You can call this method on a canvas object to update players' motion attributes
 5. Outside the Platform class, create a list of positions for the platforms, with a list of objects that contain x, y positions. 
 6. Pass in each object's property value (x and y) in the platform position list to Platform class using `.map()`, and store them in a const var called platforms array since `.map()` returns an array. Note that each element of the array is an instance object of the Platform class. 
 7. Animate the instance objects by calling `.draw()` on each one of them using `.forEach()`, since each instance object is stored in an array. 
-8. Since the player may move to the right edge of the screen, you need to check whether that is the case. So, add a if statement to check it.
-9. 
+8. Since the player may move to the right/left edge of the screen, you need to check whether that is the case. So, add a if statement to check that, and update platform positions accordingly.
+9. Players need to land *on* the platform. Add collision detection logic to the game. How?
+10. Call `forEach` on the platforms array inside the animate function. 
+11. Declare a const array var named collisionDetectionRules to store different rules (boolean expressions) to account for different situation of interactions between the player and the platform.
 
