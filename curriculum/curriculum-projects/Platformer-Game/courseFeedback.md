@@ -1,0 +1,4 @@
+Improvement points:
+- If the player reaches the last checkpoint before reaching the one before the last, the player doesn't event get a message alert, even though reaching each and every checkpoint should prompt a message, regardless of order the reaching checkpoints. 
+- The logic of detection rules is not well communicated. Campers must figure them out themselves, which is arguably not a bad thing per se. Had the logic been explained more sufficiently, campers would have had a clearer understanding why checking coordinates of the player, platforms, and checkpoints is crucial in building platformer games. 
+- (TBC) 
