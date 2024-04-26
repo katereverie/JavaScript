@@ -11,6 +11,22 @@ const checkpointMessage = document.querySelector(".checkpointMessage > p")
 <!-- The last one targets the p element as a child of the parent element with the class name "checkpointMessage" -->
 ```
 
+## working with objects
+- If the property/key name and its value are the same, you can use a shorthand syntax to avoid explicity assigning the value.
+```
+obj = {
+  a, b, c
+}
+```
+The following code is the same as:
+```
+obj = {
+  a: a,
+  b: b,
+  c: c
+}
+```
+
 ## the *Canvas API*
 Can be used to create graphics in games using JS and the HTML `canvas` element.
 Also, you'll need to use the `getContext` method to provide the context for where the graphics will be rendered.
@@ -43,3 +59,15 @@ You can call this method on a canvas object to update players' motion attributes
 1. monitor when the left and right keys are pressed
 2. how to monitor keys? Create a keys object to track whether it is true that the left or the right key is pressed. 
 3. Use switch cases to manage each key relevant for movement changes.
+
+## How to create platform and platform logic?
+1. create a Platform class
+2. create a constructor with x, y as parameters. 
+3. Inside the constructor, create a position, width, height variable, and assign a position object with x, y as two key/value pairs to the position var, 200 (in this case) to width var, and proportionalSize(40) to height var.
+4. Below the constructor method, create a draw method. Inside the draw method, create style and a rectangle using `.fillStyle` and `.fillRect`. The latter should take x, y, width, height as arguments. 
+5. Outside the Platform class, create a list of positions for the platforms, with a list of objects that contain x, y positions. 
+6. Pass in each object's property value (x and y) in the platform position list to Platform class using `.map()`, and store them in a const var called platforms array since `.map()` returns an array. Note that each element of the array is an instance object of the Platform class. 
+7. Animate the instance objects by calling `.draw()` on each one of them using `.forEach()`, since each instance object is stored in an array. 
+8. Since the player may move to the right edge of the screen, you need to check whether that is the case. So, add a if statement to check it.
+9. 
+
