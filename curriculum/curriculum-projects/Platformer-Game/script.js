@@ -62,7 +62,6 @@ class Player {
 
 // create Platform class to instantiate platform object
 class Platform {
-
   constructor(x, y) {
     this.position = {
       x,
@@ -71,7 +70,6 @@ class Platform {
     this.width = 200;
     this.height = proportionalSize(40);
   }
-
   draw() {
     ctx.fillStyle = "#acd157";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
@@ -80,7 +78,6 @@ class Platform {
 
 // create CheckPoint class to instantiate checkpoint object
 class CheckPoint {
-
   constructor(x, y, z) {
     this.position = {
       x,
@@ -95,7 +92,6 @@ class CheckPoint {
     ctx.fillStyle = "#f1be32";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
-
   claim() {
     this.width = 0;
     this.height = 0;
@@ -223,7 +219,7 @@ const animate = () => {
 
     if (checkpointDetectionRules.every((rule) => rule)) {
       checkpoint.claim();
-
+      
       if (index === checkpoints.length - 1) {
         isCheckpointCollisionDetectionActive = false;
         showCheckpointScreen("You reached the final checkpoint!");
@@ -280,9 +276,6 @@ const movePlayer = (key, xVelocity, isPressed) => {
 const startGame = () => {
   canvas.style.display = "block";
   startScreen.style.display = "none";
-  // call the draw method on the player object to visualize the player
-  // player.draw()
-  // animate players' motion
   animate();
 }
 
@@ -290,7 +283,7 @@ const showCheckpointScreen = (msg) => {
   checkpointScreen.style.display = "block";
   checkpointMessage.textContent = msg;
   if (isCheckpointCollisionDetectionActive) {
-    setTimeout((checkpointScreen.style.display = "none"), 2000);
+    setTimeout(() => (checkpointScreen.style.display = "none"), 2000);
   }
 };
 
