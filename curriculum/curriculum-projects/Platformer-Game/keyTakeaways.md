@@ -97,3 +97,24 @@ You can call this method on a canvas object to update players' motion attributes
 6. Now that the coordinates array and `CheckPoint` class are ready, we are also ready to generate checkpoint objects. 
   6.1. Instantiate checkpoint objects by mapping every element (coordinate object) of the checkpointPositions array to a new array that stores each instantiated checkpoint object. The callback passed into `.map()` should take checkpoint parameter and return a checkpoint object with properties from the checkpoint parameter, by passing the properties of the checkpoint paramter into the `CheckPoint` class.
 7. Now that we have an array consisting of checkpoint *class objects*, we can animate them on the screen by calling the *draw()* method on each *class object*, inside the `animate` function. 
+8. Now that we have animated every checkpoint instance on the screen, we need to update if/if-else statements in `animate()` to ensure everything is in check. (I am still struggling to understand part of the logic behind the checking mechanism)
+9. Now that a checkpoint will disappear from the screen once collided with the player, we need to inform the player
+  9.1. create a callback function variable which will inform the player that a checkpoint has been reached. This can be done by accessing the corresponding HTML element and its CSS display property: set it to "block" to make the message appear on screen, using `checkpointVariableName.style.display = "block"`.
+  9.2. Now that the HTML element will show on the screen, you also need to make sure that the text content also appears. The specific text content can be passed in as the parameter for the callback. 
+  9.3. Also you need to make sure that the collision actually happened. So, add an if statement to check that. 
+10. Now that we need to make these interactions/messages appear on screen. So, update `animate()` function. 
+  10.1. Start by iterating through the checkpoints array, pass in a callback which takes `checkpoint, index, checkpoints` as its parameters.
+  10.2. Inside the callback body, declare an array which stores boolean values to check whether the following conditions are met:
+    I. whether player's x position is greater than or equal to checkpoint's x position;
+    II. whether player's y position is greater than or equal to checkpoint's y position;
+    III. whether player's y position + player's height is less than or equal to checkpoint's y position + checkpoint's height;
+    VI. whether checkpoint collision has taken place.
+  10.3. We also need to add more rules to the checkpoint detection rules array. 
+    I. check if player's x position - player's width is less than or equal to the checkpoint's x position - checkpoint's width + player's width * 0.9. (This will ensure that the player is close enough to the checkpoint to claim/reach it);
+    II. check if the checkpoint index is strictly equal to 0 or if the previous `checkpoints[index - 1].claimed` is true. (This ensures that the player can only claim the first checkpoint or a checkpoint that has already been claimed);
+11. Now that we have checkpoint detection rules in place, we need to determine if each rule element is true. 
+  11.1. Add an if statement: the condition should check if every rule is true, using `every()`. If it is true, call `claim()` on the checkpoint object/instance. 
+  11.2. Add another if statement to check whether the player has reached the last checkpoint. We can check if the checkpoint object has been claimed by checking if the claimed property is true. How do we know it's the *last* checkpoint? Don't forget its index property.  Check if the index is equal to the last element of the checkpoints array. If the condition is met, we set the `isDetectionCollisionDetectionActive` to false, and call the `showCheckpointScreen` function and pass in "You reached the final checkpoint!" as an argument or whatever you like the player to see on the screen. Lastly, we need to call the `movePlayer` function and pass in the string `"ArrowRight"` as the first argument and number `0` as the second, and boolean `false` as the third.
+  11.3. If the reached checkpoint is not the last, we simply show the player that they have reached *a* checkpoint. So, add an `else if` statement accordingly. For the condition: check if player's x position is greater than or equal to checkpoint's x position && player's x position is less than or equal to checkpoint's x position + 40. (__why?__)
+
+
