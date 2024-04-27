@@ -62,6 +62,16 @@ Steps:
   - Update the text of `scoreHistory`, `totalScoreText`, `currentRoundRollsText`, and `currentRoundText` as well. 
   - Lastly, call `resetRadioOption` to reset all radio buttons.
   - Now that `resetGame` is complete, don't forget to call `resetGame` in `keepScoreBtn`;
+- Now that we've coverned "Three of a kind" and "Four of a kind", we need to add "Full house" to the table. A "full house" is when users roll a "three of a kind" and the rest is a pair (two same number).
+  - Start by creating an arrow func `detectFullHouse` with `arr` as the parameter name. 
+  - Inside `detectFullHouse`, declara a const variable `counts` and assign an empty object to it (for counting occurencens).
+  - Call `.forEach()` on `arr` to iterate through each element. For the callback, use a `ternary` to check if `counts[num]` is truthy. If so, incremet by 1; if no, assign 1 to it.
+  - If `counts` has a value of 3, that means we have a "Three of a kind". We need to catch that case. We can use `Object.values(counts)`. It returns an array with all the values of the object `counts`. If we want to check if there is the value 3 in the new array, we can chain `.includes(3)` to `Object.values(counts)`. This returns a boolean. Assign the boolean result to a const variable `hasThreeOfAKind`.
+  - Similarly, if `counts` has a value of 2, it means that users have rolled a pair. Catch that in a similar way. 
+  - Now, if both `hasThreeOfAKind` and `hasPair` are true, then we have a "Full house". By the rule, this should give users a score of 25, using `updateRadioOption(2, 25)`. Include this in an `if` statement. Else, that is, users have rolled neither a "Three of a kind" nor "a pair", we call `updateRadioOption(5, 0)`.
+  - Now that `detectionFullHouse` is complete. Include in `rollDiceBtn`'s callback.
+- Now, the last algorithm we want is "straights". 
+  - 
 
 
 
