@@ -27,5 +27,9 @@ Steps:
   - You need to count how many times a number has been repeated. So, create a const variable `counts`, and assign an empty object to it.
   - Create a `for ... of` loop. For example: `for (const num of arr) { }`. This loop will iterate through the iteratable object `arr`. 
   - For each iteration, you need to check whether `num` already exists in the `counts` object. So, add an `if` statement to check that.  If not, add `num` as a key/property  to the `counts` object, and assign `1` to it. Or else, increment its value by `1`. Remember that if `num` does not exist in `counts`, `counts[num]` should return a falsy value, which evalutes to `false`, and vice versa.
-  - Now you have a complete for loop to check whether each number repeats itself and how many times it has been repeated. You want to select a specific number of repetition which matches the pattern you are looking for. Declare a `highestCount` variable to track the number that has been repeated the most times. 
+  - Now you have a complete `for` loop to check whether each number repeats itself and how many times it has been repeated. You want to select a specific number of repetition which matches the pattern you are looking for. Declare a `highestCount` variable to track the number that has been repeated the most times. 
+  - Create another `for ... of` loop to iterate through `arr`. For each iteration, you need to get the current duplicate count for each number in the `arr`. So, create a const variable `count` and assign the value of `counts[num]` to it.
+  - Now you need to check if `count` is the highest compared to `highestCount`. If so, assign its value to `highestCount` to track the current highest number of repetition. For "Three of a kind", the highest count should be bigger or equal to 3.
+  - Similarly, for "Four of a kind", the highest count should be bigger or equal to 4. 
+  - Now, if users rolls a "three of a kind" or "four of a kind", you need to count total the scores. That is a totalling sum of all five dice values. You can use call `.reduce()` on `diceValuesArr` to add up all the values in `diceValuesArr`, and assign its return value to `sumOfAllDice`.  
 
