@@ -65,7 +65,17 @@ const getHighestDuplicates = (arr) => {
   }
 
   const sumOfAllDice = diceValuesArr.reduce((a, b) => a + b, 0);
-  
+
+  if (highestCount >= 4) {
+    updateRadioOption(1, sumOfAllDice);
+  }
+
+  if (highestCount >= 3) {
+    updateRadioOption(0, sumOfAllDice);
+  }
+
+  updateRadioOption(5, 0);
+
 }
 
 rollDiceBtn.addEventListener("click", () => {
@@ -76,6 +86,7 @@ rollDiceBtn.addEventListener("click", () => {
     rollDice();
     updateStats();
     updateRadioOption();
+    getHighestDuplicates(diceValuesArr);
   }
 });
 

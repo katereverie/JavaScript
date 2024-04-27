@@ -31,5 +31,15 @@ Steps:
   - Create another `for ... of` loop to iterate through `arr`. For each iteration, you need to get the current duplicate count for each number in the `arr`. So, create a const variable `count` and assign the value of `counts[num]` to it.
   - Now you need to check if `count` is the highest compared to `highestCount`. If so, assign its value to `highestCount` to track the current highest number of repetition. For "Three of a kind", the highest count should be bigger or equal to 3.
   - Similarly, for "Four of a kind", the highest count should be bigger or equal to 4. 
-  - Now, if users rolls a "three of a kind" or "four of a kind", you need to count total the scores. That is a totalling sum of all five dice values. You can use call `.reduce()` on `diceValuesArr` to add up all the values in `diceValuesArr`, and assign its return value to `sumOfAllDice`.  
+  - Now, if users rolls a "three of a kind" or "four of a kind", you need to count total the scores. That is a totalling sum of all five dice values. You can use call `.reduce()` on `diceValuesArr` to add up all the values in `diceValuesArr`, and assign its return value to `sumOfAllDice`. 
+  - Now, if the `highestCount` is bigger or equal to 4, call `updateRadioOption(1, sumOfAllDice)` in an `if` statement whose condition is met.  
+  - If `highestCount` is bigger or equal to 3, call `updateRadioOption(0, sumOfAllDice)` in a similar way. 
+  - If a roll matches neither "four of a kind" nor "three of a kind", users get no score for that roll. So, call `updateRadioOption(5, 0)` at the end of `getHighestDuplicates`.
+  - Update your rollBtn event, so that you can see the pattern matching result displayed. Call `getHighestDuplicates(diceValuesArr)` inside the body of `else` statement in `rollDiceBtn`. 
+- Before each roll, you need to reset the values for the score `inputs` and `spans` so that a new value can be displayed. Because each roll is unique and users can only choose a score within that roll instead of choosing one score from three rolls. (This is a rule not set by me)
+  - Start by creating an arrow function `resetRadioOption`.
+  - Call `.forEach(input => { })` on `scoreInputs` to assign `true` to `input.disabled`, and `false` to `input.checked`. *if there is no `checked` attribute in the `input` element, by default the checkbox or the radio button will be unchecked or unselected when the page reloads*. Remember, `checked` attribute is not dynamic. If you want to manipulate it, use JavaScript to achieve that. 
+  - For the text content, call `.forEach(span => { })` on `scoreSpans`, and in the callback set `span.textContent` to an empty string.
+  - To actually see the reset, you need to call this function `resetRadioOption` inside `rollDiceBtn`'s callback.
+- When users roll the dice and make a selection, users are not able to keep the selected score, and move onto the next round. So, we need to build an algorithm that keeps track of and displays each score for all six rounds of the game. (*3 rolls per round, 6 rounds in total. So, 18 rolls per game*)
 
