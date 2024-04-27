@@ -30,7 +30,10 @@ const rollDice = () => {
   });
 };
 
-
+const updateStats = () => {
+  currentRoundRollsText.textContent = rolls;
+  currentRoundText.textContent = round;
+}
 
 rollDiceBtn.addEventListener("click", () => {
   if (rolls === 3) {
@@ -38,6 +41,7 @@ rollDiceBtn.addEventListener("click", () => {
   } else {
     rolls++;
     rollDice();
+    updateStats();
   }
 });
 

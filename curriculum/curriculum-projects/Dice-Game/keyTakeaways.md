@@ -13,4 +13,8 @@ Steps:
   - Display these values by calling `.forEach()` on listOfAllDice (HTML) element to iterate through all `.die` div elements, and assign the corresponding dice value to its index
   - add a event listener to the corresponding button to check 
   - Since the game only allows three rolls per round, you should check if the current roll is already the third. If true, alert the user. If not, add 1 to rolls and call the `rollDice()` again. 
-- 
+- The number of rolls does not change if you roll. 
+  - update the text content for both of those values. Create an arrow function `updateStats` to provide the updating functionality. 
+  - You want the number of rolls to update when users click "Roll the dice". So, call `updateStats` in the rollDiceBtn event. 
+- You want each roll's outcome to match a certain pattern. 
+  - 
