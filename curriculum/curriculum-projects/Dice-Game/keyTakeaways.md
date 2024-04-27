@@ -42,4 +42,26 @@ Steps:
   - For the text content, call `.forEach(span => { })` on `scoreSpans`, and in the callback set `span.textContent` to an empty string.
   - To actually see the reset, you need to call this function `resetRadioOption` inside `rollDiceBtn`'s callback.
 - When users roll the dice and make a selection, users are not able to keep the selected score, and move onto the next round. So, we need to build an algorithm that keeps track of and displays each score for all six rounds of the game. (*3 rolls per round, 6 rounds in total. So, 18 rolls per game*)
+  - Start by creating arrow function `updateScore` that has 2 parameters `selectedValue` and `achieved`. `selectedValue` should keep track of the selected score at the end of each round, while `achieved` should keep track of the button's `id`
+  - parse `selectedValue` (due to input value being a string by default) and add it to `totalScore`, which we declared in the beginning of the program.
+  - display the value by setting `totalScoreText`'s textContent to the value.
+  - append `<li>${achieved} : ${selectedValue}</li>` as a HTML element to `scoreHistory.innerHTML`, using `+=`. (*`scoreHistory` is a `ol` - ordered list HTML element, FYI*)
+  - Now, we want to make the `keepScoreBtn` dynamic by giving it an event listener, so that when users click on it, something relevant happens.
+  - What needs to take place? We need to save the `value` and `id` of the clicked/chosen radio button. To do that, we first declare `let selectedValue;` and `let achieved;`. 
+  - But the computer does not know which button has been selected. So, we need to loop through each radio button to check which one has the `checked` attribute. In this way, the computer "knows" which button's value and id to save. We can use a `for ... of` loop.
+  - The logic goes as follows: if the current radio button has the `checked` attribute, we need to get its `value` and `id`. If the checked button has been found, we break the loop there. 
+  - If users make a selection, the rounds, rolls, and scores should be updated. So, add an `if` statement to check if `selectedValue` is truthy. If so, reassign 0 to `rolls` and increment `round` by 1. 
+  - Then call `updateStats` and `resetRadioOption`.
+  - Lastly, call `updateScore(selectedValue, achieved)`.
+  - If no selection has been made, nothing happens when users click on `keepScoreBtn`. To fix this, alert users about selecting one button. 
+  - The rounds go on infinitely. Recall that there are only six rounds per game. After round six, the game ends with a total score. So, add an `if` statement to check if `round` is bigger than 6. If so, set a timeout with a callback will returns an alert message in 500 milliseconds. 
+  - Users will see the alert message after 6 rounds. But if users ignore it, they can keep on rolling. To fix this, create an arrow function `resetGame`.
+  - `resetGame` function should reset `diceValuesArr` to an array with 5 elements with the value 0, set `score`, `totalScore`, `rolls` to 0, and `round` to 1. 
+  - Display the reset `diceValuesArr` by call `.forEach()` on `listOfAllDice`. For the callback, use `dice` and `index` as paramters.
+  - set `dice`'s textContent to `diceValuesArr[index]`.
+  - Update the text of `scoreHistory`, `totalScoreText`, `currentRoundRollsText`, and `currentRoundText` as well. 
+  - Lastly, call `resetRadioOption` to reset all radio buttons.
+  - Now that `resetGame` is complete, don't forget to call `resetGame` in `keepScoreBtn`;
+
+
 
