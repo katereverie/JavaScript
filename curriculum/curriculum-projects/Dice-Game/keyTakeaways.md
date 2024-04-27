@@ -70,8 +70,22 @@ Steps:
   - Similarly, if `counts` has a value of 2, it means that users have rolled a pair. Catch that in a similar way. 
   - Now, if both `hasThreeOfAKind` and `hasPair` are true, then we have a "Full house". By the rule, this should give users a score of 25, using `updateRadioOption(2, 25)`. Include this in an `if` statement. Else, that is, users have rolled neither a "Three of a kind" nor "a pair", we call `updateRadioOption(5, 0)`.
   - Now that `detectionFullHouse` is complete. Include in `rollDiceBtn`'s callback.
-- Now, the last algorithm we want is "straights". 
-  - 
+- Now, the last algorithm we want is "straights": "Small straight" and "Large straight"
+  - A small straight is when 4 of the dice have consecutive values `(Ex.1234)` resulting in a score of 30, while a large straight is when 5 of the dice have consecutive values `(Ex.12345)` resulting in a score of 40.
+  - Start by creating an arrow function called `checkForStraights` with `arr` as its paramter.
+  - We need to sort the values of each roll. Use `sort` method on `arr`. For the callback, use `a` and `b` as parameters and implicitly return `a-b`. This ensures that the array is sorted in an ascending order. Assign the sorted array to `sortedNumbersArr`.
+  - We only want unique (non-duplicate) numbers. Use `[...new Set(sortedNumbersArr)]`, and assign the returned array to `uniqueNumbersArr`.
+  - We want to unique numbers array to join into a string, and assign it to `uniqueNumbersStr`. Use `join("")`.
+  - There are 3 possibilities for a small straight. 1. "1234"; 2. "2345"; 3. "3456". Create an array `smallStraightsArr` with exactly these 3 string values. 
+  - For a large straight: 1. "12345"; 2. "23456". Create another array `largeStraightsArr` with these two string values.
+  - Now, if users roll a large straight, we update the corresponding radio button option, and give it a score of 40. 
+  - If users roll a small straight, we update the corresponding radio button option, and gvie it a score of 30.
+  - If users roll neither a small nor a large straight, call `updateRadioOption(5, 0)` at the end of `checkForStraights`.
+  - Lastly, you want to include `checkForStraights(diceValuesArr)` in `rollDiceBtn`'s callback.
+
+## With that, the project is officially complete.
+
+
 
 
 
