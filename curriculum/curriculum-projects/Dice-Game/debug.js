@@ -15,7 +15,6 @@ let isModalShowing = false;
 let score = 0;
 let totalScore = 0;
 let round = 1; 
-
 let rolls = 0; 
 
 const rollDice = () => {
@@ -34,20 +33,20 @@ const rollDice = () => {
 const updateStats = () => {
   currentRoundRollsText.textContent = rolls;
   currentRoundText.textContent = round;
-}
+};
 
 const updateRadioOption = (optionNode, score) => {
   scoreInputs[optionNode].disabled = false;
   scoreInputs[optionNode].value = score;
   scoreSpans[optionNode].textContent = `, score = ${score}`;
-}
+};
 
 const updateScore = (selectedValue, achieved) => {
   totalScore += parseInt(selectedValue);
   totalScoreText.textContent = totalScore;
 
   scoreHistory.innerHTML += `<li>${achieved} : ${selectedValue}</li>`;
-}
+};
 
 const getHighestDuplicates = (arr) => {
   const counts = {};
@@ -66,7 +65,7 @@ const getHighestDuplicates = (arr) => {
     const count = counts[num];
     if (count >= 3 && count > highestCount) {
       highestCount = count;
-    } 
+    }
     if (count >= 4 && count > highestCount) {
       highestCount = count;
     }
@@ -83,8 +82,7 @@ const getHighestDuplicates = (arr) => {
   }
 
   updateRadioOption(5, 0);
-
-}
+};
 
 const detectFullHouse = (arr) => {
   const counts = {};
@@ -101,8 +99,7 @@ const detectFullHouse = (arr) => {
   }
 
   updateRadioOption(5, 0);
-
-}
+};
 
 const checkForStraights = (arr) => {
   const sortedNumbersArr = arr.sort((a, b) => a - b);
@@ -112,7 +109,7 @@ const checkForStraights = (arr) => {
   const smallStraightsArr = ["1234", "2345", "3456"];
   const largeStraightsArr = ["12345", "23456"];
 
-  if (smallStraightsArr.some(straight => uniqueNumbersStr.includes(straight))) {
+ if (smallStraightsArr.some(straight => uniqueNumbersStr.includes(straight))) {
     updateRadioOption(3, 30);
   }
 
@@ -121,7 +118,7 @@ const checkForStraights = (arr) => {
   }
 
   updateRadioOption(5, 0);
-}
+};
 
 const resetRadioOption = () => {
   scoreInputs.forEach((input) => {
@@ -132,7 +129,7 @@ const resetRadioOption = () => {
   scoreSpans.forEach((span) => {
     span.textContent = "";
   });
-}
+};
 
 const resetGame = () => {
   diceValuesArr = [0, 0, 0, 0, 0];
@@ -152,9 +149,7 @@ const resetGame = () => {
   currentRoundText.textContent = round;
 
   resetRadioOption();
-}
-
-
+};
 
 rollDiceBtn.addEventListener("click", () => {
   if (rolls === 3) {
@@ -209,5 +204,4 @@ keepScoreBtn.addEventListener("click", () => {
   } else {
     alert("Please select an option or roll the dice");
   }
-})
-
+});
