@@ -1,4 +1,4 @@
-# JavaScript-Basic
+# JavaScript-Basic-To-Intermediary
 
  This marks the learning process of JavaScript.
 
