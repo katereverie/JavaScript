@@ -1,4 +1,10 @@
+const cashInput = document.getElementById("cash");
+const priceSpan = document.getElementById("price"); 
+const confirmBtn = document.getElementById("purchase-btn");
+const dueChange = document.getElementById("change-due");
+
 let price = 1.87;
+priceSpan.innerText = price;
 let cid = [
   ["PENNY", 1.01],
   ["NICKEL", 2.05],
@@ -10,3 +16,16 @@ let cid = [
   ["TWENTY", 60],
   ["ONE HUNDRED", 100]
 ];
+
+confirmBtn.addEventListener("click", () => {
+  const cashInputFloat = parseFloat(cashInput.value);
+  // console.log(totalPriceFloat, cashInputFloat);
+  if (cashInputFloat < price) {
+    alert("Customer does not have enough money to purchase the item");
+    return;
+  } else if (cashInputFloat === price) {
+    dueChange.textContent = "No change due - customer paid with exact cash";
+    dueChange.classList.toggle(".hidden");
+    return;
+  } 
+})
