@@ -143,8 +143,6 @@ label {
   border-top-style: none;
   border-bottom-style: none;
   z-index: 1000;
-  
-  bottom: 
 }
 
 #cash-register-container {
@@ -164,7 +162,7 @@ label {
   background-color: black;
 }
 
-.cash-register-keyboard {
+#cash-register-keyboard {
   background-color: var(--metallic-silver);
   display: flex;
   flex-direction: column;
@@ -190,10 +188,6 @@ label {
   color: black;
 }
 
-.cash-register-drawer {
-  margin-left: 20px;
-}
-
 #change-due {
   display: block;
 }
@@ -202,12 +196,23 @@ label {
   display: none;
 }
 
-.cash-register-drawer {
+#cash-register-drawer {
   width: 60%;
   height: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
   border: 2px groove var(--metallic-silver);
-  text-align: center;
   color: white;
+}
+
+#change-label {
+  position: absolute;
+  top: 30px;
+  margin-bottom: 20px;
 }
 
 /* footer area */

@@ -5,6 +5,7 @@
   1.1. get span element `#price` and the input element `#cash`.
   1.2. get `#purchase-btn` so that when `confirmBtn` is clicked on, we have compare the `cashInput` with `price`.
   1.3. get `#change-due` div element to display due changes.
+  1.4. get `#cash-register-drawer` and store as `drawer`.
   1.3. Display `price` to `priceSpan.innerText`. We can change `price` inside our `script.js` file so that the changed `price` always displays on screen.
   1.4. 
 2. Basic Logic
@@ -17,5 +18,8 @@
     2.2.1. Add `else if` statement to the previous `if` statement.
     2.2.2. Assign "No change due - customer paid with exact cash" to `dueChange.textContent`.
     2.2.3. Toggle `.hidden` class of `dueChange` and `return`;
-  2.3. 
+  2.3. Display `cid` (cash in drawer) to `drawer`.
+    2.3.1. Call `.forEach()` on `cid`. 
+    2.3.2. For the callback, assign a `div` element with `class="changeType"` to `drawer.innerHTML`, using addition assignment. 
+    2.3.3. Inside each `div`, use template literals to display the type of change and the amount of change. 
   

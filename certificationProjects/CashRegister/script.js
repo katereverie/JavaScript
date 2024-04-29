@@ -2,9 +2,11 @@ const cashInput = document.getElementById("cash");
 const priceSpan = document.getElementById("price"); 
 const confirmBtn = document.getElementById("purchase-btn");
 const dueChange = document.getElementById("change-due");
+const drawer = document.getElementById("cash-register-drawer");
 
 let price = 1.87;
 priceSpan.innerText = price;
+// short for "change in drawer"
 let cid = [
   ["PENNY", 1.01],
   ["NICKEL", 2.05],
@@ -16,6 +18,18 @@ let cid = [
   ["TWENTY", 60],
   ["ONE HUNDRED", 100]
 ];
+cid.forEach((changeType) => {
+  drawer.innerHTML += `
+  <div class="change">${changeType[0]}: $${changeType[1]}</div>
+  `;
+  }
+)
+
+// const displayCashInDrawer = () => {
+//   cid.forEach((changeType) => {
+//     drawer.innerHTML += `${changeType[0]}: ${changeType[1]}`;
+//   });
+// }
 
 confirmBtn.addEventListener("click", () => {
   const cashInputFloat = parseFloat(cashInput.value);
