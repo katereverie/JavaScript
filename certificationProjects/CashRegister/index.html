@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cash Register</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -12,13 +18,14 @@
         <h1 id="app-name">
           Cash Register
         </h1>
+        <div id="div-line"></div>
         <p id="app-description">
           This web application simulates the process of returning change to buying customers.
         </p>
       </div>
 
       <nav id="reference">
-        <label class="labels" for="reference-container">For Your Reference:</label>
+        <label id="reference-label" for="reference-container">For Your Reference:</label>
         <div class="reference-container">
           <div class="currency-unit">
             <h2 class="reference-title">Currency Unit</h2>
@@ -56,7 +63,7 @@
       <div id="connect-div"></div>
       <div id="cash-register-container">
         <div class="cash-register-drawer">
-          Drawer
+          Drawer Section
         </div>
         <div class="cash-register-keyboard">
           <div id="one-to-three">
@@ -84,7 +91,7 @@
         <div id="app-author">
           Powered by <span id="author-name">Katereverie</span>
         </div>
-        <div id="app-date">29.April 2024</div>
+        <div id="app-date">29. April 2024</div>
         <div id="app-version">Version: 1.0</div>
       </div>
     </footer>
