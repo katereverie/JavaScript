@@ -18,6 +18,7 @@ let cid = [
   ["TWENTY", 60],
   ["ONE HUNDRED", 100]
 ];
+
 cid.forEach((changeType) => {
   drawer.innerHTML += `
   <div class="change">${changeType[0]}: $${changeType[1]}</div>
