@@ -25,12 +25,6 @@ cid.forEach((changeType) => {
   }
 )
 
-// const displayCashInDrawer = () => {
-//   cid.forEach((changeType) => {
-//     drawer.innerHTML += `${changeType[0]}: ${changeType[1]}`;
-//   });
-// }
-
 confirmBtn.addEventListener("click", () => {
   const cashInputFloat = parseFloat(cashInput.value);
   // console.log(totalPriceFloat, cashInputFloat);

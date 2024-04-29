@@ -211,8 +211,11 @@ label {
 
 #change-label {
   position: absolute;
-  top: 30px;
-  margin-bottom: 20px;
+  top: 10px;
+}
+
+.change {
+  margin: 3px;
 }
 
 /* footer area */
