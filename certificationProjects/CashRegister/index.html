@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cash Register</title>
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -48,9 +48,33 @@
       </nav>
     </header>
     <main>
-      <input id="cash">
-      <div id="change-due"></div>
-      <button id="purchase-btn">Buy</button>
+      <div id="input-area">
+        <label id="input-label" for="cash">Enter Cash Amount From Customers: </label>
+        <input id="cash" type="number"/>
+        <button id="purchase-btn">Confirm</button>      
+      </div>
+      <div id="connect-div"></div>
+      <div id="cash-register-container">
+        <div class="cash-register-keyboard">
+          <div id="one-to-three">
+            <div class="keyboard-number">1</div>
+            <div class="keyboard-number">2</div>
+            <div class="keyboard-number">3</div>
+          </div>
+          <div id="four-to-six">
+            <div class="keyboard-number">4</div>
+            <div class="keyboard-number">5</div>
+            <div class="keyboard-number">6</div>
+          </div>
+          <div id="seven-to-nine">
+            <div class="keyboard-number">7</div>
+            <div class="keyboard-number">8</div>
+            <div class="keyboard-number">9</div>
+          </div>
+        </div>
+        <div class="cash-register-drawer">Drawer</div>
+      </div>    
+      <div id="change-due" class="hidden"></div>
     </main>
     <footer>
       <div id="app-info-container">
