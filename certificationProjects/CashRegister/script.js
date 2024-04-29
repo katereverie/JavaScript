@@ -26,6 +26,13 @@ cid.forEach((changeType) => {
   }
 )
 
+const calculateChange = (price, cash) => {
+  const change = (cash * 100 - price * 100) / 100;
+  // console.log(change);
+  
+  
+}
+
 confirmBtn.addEventListener("click", () => {
   const cashInputFloat = parseFloat(cashInput.value);
   // console.log(totalPriceFloat, cashInputFloat);
@@ -36,5 +43,7 @@ confirmBtn.addEventListener("click", () => {
     dueChange.textContent = "No change due - customer paid with exact cash";
     dueChange.classList.toggle(".hidden");
     return;
-  } 
+  }
+
+  calculateChange(price, cashInputFloat);
 })
