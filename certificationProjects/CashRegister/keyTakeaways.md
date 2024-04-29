@@ -24,19 +24,21 @@
     2.3.2. For the callback, assign a `div` element with `class="changeType"` to `drawer.innerHTML`, using addition assignment. 
     2.3.3. Inside each `div`, use template literals to display the type of change and the amount of change. 
 
-3. Regarding `update` and `change`
+3. Regarding `update` and `changeDue`
   3.1. We want a function to calculate changes. 
       3.1.1. Declare `calculateChange` arrow function which takes `price` and `cash` as its parameters.
-      3.1.2. Since it is tricky to perform mathematical operations on floats, make sure to multiply both paramters by `100` before calculating. Remember to divive the result by `100` before assigning to `change`. 
+      3.1.2. Since it is tricky to perform mathematical operations on floats, make sure to multiply both paramters by `100` before calculating. Remember to divive the result by `100` before assigning to `changeDue`. 
       3.1.3. Use `console.log` to test irregularities.
-  3.2. Now that we have the `change`. We need to know the current amount of change in the drawer so that we can determine whether we have enough total change in the drawer && exact change combination to return.
+  3.2. Now that we have the `changeDue`. We need to know the current amount of change in the drawer so that we can determine whether we have enough total change in the drawer && exact change combination to return.
       3.2.1. We need to have a function to update the change total. 
       3.2.2. Declare an arrow function named `updateCurrentChangeTotal`. Set `currentChangeTotal` to `0` since every time change is returned, the current total change might be different, because we need to update `cid` and its value as well. (Implement updating `cid` later)
       3.2.3. Use a `for` loop to caculate `currentTotalChange`. Remember we are dealing with floats now.
       3.2.4. Return `currentTotalChange`. 
       3.2.5. Call `updateCurrentChangeTotal` inside `calculateChange`, and assign its return value to `currentChangeInDrawer` for determining which appropriate status to display. 
-  3.3. Now that we have `currentChangeInDrawer` and `change`. We can introduce several `if` statements to determine which status message to display. 
-      3.3.1. `If` 
+  3.3. Now that we have `currentChangeInDrawer` and `changeDue`. We can introduce several `if` statements to determine which status message to display. 
+      3.3.1. If `currentChangeInDrawer` is less than `changeDue`, set `dueChangeDisplay` to "Status: INSUFFICIENT_FUNDS". 
+      3.3.2. If we cannot return exact change, display the same as 3.3.1. But How we do know whether we have *exact* change to return?
+      3.3.3. We need an algorithm to dissect `dueChange` into a number of `changeType` for determining that whether there is *exact* to return. 
 
 
   

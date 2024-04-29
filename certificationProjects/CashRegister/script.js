@@ -1,7 +1,7 @@
 const cashInput = document.getElementById("cash");
 const priceSpan = document.getElementById("price"); 
 const confirmBtn = document.getElementById("purchase-btn");
-const dueChange = document.getElementById("change-due");
+const dueChangeDisplay = document.getElementById("change-due");
 const drawer = document.getElementById("cash-register-drawer");
 
 let price = 1.87;
@@ -21,6 +21,13 @@ let cid = [
 
 let currentChangeTotal;
 
+cid.forEach((changeType) => {
+  drawer.innerHTML += `
+  <div class="change">${changeType[0]}: $${changeType[1]}</div>
+  `;
+  }
+)
+
 const updateCurrentChangeTotal = () => {
   currentChangeTotal = 0;
 
@@ -33,17 +40,15 @@ const updateCurrentChangeTotal = () => {
   return currentChangeTotal;
 }
 
-cid.forEach((changeType) => {
-  drawer.innerHTML += `
-  <div class="change">${changeType[0]}: $${changeType[1]}</div>
-  `;
-  }
-)
+
 
 const calculateChange = (price, cash) => {
-  const change = (cash * 100 - price * 100) / 100;
+  const changeDue = (cash * 100 - price * 100) / 100;
   // console.log(change);
   const currentChangeInDrawer = updateCurrentChangeTotal();
+  if (currentChangeInDrawer < changeDue) {
+    dueChangeDisplay.textContent = "Status: INSUFFICIENT_FUNDS";
+  } 
 }
 
 confirmBtn.addEventListener("click", () => {
@@ -53,8 +58,8 @@ confirmBtn.addEventListener("click", () => {
     alert("Customer does not have enough money to purchase the item");
     return;
   } else if (cashInputFloat === price) {
-    dueChange.textContent = "No change due - customer paid with exact cash";
-    dueChange.classList.toggle(".hidden");
+    dueChangeDisplay.textContent = "No change due - customer paid with exact cash";
+    dueChangeDisplay.classList.toggle(".hidden");
     return;
   }
 
