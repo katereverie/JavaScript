@@ -37,8 +37,9 @@
       3.2.5. Call `updateCurrentChangeTotal` inside `calculateChange`, and assign its return value to `currentChangeInDrawer` for determining which appropriate status to display. 
   3.3. Now that we have `currentChangeInDrawer` and `changeDue`. We can introduce several `if` statements to determine which status message to display. 
       3.3.1. If `currentChangeInDrawer` is less than `changeDue`, set `dueChangeDisplay` to "Status: INSUFFICIENT_FUNDS". 
-      3.3.2. If we cannot return exact change, display the same as 3.3.1. But How we do know whether we have *exact* change to return?
+      3.3.2. If we cannot return exact change, display the same as 3.3.1. But How we do know whether we have *exact* change to return? add `!hasExactChange` as the second condition.
       3.3.3. We need an algorithm to dissect `dueChange` into a number of `changeType` for determining that whether there is *exact* to return. 
+      3.3.3.1. declare `determineExactChange` arrow function, which takes `changeDue` as its paramter, and returns `true` or `false`.
 
 
   

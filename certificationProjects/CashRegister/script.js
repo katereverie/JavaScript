@@ -28,6 +28,8 @@ cid.forEach((changeType) => {
   }
 )
 
+let hasExactChange = false;
+
 const updateCurrentChangeTotal = () => {
   currentChangeTotal = 0;
 
@@ -36,19 +38,30 @@ const updateCurrentChangeTotal = () => {
   }
 
   currentChangeTotal = currentChangeTotal / 100;
-  // console.log(currentChangeTotal);
+  console.log(currentChangeTotal);
   return currentChangeTotal;
 }
 
+const determineExactChange = (changeDue) => {
+  
+
+}
 
 
 const calculateChange = (price, cash) => {
   const changeDue = (cash * 100 - price * 100) / 100;
   // console.log(change);
   const currentChangeInDrawer = updateCurrentChangeTotal();
-  if (currentChangeInDrawer < changeDue) {
+  determineExactChange();
+  if (currentChangeInDrawer < changeDue && !hasExactChange) {
     dueChangeDisplay.textContent = "Status: INSUFFICIENT_FUNDS";
   } 
+  if (currentChangeInDrawer === changeDue) {
+    dueChangeDisplay.textContent = "Status: CLOSED";
+  }
+  if (currentChangeInDrawer > changeDue) {
+    dueChangeDisplay.textContent = "Status: OPEN";
+  }
 }
 
 confirmBtn.addEventListener("click", () => {
