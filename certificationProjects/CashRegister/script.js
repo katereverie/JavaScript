@@ -19,6 +19,20 @@ let cid = [
   ["ONE HUNDRED", 100]
 ];
 
+let currentChangeTotal;
+
+const updateCurrentChangeTotal = () => {
+  currentChangeTotal = 0;
+
+  for (let i = 0; i < cid.length; i++) {
+    currentChangeTotal += cid[i][1] * 100;
+  }
+
+  currentChangeTotal = currentChangeTotal / 100;
+  // console.log(currentChangeTotal);
+  return currentChangeTotal;
+}
+
 cid.forEach((changeType) => {
   drawer.innerHTML += `
   <div class="change">${changeType[0]}: $${changeType[1]}</div>
@@ -29,8 +43,7 @@ cid.forEach((changeType) => {
 const calculateChange = (price, cash) => {
   const change = (cash * 100 - price * 100) / 100;
   // console.log(change);
-  
-  
+  const currentChangeInDrawer = updateCurrentChangeTotal();
 }
 
 confirmBtn.addEventListener("click", () => {
