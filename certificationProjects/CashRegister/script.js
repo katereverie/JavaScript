@@ -141,24 +141,31 @@ const updateChangeCount = () => {
   } );
 }
 
+const clearInput = () => {
+  cashInput.value = "";
+}
+
 const calculateChange = (price, cash) => {
   const changeDue = (cash * 100 - price * 100) / 100;
+  console.log("Step 2: change due", changeDue);
 
   const currentChangeInDrawer = updateCurrentChangeTotal();
+  console.log("Step 3: currentChangeInDrawer", currentChangeInDrawer);
   
   if (currentChangeInDrawer < changeDue) {
+    console.log("currentChangeInDrawer < changeDue");
     dueChangeDisplay.textContent = "Status: INSUFFICIENT_FUNDS";
   } 
   if (currentChangeInDrawer === changeDue) {
     dueChangeDisplay.textContent = "Status: CLOSED";
   }
 
-  determineExactChange();
+  determineExactChange(changeDue);
 }
 
 confirmBtn.addEventListener("click", () => {
   const cashInputFloat = parseFloat(cashInput.value);
-  // console.log(totalPriceFloat, cashInputFloat);
+  console.log("Step 1", price, cashInputFloat);
   if (cashInputFloat < price) {
     alert("Customer does not have enough money to purchase the item");
     return;
@@ -169,4 +176,5 @@ confirmBtn.addEventListener("click", () => {
   }
 
   calculateChange(price, cashInputFloat);
+  clearInput();
 })
