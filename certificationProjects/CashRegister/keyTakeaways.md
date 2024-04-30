@@ -41,7 +41,12 @@
       3.3.3. We need an algorithm to dissect `dueChange` into a number of `changeType` for determining that whether there is *exact* to return. 
       3.3.3.1. declare `determineExactChange` arrow function, which takes `changeDue` as its paramter, and returns `true` or `false`.
   3.4. Now think about the design of algorithm. 
-      3.4.1. 
+      3.4.1. We can try a `for` loop to iterate through `changeDue` until it is equal to `0`. 
+           3.4.1.1. Maybe `changeDue` cannot be exactly returned. In that case, `changeDue` will be bigger than `0`. In that case, `for` loop stops, `changeDue` is not equal to `0`. If `changeDue` is not equal to `0` at the end of the loop. We know there is no exact change. In that case, we assign `false` to `hasExactChange`. If `changeDue` is equal to `0`, we assign `true` to `hasExactChange`. Either way, at the end of the `for` loop, we will know it is possible to return exact change. 
+      3.4.2. During the loop, we must count how many mony has been returned so that we can update `cid` for the cashier person to see. We can update while looping, using mathematical operations.
+      3.4.3. During the loop, we must also count how much money comes from which category of money so that we can update the `div` element `change-due` (`dueChangeDisplay`). Create an array variable `ctr` (short for "change to return") to store this information while looping. When the loop ends, if `hasExactChange` is `false`, we clear the stored values from `ctr` and display "Insufficent funds". If `hasExactChange` is `true`, we display `ctr` to `dueChangeDisplay.innerHTML`, using a `forEach` loop. 
+      3.4.4. So, how should the loop look like? 
+          3.4.5. The loop should start with hundreds. 
 
 
   

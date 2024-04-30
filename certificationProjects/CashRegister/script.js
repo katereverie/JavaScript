@@ -51,24 +51,93 @@ const updateCurrentChangeTotal = () => {
   }
 
   currentChangeTotal = currentChangeTotal / 100;
-  console.log(currentChangeTotal);
+  // console.log(currentChangeTotal);
   return currentChangeTotal;
 }
 
 const determineExactChange = (changeDue) => {
-  let changeDueArr = [];
+  // make a copy of cid in case there is not exact change;
+  const cidCopy = cid;
+  // while each category is not exhausted, keep on going
+  while (changeDue >= 100 && cidCopy[8][1] !== 0) {
+    changeDue -= 100;
+    cidCopy[8][1] -= 100;
+    ctr[8][1] += 100;
+  }
 
-  
-  
+  while (changeDue >= 20 && cidCopy[7][1] !== 0) {
+    changeDue -= 20;
+    cidCopy[7][1] -= 20;
+    ctr[7][1] += 20;
+  }
 
+  while (changeDue >= 10 && cidCopy[6][1] !== 0) {
+    changeDue -= 10;
+    cidCopy[6][1] -= 10;
+    ctr[6][1] += 10;
+  }
+
+  while (changeDue >= 5 && cidCopy[5][1] !== 0) {
+    changeDue -= 5;
+    cidCopy[5][1] -= 5;
+    ctr[5][1] += 5;
+  }
+
+  while (changeDue >= 1 && cidCopy[4][1] !== 0) {
+    changeDue -= 1;
+    cidCopy[4][1] -= 1;
+    ctr[4][1] += 1;
+  }
+
+  while (changeDue >= 0.25  && cidCopy[3][1] !== 0) {
+    changeDue = (changeDue * 100 - 25) / 100;
+    cidCopy[3][1] = (cidCopy[3][1] * 100 - 25) / 100;
+    ctr[3][1] = (ctr[3][1] * 100 + 25) / 100;
+  }
+
+  while (changeDue >= 0.1  && cidCopy[2][1] !== 0) {
+    changeDue = (changeDue * 100 - 10) / 100;
+    cidCopy[2][1] = (cidCopy[2][1] * 100 - 10) / 100;
+    ctr[2][1] = (ctr[2][1] * 100 + 10) / 100;
+  }
+
+  while (changeDue >= 0.05  && cidCopy[1][1] !== 0) {
+    changeDue = (changeDue * 100 - 5) / 100;
+    cidCopy[1][1] = (cidCopy[1][1] * 100 - 5) / 100;
+    ctr[1][1] = (ctr[1][1] * 100 + 5) / 100;
+  }
+
+  while (changeDue >= 0.01  && cidCopy[0][1] !== 0) {
+    changeDue = (changeDue * 100 - 1) / 100;
+    cidCopy[0][1] = (cidCopy[0][1] * 100 - 1) / 100;
+    ctr[0][1] = (ctr[0][1] * 100 + 1) / 100;
+  }
+
+  if (changeDue === 0) {
+    hasExactChange = true;
+    cid = cidCopy;
+    ctr.forEach((changeType) => {
+        if (changeType[1] !== 0) {
+          dueChangeDisplay.innerHTML += `
+          <div>${changeType[0]}: $${changeType[1]}</div>
+          `;
+        }
+      } 
+    )
+    updateChangeCount();
+    return;
+  }
+
+  hasExactChange = false;
+  updateChangeCount();
+  return;
 }
 
-// let arrTest = [2, 3, 5, 10, 200];
-// const price2 = 3;
-// console.log(arrTest[4] - 3, arrTest);
-// arrTest[4] -= 3;
-// console.log(arrTest);
-
+const updateChangeCount = () => {
+  ctr.forEach((changeType) => {
+    changeType[1] = 0;
+  } );
+}
 
 const calculateChange = (price, cash) => {
   const changeDue = (cash * 100 - price * 100) / 100;
