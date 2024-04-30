@@ -40,6 +40,8 @@
       3.3.2. If we cannot return exact change, display the same as 3.3.1. But How we do know whether we have *exact* change to return? add `!hasExactChange` as the second condition.
       3.3.3. We need an algorithm to dissect `dueChange` into a number of `changeType` for determining that whether there is *exact* to return. 
       3.3.3.1. declare `determineExactChange` arrow function, which takes `changeDue` as its paramter, and returns `true` or `false`.
+  3.4. Now think about the design of algorithm. 
+      3.4.1. 
 
 
   

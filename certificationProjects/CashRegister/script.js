@@ -28,6 +28,7 @@ cid.forEach((changeType) => {
   }
 )
 
+// change to return
 let ctr = [
   ["PENNY", 0],
   ["NICKEL", 0],
@@ -55,64 +56,18 @@ const updateCurrentChangeTotal = () => {
 }
 
 const determineExactChange = (changeDue) => {
-  // stop if changeDue === 0 or < 0
-  while (changeDue > 0) {
+  let changeDueArr = [];
 
-    while (changeDue >= cid[8][1]) {
-      changeDue -= 100;
-      ctr[8][1] += 100;
-      ctr[8][1] -= 100;
-    }
-    while (changeDue >= cid[7][1]) {
-      changeDue -= 20;
-      ctr[7][1] += 20;
-      ctr[7][1] -= 20;
-    }
-    while (changeDue >= cid[6][1]) {
-      changeDue -= 10;
-      ctr[6][1] += 10;
-      ctr[6][1] -= 10;
-    }
-    
-    while (changeDue >= cid[5][1]) {
-      changeDue -= 5;
-      ctr[5][1] += 5;
-      ctr[5][1] -= 5;
-    }
-    while (changeDue >= cid[4][1]) {
-      changeDue -=1;
-      ctr[4][1] += 1;
-      ctr[4][1] -= 1;
-    }
-    while (changeDue >= cid[3][1]) {
-      changeDue -= 0.25;
-      ctr[3][1] += 0.25;
-      cid[3][1] -= 0.25;
-    }
-    while (changeDue >= cid[2][1]) {
-      changeDue -= 0.1;
-      ctr[2][1] += 0.1;
-      cid[2][1] -= 0.1;
-    }
-    while (changeDue >= cid[1][1]) {
-      changeDue -= 0.05;
-      ctr[1][1] += 0.05;
-      cid[1][1] -= 0.05;
-    }
-    while (changeDue >= cid[0][1]) {
-      changeDue -= 0.01;
-      ctr[0][1] += 0.01;
-      cid[0][1] -= 0.01;
-    }
-
-    if (changeDue === 0) {
-      return hasExactChange = true;
-    }
-
-    return hasExactChange = false;
-  }
+  
+  
 
 }
+
+// let arrTest = [2, 3, 5, 10, 200];
+// const price2 = 3;
+// console.log(arrTest[4] - 3, arrTest);
+// arrTest[4] -= 3;
+// console.log(arrTest);
 
 
 const calculateChange = (price, cash) => {
