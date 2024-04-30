@@ -19,14 +19,25 @@ let cid = [
   ["ONE HUNDRED", 100]
 ];
 
-let currentChangeTotal;
-
 cid.forEach((changeType) => {
   drawer.innerHTML += `
   <div class="change">${changeType[0]}: $${changeType[1]}</div>
   `;
   }
 )
+
+let currentChangeTotal;
+
+const updateChangeInDrawer = (updatedChangeInDrawer) => {
+  drawer.innerHTML = `<label id="change-label" for="cash-register-drawer">Change Inventory</label>`;
+  updatedChangeInDrawer.forEach((changeType) => {
+    drawer.innerHTML += `
+    <div class="change">${changeType[0]}: $${changeType[1]}</div>
+    `;
+    }
+  )
+}
+
 
 // change to return
 let ctr = [
@@ -116,7 +127,8 @@ const determineExactChange = (changeDue) => {
   if (changeDue === 0) {
     hasExactChange = true;
     cid = cidCopy;
-    dueChangeDisplay.innerHTML += `<span>Status: Open </span>`
+    updateChangeInDrawer(cid);
+    dueChangeDisplay.innerHTML = `<span>Status: Open </span>`
     ctr.forEach((changeType) => {
         if (changeType[1] !== 0) {
           dueChangeDisplay.innerHTML += `
