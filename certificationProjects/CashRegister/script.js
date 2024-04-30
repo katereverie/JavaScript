@@ -116,6 +116,7 @@ const determineExactChange = (changeDue) => {
   if (changeDue === 0) {
     hasExactChange = true;
     cid = cidCopy;
+    dueChangeDisplay.innerHTML += `<span>Status: Open </span>`
     ctr.forEach((changeType) => {
         if (changeType[1] !== 0) {
           dueChangeDisplay.innerHTML += `
@@ -129,6 +130,7 @@ const determineExactChange = (changeDue) => {
   }
 
   hasExactChange = false;
+  dueChangeDisplay.innerHTML = `<span>Status: INSUFFICIENT_FUNDS</span>`;
   updateChangeCount();
   return;
 }
@@ -141,18 +143,17 @@ const updateChangeCount = () => {
 
 const calculateChange = (price, cash) => {
   const changeDue = (cash * 100 - price * 100) / 100;
-  // console.log(change);
+
   const currentChangeInDrawer = updateCurrentChangeTotal();
-  determineExactChange();
-  if (currentChangeInDrawer < changeDue && !hasExactChange) {
+  
+  if (currentChangeInDrawer < changeDue) {
     dueChangeDisplay.textContent = "Status: INSUFFICIENT_FUNDS";
   } 
   if (currentChangeInDrawer === changeDue) {
     dueChangeDisplay.textContent = "Status: CLOSED";
   }
-  if (currentChangeInDrawer > changeDue) {
-    dueChangeDisplay.textContent = "Status: OPEN";
-  }
+
+  determineExactChange();
 }
 
 confirmBtn.addEventListener("click", () => {
