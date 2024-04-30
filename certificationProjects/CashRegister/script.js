@@ -4,7 +4,7 @@ const confirmBtn = document.getElementById("purchase-btn");
 const dueChangeDisplay = document.getElementById("change-due");
 const drawer = document.getElementById("cash-register-drawer");
 
-let price = 1.87;
+let price = 19.5;
 priceSpan.innerText = price;
 // short for "change in drawer"
 let cid = [
@@ -68,61 +68,80 @@ const updateCurrentChangeTotal = () => {
 
 const determineExactChange = (changeDue) => {
   // make a copy of cid in case there is not exact change;
-  const cidCopy = cid;
+  let cidCopy = cid.slice();
+  console.log("This is a copy of cid", cidCopy);
   // while each category is not exhausted, keep on going
   while (changeDue >= 100 && cidCopy[8][1] !== 0) {
-    changeDue -= 100;
+    changeDue = (changeDue * 100 - 100 * 100) / 100;
     cidCopy[8][1] -= 100;
     ctr[8][1] += 100;
   }
 
+  console.log("After drawing 100s", changeDue);
+
   while (changeDue >= 20 && cidCopy[7][1] !== 0) {
-    changeDue -= 20;
+    changeDue = Number((changeDue - 20).toFixed(2));
     cidCopy[7][1] -= 20;
-    ctr[7][1] += 20;
+    ctr[7][1] += 20; 
   }
 
+  console.log("After drawing 20s", changeDue);
+
   while (changeDue >= 10 && cidCopy[6][1] !== 0) {
-    changeDue -= 10;
+    changeDue = Number((changeDue - 10).toFixed(2));
     cidCopy[6][1] -= 10;
     ctr[6][1] += 10;
   }
 
+  console.log("After drawing 10s", changeDue);
+
   while (changeDue >= 5 && cidCopy[5][1] !== 0) {
-    changeDue -= 5;
+    changeDue = Number((changeDue - 5).toFixed(2));
     cidCopy[5][1] -= 5;
     ctr[5][1] += 5;
   }
 
+  console.log("After drawing 5s", changeDue);
+
   while (changeDue >= 1 && cidCopy[4][1] !== 0) {
-    changeDue -= 1;
+    changeDue = Number((changeDue - 1).toFixed(2));
     cidCopy[4][1] -= 1;
     ctr[4][1] += 1;
   }
 
+  console.log("After drawing 1s", changeDue);
+
   while (changeDue >= 0.25  && cidCopy[3][1] !== 0) {
-    changeDue = (changeDue * 100 - 25) / 100;
-    cidCopy[3][1] = (cidCopy[3][1] * 100 - 25) / 100;
-    ctr[3][1] = (ctr[3][1] * 100 + 25) / 100;
+    changeDue = Number((changeDue - 0.25).toFixed(2));
+    cidCopy[3][1] -= 0.25;
+    ctr[3][1] += 0.25; 
   }
+
+  console.log("After drawing quarters", changeDue);
 
   while (changeDue >= 0.1  && cidCopy[2][1] !== 0) {
-    changeDue = (changeDue * 100 - 10) / 100;
-    cidCopy[2][1] = (cidCopy[2][1] * 100 - 10) / 100;
-    ctr[2][1] = (ctr[2][1] * 100 + 10) / 100;
+    changeDue = Number((changeDue - 0.1).toFixed(2));
+    cidCopy[2][1] -= 0.1; 
+    ctr[2][1] += 0.1;
   }
+
+  console.log("After drawing dimes", changeDue);
 
   while (changeDue >= 0.05  && cidCopy[1][1] !== 0) {
-    changeDue = (changeDue * 100 - 5) / 100;
-    cidCopy[1][1] = (cidCopy[1][1] * 100 - 5) / 100;
-    ctr[1][1] = (ctr[1][1] * 100 + 5) / 100;
+    changeDue = Number((changeDue - 0.05).toFixed(2));
+    cidCopy[1][1] -= 0.05;
+    ctr[1][1] += 0.05;
   }
 
+  console.log("After drawing nickles", changeDue);
+  
   while (changeDue >= 0.01  && cidCopy[0][1] !== 0) {
-    changeDue = (changeDue * 100 - 1) / 100;
-    cidCopy[0][1] = (cidCopy[0][1] * 100 - 1) / 100;
-    ctr[0][1] = (ctr[0][1] * 100 + 1) / 100;
+    changeDue = Number((changeDue - 0.01).toFixed(2));
+    cidCopy[0][1] -= 0.01;
+    ctr[0][1] += 0.01;
   }
+
+  console.log("After drawing pennies, how much change is still due", changeDue);
 
   if (changeDue === 0) {
     hasExactChange = true;
@@ -157,6 +176,7 @@ const clearInput = () => {
   cashInput.value = "";
 }
 
+//  this part needs modifying. Decide what to put in determineExactChange and what in calculateChange
 const calculateChange = (price, cash) => {
   const changeDue = (cash * 100 - price * 100) / 100;
   console.log("Step 2: change due", changeDue);
@@ -166,10 +186,10 @@ const calculateChange = (price, cash) => {
   
   if (currentChangeInDrawer < changeDue) {
     console.log("currentChangeInDrawer < changeDue");
-    dueChangeDisplay.textContent = "Status: INSUFFICIENT_FUNDS";
+    dueChangeDisplay.innerHTML = `<span>Status: INSUFFICIENT_FUNDS</span>`;
   } 
   if (currentChangeInDrawer === changeDue) {
-    dueChangeDisplay.textContent = "Status: CLOSED";
+    dueChangeDisplay.innerHTML = `<span>Status: CLOSED </span>`;
   }
 
   determineExactChange(changeDue);
