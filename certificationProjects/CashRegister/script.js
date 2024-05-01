@@ -4,7 +4,7 @@ const confirmBtn = document.getElementById("purchase-btn");
 const dueChangeDisplay = document.getElementById("change-due");
 const drawer = document.getElementById("cash-register-drawer");
 
-let price = 19.5;
+let price = 24.95;
 priceSpan.innerText = price;
 // short for "change in drawer"
 let cid = [
@@ -66,7 +66,29 @@ const updateCurrentChangeTotal = () => {
   return currentChangeTotal;
 }
 
-const determineExactChange = (changeDue) => {
+const determineExactChange = (changeDue, currentChangeInDrawer) => {
+
+  if (currentChangeInDrawer < changeDue) {
+    console.log("currentChangeInDrawer < changeDue");
+    dueChangeDisplay.innerHTML = `<span>Status: INSUFFICIENT_FUNDS</span>`;
+  }
+
+  if (currentChangeInDrawer === changeDue) {
+    hasExactChange = true;
+    dueChangeDisplay.innerHTML = `<span>Status: CLOSED </span>`;
+    cid.forEach((changeType) => {
+      if (changeType[1] !== 0) {
+        dueChangeDisplay.innerHTML += `
+        <div>${changeType[0]}: $${changeType[1]}</div>
+        `;
+      }} 
+    )
+    cid.forEach((changeType) => changeType[1] = 0);
+    updateChangeInDrawer(cid);
+    updateChangeCount();
+    return;
+  }
+
   // make a copy of cid in case there is not exact change;
   let cidCopy = cid.slice();
   console.log("This is a copy of cid", cidCopy);
@@ -149,12 +171,11 @@ const determineExactChange = (changeDue) => {
     updateChangeInDrawer(cid);
     dueChangeDisplay.innerHTML = `<span>Status: Open </span>`
     ctr.forEach((changeType) => {
-        if (changeType[1] !== 0) {
-          dueChangeDisplay.innerHTML += `
-          <div>${changeType[0]}: $${changeType[1]}</div>
-          `;
-        }
-      } 
+      if (changeType[1] !== 0) {
+        dueChangeDisplay.innerHTML += `
+        <div>${changeType[0]}: $${changeType[1]}</div>
+        `;
+      }} 
     )
     updateChangeCount();
     return;
@@ -183,16 +204,8 @@ const calculateChange = (price, cash) => {
 
   const currentChangeInDrawer = updateCurrentChangeTotal();
   console.log("Step 3: currentChangeInDrawer", currentChangeInDrawer);
-  
-  if (currentChangeInDrawer < changeDue) {
-    console.log("currentChangeInDrawer < changeDue");
-    dueChangeDisplay.innerHTML = `<span>Status: INSUFFICIENT_FUNDS</span>`;
-  } 
-  if (currentChangeInDrawer === changeDue) {
-    dueChangeDisplay.innerHTML = `<span>Status: CLOSED </span>`;
-  }
 
-  determineExactChange(changeDue);
+  determineExactChange(changeDue, currentChangeInDrawer);
 }
 
 confirmBtn.addEventListener("click", () => {
