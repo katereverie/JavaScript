@@ -81,64 +81,64 @@ const determineExactChange = (changeDue) => {
 
   while (changeDue >= 20 && cidCopy[7][1] !== 0) {
     changeDue = Number((changeDue - 20).toFixed(2));
-    cidCopy[7][1] -= 20;
-    ctr[7][1] += 20; 
+    cidCopy[7][1] = Number((cidCopy[7][1] - 20).toFixed(2));
+    ctr[7][1] = Number((ctr[7][1] + 20).toFixed(2));
   }
 
   console.log("After drawing 20s", changeDue);
 
   while (changeDue >= 10 && cidCopy[6][1] !== 0) {
     changeDue = Number((changeDue - 10).toFixed(2));
-    cidCopy[6][1] -= 10;
-    ctr[6][1] += 10;
+    cidCopy[6][1] = Number((cidCopy[6][1] - 10).toFixed(2));
+    ctr[6][1] = Number((ctr[6][1] + 10).toFixed(2));
   }
 
   console.log("After drawing 10s", changeDue);
 
   while (changeDue >= 5 && cidCopy[5][1] !== 0) {
     changeDue = Number((changeDue - 5).toFixed(2));
-    cidCopy[5][1] -= 5;
-    ctr[5][1] += 5;
+    cidCopy[5][1] = Number((cidCopy[5][1] - 5).toFixed(2));
+    ctr[5][1] = Number((ctr[5][1] + 5).toFixed(2));
   }
 
   console.log("After drawing 5s", changeDue);
 
   while (changeDue >= 1 && cidCopy[4][1] !== 0) {
     changeDue = Number((changeDue - 1).toFixed(2));
-    cidCopy[4][1] -= 1;
-    ctr[4][1] += 1;
+    cidCopy[4][1] = Number((cidCopy[4][1] - 1).toFixed(2));
+    ctr[4][1] = Number((ctr[4][1] + 1).toFixed(2));
   }
 
   console.log("After drawing 1s", changeDue);
 
   while (changeDue >= 0.25  && cidCopy[3][1] !== 0) {
     changeDue = Number((changeDue - 0.25).toFixed(2));
-    cidCopy[3][1] -= 0.25;
-    ctr[3][1] += 0.25; 
+    cidCopy[3][1] = Number((cidCopy[3][1] - 0.25).toFixed(2));
+    ctr[3][1] = Number((ctr[3][1] + 0.25).toFixed(2));
   }
 
   console.log("After drawing quarters", changeDue);
 
   while (changeDue >= 0.1  && cidCopy[2][1] !== 0) {
     changeDue = Number((changeDue - 0.1).toFixed(2));
-    cidCopy[2][1] -= 0.1; 
-    ctr[2][1] += 0.1;
+    cidCopy[2][1] = Number((cidCopy[2][1] - 0.1).toFixed(2));
+    ctr[2][1] = Number((ctr[2][1] + 0.1).toFixed(2));
   }
 
   console.log("After drawing dimes", changeDue);
 
   while (changeDue >= 0.05  && cidCopy[1][1] !== 0) {
     changeDue = Number((changeDue - 0.05).toFixed(2));
-    cidCopy[1][1] -= 0.05;
-    ctr[1][1] += 0.05;
+    cidCopy[1][1] = Number((cidCopy[1][1] - 0.05).toFixed(2));
+    ctr[1][1] = Number((ctr[1][1] + 0.05).toFixed(2));
   }
 
   console.log("After drawing nickles", changeDue);
   
   while (changeDue >= 0.01  && cidCopy[0][1] !== 0) {
     changeDue = Number((changeDue - 0.01).toFixed(2));
-    cidCopy[0][1] -= 0.01;
-    ctr[0][1] += 0.01;
+    cidCopy[0][1] = Number((cidCopy[0][1] - 0.01).toFixed(2));
+    ctr[0][1] = Number((ctr[0][1] + 0.01).toFixed(2));
   }
 
   console.log("After drawing pennies, how much change is still due", changeDue);
