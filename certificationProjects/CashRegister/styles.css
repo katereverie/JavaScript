@@ -9,7 +9,7 @@
 
 body {
   border: 1px solid red;
-  display: flex;
+  display: flexbox;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -17,6 +17,8 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: var(--light-rusty-copper);
+
+  overflow: auto;
 }
 
 header {
@@ -84,7 +86,7 @@ label {
   flex-direction: row;
   border: 10px groove var(--metallic-silver);
   margin-top: 20px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .currency-unit, .currency-unit-amount {
