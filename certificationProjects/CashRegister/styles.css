@@ -8,13 +8,14 @@
 }
 
 body {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  height: 100vh;
   margin: 0;
+  height: 100vh;
+  width: 100vw;
   background-color: var(--light-rusty-copper);
 }
 
@@ -23,7 +24,6 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 40px;
 }
 
 #app-title-container {
@@ -31,7 +31,7 @@ header {
   text-align: center;
   
   border: 10px groove var(--metallic-silver);
-  width: 20%;
+  max-width: 300px;
   background-color: var(--dark-rusty-copper);
 }
 
@@ -41,22 +41,37 @@ header {
 }
 
 #app-description {
+  font-size: 16px;
   padding: 10px;
 }
 
-main, footer {
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  position: relative;
   width: 80%;
 }
 
 /* header area */
 
-nav {
+
+
+label {
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+/* reference chart */
+
+#reference-area {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,16 +79,12 @@ nav {
   padding: 0;
 }
 
-label {
-  font-family: monospace, Arial, Helvetica, sans-serif;
-  font-size: 20px;
-}
-
 .reference-container {
   display: flex;
   flex-direction: row;
   border: 10px groove var(--metallic-silver);
   margin-top: 20px;
+  align-items: center;
 }
 
 .currency-unit, .currency-unit-amount {
@@ -96,7 +107,12 @@ label {
   background-color: var(--dark-rusty-copper);
 }
 
-/* main area */
+/* cash register */
+#cash-register-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #input-area {
   display: flex;
@@ -145,7 +161,7 @@ label {
   z-index: 1000;
 }
 
-#cash-register-container {
+#cash-register-drawer-container {
   width: 500px;
   height: 400px;
   
@@ -160,6 +176,24 @@ label {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: black;
+}
+
+#cash-register-drawer {
+  width: 60%;
+  height: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  border: 2px groove var(--metallic-silver);
+  color: white;
+}
+
+#change-label {
+  position: absolute;
+  top: 10px;
 }
 
 #cash-register-keyboard {
@@ -194,24 +228,6 @@ label {
 
 .hidden {
   display: none;
-}
-
-#cash-register-drawer {
-  width: 60%;
-  height: 80%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 20px;
-  border: 2px groove var(--metallic-silver);
-  color: white;
-}
-
-#change-label {
-  position: absolute;
-  top: 10px;
 }
 
 .change {
