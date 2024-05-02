@@ -47,6 +47,7 @@
       3.4.3. During the loop, we must also count how much money comes from which category of money so that we can update the `div` element `change-due` (`dueChangeDisplay`). Create an array variable `ctr` (short for "change to return") to store this information while looping. When the loop ends, if `hasExactChange` is `false`, we clear the stored values from `ctr` and display "Insufficent funds". If `hasExactChange` is `true`, we display `ctr` to `dueChangeDisplay.innerHTML`, using a `forEach` loop. 
       3.4.4. So, how should the loop look like? 
           3.4.5. The loop should start with hundreds. 
+3.5. Finish the documentation.
 
 
   
