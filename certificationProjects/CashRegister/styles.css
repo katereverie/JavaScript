@@ -8,24 +8,32 @@
 }
 
 body {
-  border: 1px solid red;
   display: flexbox;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
   margin: 0;
-  height: 100vh;
-  width: 100vw;
+
   background-color: var(--light-rusty-copper);
 
   overflow: auto;
 }
 
-header {
+#app {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
+  margin-right: 1%;
 }
 
 #app-title-container {
