@@ -6,3 +6,8 @@
   ```
   *Don't forget the double quotations.
   Make a `GET` request to the given URL where author information is stored.
+  * The `fetch()` method returns a `Promise`, which is a placeholder *object* that will either be fulfilled if your request is successful, or rejected if your request is unsuccessful. 
+  * If the `Promise` is fulfilled, it resolves to a `Response` *object*, you can use the `.then()` method to *access* the `Response` *object*. 
+  * You can pass in a callback in `.then()` to make it return the `Reponse` *object* the way you want. 
+  * The data you get from a `GET` request is not usable at first (why?). You can use `.json()` method on the `Response` object to *parse* it into JSON. 
+  * 
