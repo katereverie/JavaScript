@@ -43,3 +43,15 @@ We have the data now. But the data is not showing on the web page (UI).
   14. When `loadMoreBtn` is clicked on, you need to *load* the other authors onto the page. Add a new function called `fetchMoreAuthors` to achieve that.
   15. Remember that you only display 8 more authors as this is how it is designed to be in the first place. So, you can add 8 to `startingIndex` and `endingIndex` respectively, and call `displayAuthors` in a similar way.
   16. Now we have the function to load more authors. We need to add an event to the button itself. You should know how this is done.
+
+**Epilogue**
+  
+  Now the functionality of the webpage is complete. You can also consider the UX (user experience). 
+  1. To enhance it, maybe inform users that there is no author data to load if users have reached the last element of the `authorDataArr`. 
+  2. Perhaps, separate the author's image and their bio separate by adding a dividing line. 
+  3. Perhaps, make the author bio uniform by limiting the number of characters in the bio. 
+  4. Perhaps, there's an error and the author data doesn't load? You can use `.catch()` method to handle errors. 
+  5. Change the cursor from `pointer` to `not-allowed` if there is no more data to load, so that users won't feel confused. 
+
+
+
