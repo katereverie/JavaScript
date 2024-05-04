@@ -47,8 +47,7 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
   - Get number of hours agao the post was created: `const hoursAgo = Math.floor(minutesAgo / 60);`
   - Get number of days ago the post was created: `const daysAgo = Math.floor(hoursAgo / 24);`
 - Now we have operations to take care of each duration of elapsed time, we need to introduce `if` statements to confirm which duration to display. This code should be self-explanatory.
-  - 
-  ```
+  - ```
     If (minutesAgo < 60) {
       return `${minutesAgo}m ago`;
     }
