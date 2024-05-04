@@ -91,4 +91,6 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
 ### We also want topic participant avaters to display
 
 - Create an arrow function `avatars` with `posters` and `users` as its two parameters.
-- 
+- we want to `map` through `posters` with `poster` as the parameter for the map callback to find the correct user using `.find()` with a callback which has `user` as its parameter. Inside the find callback, return implicitly `user.id` which is strictly equal to `poster.user_id`.
+- If `user` exists, that is, `user` does not have a falsy value, assign `user.avatar_template.replace(/size/, 30)` to `const avatar`.
+- Further, assign `avatar.startsWith("/user_avatar/") ? avatarUrl.concat(avatar) : avatar` to `const userAvatarUrl`. 
