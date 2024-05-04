@@ -17,6 +17,10 @@ fetch("https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json")
   authorContainer.innerHTML = '<p class="error-msg">There was an error loading the authors</p>';
 });
 
+authorContainer.innerHTML = `
+<p id="testing">testing</p>
+`;
+
 const displayAuthors = (authors) => {
   authors.forEach(({author, image, url, bio}, index) => {
     authorContainer.innerHTML += `

@@ -70,3 +70,10 @@ body {
   border-color: var(--golden-yellow);
   border-width: 3px;
 }
+
+#testing {
+  color: white;
+  border: 1px solid red;
+  margin: 0;
+  padding: 0;
+}
