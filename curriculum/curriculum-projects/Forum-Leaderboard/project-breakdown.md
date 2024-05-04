@@ -77,5 +77,18 @@ Each of the forum topics can be categorized. So, we need to build out a category
   - Inside the body, declare a mutable object var `selectedCategory` to store the category name and class name for each category.
   - Add an `if` statement which checks whether `allCategories` has the property of `id`. Refer back to the data structure of `allCategories`. If `true`, destructure `className` and `category` from `allCategories[id]`. Assign the destructured properties to `selectedCategory.className` and `selectedCategory.category` respectively. `Else`, assign string `"general"` and `"General"` to `selectedCategory.className` and `selectedCategory.category` respectively; and assign 1 to `selectedCategory.id`.
 - Every category has a URL that points to the category on the forum.
-  - Create: 
+  - Create:
   ```const url = `${forumCategoryUrl}${selectedCategory.className}/${id}`;```
+  - Create:
+  ```const linkText = selectedCategory.category.value;```
+  This will display the name of the category in the anchor element.
+  - Create:
+  ```const linkClass = `category ${selectedCategory.className}`;```
+  - return:
+  ```return `<a href="${url}" class="${linkClass}" target="_blank">${linkText}</a>`;```
+  - Now refer back to the 1st `<td>`, add: `${forumCategory(category_id)}` below `<p>`. Now we can see the category displayed.
+
+We also want topic participant avaters to display.
+
+- Create an arrow function `avatars` with `posters` and `users` as its two parameters.
+- 
