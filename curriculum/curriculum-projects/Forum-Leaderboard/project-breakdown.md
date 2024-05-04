@@ -75,4 +75,7 @@ Each of the forum topics can be categorized. So, we need to build out a category
 - Now we have the data of categories, we need to determine which topic belongs to which category.
   - Create a function `forumCategory` with `id` as its parameter to retrieve the category name from `allCategories` object.
   - Inside the body, declare a mutable object var `selectedCategory` to store the category name and class name for each category.
-  - 
+  - Add an `if` statement which checks whether `allCategories` has the property of `id`. Refer back to the data structure of `allCategories`. If `true`, destructure `className` and `category` from `allCategories[id]`. Assign the destructured properties to `selectedCategory.className` and `selectedCategory.category` respectively. `Else`, assign string `"general"` and `"General"` to `selectedCategory.className` and `selectedCategory.category` respectively; and assign 1 to `selectedCategory.id`.
+- Every category has a URL that points to the category on the forum.
+  - Create: 
+  ```const url = `${forumCategoryUrl}${selectedCategory.className}/${id}`;```
