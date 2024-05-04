@@ -46,7 +46,7 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
   - Get number of hours agao the post was created: `const hoursAgo = Math.floor(minutesAgo / 60);`
   - Get number of days ago the post was created: `const daysAgo = Math.floor(hoursAgo / 24);`
 
- Now we have operations to take care of each duration of elapsed time, we need to introduce `if` statements to confirm which duration to display. This code should be self-explanatory.
+### Now we have operations to take care of each duration of elapsed time, we need to introduce `if` statements to confirm which duration to display. This code should be self-explanatory
 
 ```JS
   if (minutesAgo < 60) {
@@ -60,16 +60,16 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
   return `${daysAgo}d ago`;
 ```
 
-  - For the 5th (last) `<td>`, call `timeAgo` function and pass in `bumped_at`.
+- For the 5th (last) `<td>`, call `timeAgo` function and pass in `bumped_at`.
 
-We also want better readability.
+### We also want better readability
 
 - We need a function to convert view counts to a more readable format, which also saves us space where possible, e.g. if the view count is 1000, we display "1k" instead of "1000", which is 2 characaters longer than "1k".
   - Create `viewCount` with `views` as its parameter.
   - Inside the body, create a const var to store view count in the unit of thousands, and add an `if` statement to return the thousand format if view counts are equal to or exceed 1000. If not, simply return `views` as is.
   - Now refer back to adding `views` or `thousands` to the 4th `<td>` element.
 
-Each of the forum topics can be categorized. So, we need to build out a category object which holds all of the forum categories and `classNames` for styling.
+### Each of the forum topics can be categorized. So, we need to build out a category object which holds all of the forum categories and `classNames` for styling.
 
 - Start by creating a const `allCategories`, assign it an empty object. Since the data structure has been provided for you, simply refer back to it at line 8.
 - Now we have the data of categories, we need to determine which topic belongs to which category.
@@ -88,7 +88,7 @@ Each of the forum topics can be categorized. So, we need to build out a category
   ```return `<a href="${url}" class="${linkClass}" target="_blank">${linkText}</a>`;```
   - Now refer back to the 1st `<td>`, add: `${forumCategory(category_id)}` below `<p>`. Now we can see the category displayed.
 
-We also want topic participant avaters to display.
+### We also want topic participant avaters to display
 
 - Create an arrow function `avatars` with `posters` and `users` as its two parameters.
 - 
