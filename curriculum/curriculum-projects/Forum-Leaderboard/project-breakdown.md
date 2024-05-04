@@ -35,7 +35,7 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
 - To avoid having commas on display, we join each item with an empty string.
 - For the 1st `<td>`, put a `<p class="post-title">${title}</p>` inside it. We will see the title data displayed.
 - For the 3rd `<td>`, put `${posts_count - 1}` in there. We will see under "Replies" the number of replies to this topic.
-- For the 4th `<td>`, put `${views}` in there to display the number of views under "Views".
+- For the 4th `<td>`, put `${viewCount(views)}` in there to display the number of views under "Views". (The function is provided below at line 67 - 70)
 - For the 5th `<td>`, we pass the elapsed time since the last reply. Before we put the relevant data in there, we need to process it first.
   - Create a function `timeAgo` with a parameter `time`;
   - Inside the body, create `const currentTime = new Date();`
@@ -50,12 +50,29 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
 
 ```JS
   if (minutesAgo < 60) {
-      return `${minutesAgo}m ago`;
-    }
+    return `${minutesAgo}m ago`;
+  }
+
+  if (hoursAgo < 24) {
+    return `${hoursAgo}h ago`;
+  }
+
+  return `${daysAgo}d ago`;
 ```
 
-```JS
-  if (hoursAgo < 24) {
-  return `${hoursAgo}h ago`;
-}
-```
+  - For the 5th (last) `<td>`, call `timeAgo` function and pass in `bumped_at`.
+
+We also want better readability.
+
+- We need a function to convert view counts to a more readable format, which also saves us space where possible, e.g. if the view count is 1000, we display "1k" instead of "1000", which is 2 characaters longer than "1k".
+  - Create `viewCount` with `views` as its parameter.
+  - Inside the body, create a const var to store view count in the unit of thousands, and add an `if` statement to return the thousand format if view counts are equal to or exceed 1000. If not, simply return `views` as is.
+  - Now refer back to adding `views` or `thousands` to the 4th `<td>` element.
+
+Each of the forum topics can be categorized. So, we need to build out a category object which holds all of the forum categories and `classNames` for styling.
+
+- Start by creating a const `allCategories`, assign it an empty object. Since the data structure has been provided for you, simply refer back to it at line 8.
+- Now we have the data of categories, we need to determine which topic belongs to which category.
+  - Create a function `forumCategory` with `id` as its parameter to retrieve the category name from `allCategories` object.
+  - Inside the body, declare a mutable object var `selectedCategory` to store the category name and class name for each category.
+  - 
