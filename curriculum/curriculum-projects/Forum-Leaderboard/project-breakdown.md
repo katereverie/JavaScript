@@ -33,7 +33,8 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
 - Now we have the data of the latest topics posted on the forum, we get to load them on to the page. Since there are a lot of data in there, we can call `map()` on `topics`. For the callback, we use an empty arrow function, which takes `item` as a parameter. The returned result should be assigned to the corresponding HTML element. This assumes that we are familiar with the structure of `topics` array. Take a look, we will see its many properties. We need to destructure these properties inside the callback for `map()`.
 - Now we have all properties we want to display, we can build out a `table` element, into which we load these properties. Start with a return statement with ``<tr></tr>`` which will have 5 `<td></td>` inside.
 - To avoid having commas on display, we join each item with an empty string.
-- For the 1st `<td>`, put a `<p class="post-title">${title}</p>` inside it. We will see the title data displayed.
+- For the 1st `<td>`, put a `<p class="post-title">${title}</p>` inside it. We will see the title data displayed. (This element will be switched later)
+- For the 2nd `<td>`, we will put a function there to display user avatars. More on that later.
 - For the 3rd `<td>`, put `${posts_count - 1}` in there. We will see under "Replies" the number of replies to this topic.
 - For the 4th `<td>`, put `${viewCount(views)}` in there to display the number of views under "Views". (The function is provided below at line 67 - 70)
 - For the 5th `<td>`, we pass the elapsed time since the last reply. Before we put the relevant data in there, we need to process it first.
@@ -69,7 +70,7 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
   - Inside the body, create a const var to store view count in the unit of thousands, and add an `if` statement to return the thousand format if view counts are equal to or exceed 1000. If not, simply return `views` as is.
   - Now refer back to adding `views` or `thousands` to the 4th `<td>` element.
 
-### Each of the forum topics can be categorized. So, we need to build out a category object which holds all of the forum categories and `classNames` for styling.
+### Each of the forum topics can be categorized. So, we need to build out a category object which holds all of the forum categories and `classNames` for styling
 
 - Start by creating a const `allCategories`, assign it an empty object. Since the data structure has been provided for you, simply refer back to it at line 8.
 - Now we have the data of categories, we need to determine which topic belongs to which category.
@@ -93,4 +94,15 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
 - Create an arrow function `avatars` with `posters` and `users` as its two parameters.
 - we want to `map` through `posters` with `poster` as the parameter for the map callback to find the correct user using `.find()` with a callback which has `user` as its parameter. Inside the find callback, return implicitly `user.id` which is strictly equal to `poster.user_id`.
 - If `user` exists, that is, `user` does not have a falsy value, assign `user.avatar_template.replace(/size/, 30)` to `const avatar`.
-- Further, assign `avatar.startsWith("/user_avatar/") ? avatarUrl.concat(avatar) : avatar` to `const userAvatarUrl`. 
+- Further, assign `avatar.startsWith("/user_avatar/") ? avatarUrl.concat(avatar) : avatar` to `const userAvatarUrl`.
+- Return at the end of the `if` statement: a template literal with `<img src="${userAvatarUrl}" alt="${user.name}"`.
+- At the end of the `map`, join the return result with an empty string.
+- Now we all need is a function to display the avatars.
+- Add `<div class="avatar-container"></div>` to the 2nd `<td>` and call `${avatars(posters, users)}` in there. Now we should see the avatars displayed.
+
+### We want to be directed to the actual post when clicking on a topic
+
+- Switch `<p>` element with `<a>` inside the 1st `<td>`.
+- add `target="_blank"` the anchor element so that when clicked on, the browser opens a new tab; add `href="${forumTopicUrl}${slug}/${id}"` to it as well.
+
+<span style="font-size: larger">Now we've officially completed the project.</span>
