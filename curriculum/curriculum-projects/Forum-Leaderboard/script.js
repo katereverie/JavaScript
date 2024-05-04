@@ -33,4 +33,18 @@ const showLatestPosts = (data) => {
       bumped_at} 
       = item;
   });
+
+  return `
+  <tr>
+    <td><td>
+    <td><td>
+    <td><td>
+    <td><td>
+    <td><td>
+  </tr>
+  `;
+}
+
+const timeAgo = (time) => {
+
 }

@@ -34,5 +34,19 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
 - Now we have the data of the latest topics posted on the forum, we get to load them on to the page. Since there are a lot of data in there, we can call `map()` on `topics`. For the callback, we use an empty arrow function, which takes `item` as a parameter. The returned result should be assigned to the corresponding HTML element. This assumes that we are familiar with the structure of `topics` array. Take a look, we will see its many properties. We need to destructure these properties inside the callback for `map()`.
 - Now we have all properties we want to display, we can build out a `table` element, into which we load these properties. Start with a return statement with ``<tr></tr>`` which will have 5 `<td></td>` inside.
 - To avoid having commas on display, we join each item with an empty string.
-
-
+- For the 1st `<td>`, put a `<p class="post-title">${title}</p>` inside it. We will see the title data displayed.
+- For the 3rd `<td>`, put `${posts_count - 1}` in there. We will see under "Replies" the number of replies to this topic.
+- For the 4th `<td>`, put `${views}` in there to display the number of views under "Views".
+- For the 5th `<td>`, we pass the elapsed time since the last reply. Before we put the relevant data in there, we need to process it first.
+  - Create a function `timeAgo` with a parameter `time`;
+  - Inside the body, create `const currentTime = new Date();`
+  - Below `currentTime`, create `const lastPost = new Date(time);`
+  - Calculate the time difference: `const timeDifference = currentTime - lastPost;`
+  - Create a const var to store the number of milliseconds in a minute: `const msPerMinute = 1000 * 60;`
+  - Get number of minutes ago the post was created: `const minutesAgo = Math.floor(timeDifference / msPerMinute);`
+  - Get number of hours agao the post was created: `const hoursAgo = Math.floor(minutesAgo / 60);`
+  - Get number of days ago the post was created: `const daysAgo = Math.floor(hoursAgo / 24);`
+- Now we have operations to take care of each duration of elapsed time, we need to introduce `if` statements to confirm which duration to display. This code should be self-explanatory.
+  - `If (minutesAgo < 60) {
+    return`${minutesAgo}m ago`;
+  }`
