@@ -19,10 +19,9 @@ Since the names for vars, functions, etc. are provided for in this project, we i
 - Once the request has been accepted, it returns a `promise` object, which will need to be parsed into a `JSON object`, using `await res.json()`. Create a const var `data` to store the `JSON object`. Add a log statement and call the function to check the parsed data in the console, in case something is off somewhere.
 - The `catch` block should handle errors. Add a log statement, pass in the parsed data.
 
-### These are steps related to other steps. So, they are *ad hoc*.
+### These are steps related to other steps. So, they are *ad hoc*
 
 - It's a good idea to see the data being loaded on to the page as we go. So, call `showLatestPosts(data)` (from Step 3) inside the `try` block.
-
 
 ## 3. Load *data* onto the page
 
@@ -46,9 +45,12 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
   - Get number of minutes ago the post was created: `const minutesAgo = Math.floor(timeDifference / msPerMinute);`
   - Get number of hours agao the post was created: `const hoursAgo = Math.floor(minutesAgo / 60);`
   - Get number of days ago the post was created: `const daysAgo = Math.floor(hoursAgo / 24);`
-- Now we have operations to take care of each duration of elapsed time, we need to introduce `if` statements to confirm which duration to display. This code should be self-explanatory.
-  - ```
+
+3.1. Now we have operations to take care of each duration of elapsed time, we need to introduce `if` statements to confirm which duration to display. This code should be self-explanatory.
+
+  ```
     If (minutesAgo < 60) {
       return `${minutesAgo}m ago`;
     }
+    
   ```
