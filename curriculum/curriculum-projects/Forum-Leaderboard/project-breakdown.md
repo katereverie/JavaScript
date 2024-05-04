@@ -52,5 +52,4 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
     If (minutesAgo < 60) {
       return `${minutesAgo}m ago`;
     }
-
   ```
