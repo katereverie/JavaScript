@@ -100,9 +100,9 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
 - Now we all need is a function to display the avatars.
 - Add `<div class="avatar-container"></div>` to the 2nd `<td>` and call `${avatars(posters, users)}` in there. Now we should see the avatars displayed.
 
-### We want to be directed to the actual post when clicking on a topic
+### Lastly, We want to be directed to the actual post when clicking on a topic
 
 - Switch `<p>` element with `<a>` inside the 1st `<td>`.
 - add `target="_blank"` the anchor element so that when clicked on, the browser opens a new tab; add `href="${forumTopicUrl}${slug}/${id}"` to it as well.
 
-<span style="font-size: larger">Now we've officially completed the project.</span>
+**Now we've officially completed the project.**
