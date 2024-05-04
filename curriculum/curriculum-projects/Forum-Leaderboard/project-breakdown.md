@@ -15,7 +15,7 @@ Since the names for vars, functions, etc. are provided for in this project, we i
 
 - use `async` keyword followed by an arrow function to create an asynchronous function, which returns a `promise` object; this is necessary because we want to populate the forum leaderboard with data. To get data, we need to request the desired data from an API. This is called an *asynchronous* operation. Basically, it means that tasks execute *independently* of the main program flow.
 - Inside the asynchronous function, use `try ... catch` to handle potential errors.
-- Inside the `try` block, declare a const var `res`, assign it `fetch(forumLeader)` using `await` keyword. This waits fro a `promise` to resolve and return the result.
+- Inside the `try` block, declare a const var `res`, assign it `fetch(forumLeader)` using `await` keyword. This awaits a `promise` to resolve and return the result.
 - Once the request has been accepted, it returns a `promise` object, which will need to be parsed into a `JSON object`, using `await res.json()`. Create a const var `data` to store the `JSON object`. Add a log statement and call the function to check the parsed data in the console, in case something is off somewhere.
 - The `catch` block should handle errors. Add a log statement, pass in the parsed data.
 
@@ -27,16 +27,16 @@ Since the names for vars, functions, etc. are provided for in this project, we i
 
 If nothing goes wrong in step 2, we move on to step 3, which is loading the data onto the webpage.
 
-- We can create an arrow function `showLatesPosts`, which takes `data` as a single parameter.
+- We can create an arrow function `showLatestPosts`, which takes `data` as a single parameter.
 - Inside the body, use *destructuring* to get `topic_list` and `users` properties from `data`.
 - Since `topic_list` contains a `topics` array which contains the latest topics posted on the forum, we need to destructure the array from `topic_list`.
 - Now we have the data of the latest topics posted on the forum, we get to load them on to the page. Since there are a lot of data in there, we can call `map()` on `topics`. For the callback, we use an empty arrow function, which takes `item` as a parameter. The returned result should be assigned to the corresponding HTML element. This assumes that we are familiar with the structure of `topics` array. Take a look, we will see its many properties. We need to destructure these properties inside the callback for `map()`.
 - Now we have all properties we want to display, we can build out a `table` element, into which we load these properties. Start with a return statement with ``<tr></tr>`` which will have 5 `<td></td>` inside.
 - To avoid having commas on display, we join each item with an empty string.
 - For the 1st `<td>`, put a `<p class="post-title">${title}</p>` inside it. We will see the title data displayed. (This element will be switched later)
-- For the 2nd `<td>`, we will put a function there to display user avatars. More on that later.
+- For the 2nd `<td>`, we will put a function there to display user avatars in later steps. But now leave it empty.
 - For the 3rd `<td>`, put `${posts_count - 1}` in there. We will see under "Replies" the number of replies to this topic.
-- For the 4th `<td>`, put `${viewCount(views)}` in there to display the number of views under "Views". (The function is provided below at line 67 - 70)
+- For the 4th `<td>`, put `${viewCount(views)}` in there to display the number of views under "Views". (The function is provided below in later steps)
 - For the 5th `<td>`, we pass the elapsed time since the last reply. Before we put the relevant data in there, we need to process it first.
   - Create a function `timeAgo` with a parameter `time`;
   - Inside the body, create `const currentTime = new Date();`
@@ -72,7 +72,7 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
 
 ### Each of the forum topics can be categorized. So, we need to build out a category object which holds all of the forum categories and `classNames` for styling
 
-- Start by creating a const `allCategories`, assign it an empty object. Since the data structure has been provided for you, simply refer back to it at line 8.
+- Start by creating a const `allCategories`, assign it an empty object. Since the data structure has been provided for you, simply refer back to it at where DOM and vars are placed.
 - Now we have the data of categories, we need to determine which topic belongs to which category.
   - Create a function `forumCategory` with `id` as its parameter to retrieve the category name from `allCategories` object.
   - Inside the body, declare a mutable object var `selectedCategory` to store the category name and class name for each category.
