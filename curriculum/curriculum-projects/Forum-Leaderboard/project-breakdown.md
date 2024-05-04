@@ -53,3 +53,10 @@ If nothing goes wrong in step 2, we move on to step 3, which is loading the data
       return `${minutesAgo}m ago`;
     }
   ```
+
+```
+if (hoursAgo < 24) {
+  return `${hoursAgo}h ago`;
+}
+```
+
