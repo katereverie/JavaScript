@@ -12,23 +12,27 @@
   <body>
     <header>
       <h1 id="app-title">Easy Pokédex</h1>
-      <label id="search-input-label" for="search-input">Search Pokémon by Name or ID: </label>
-      <div id="search-container">
-        <input id="search-input" required />
-        <button id="search-button"></button>
+      <div id="search-input-label-button-container">
+        <label id="search-input-label" for="search-input">Search Pokémon by <em style="color: white;">Name</em> or <em style="color: white;">ID</em>: </label>
+        <div id="search-container">
+          <input id="search-input" required />
+          <button id="search-button">Search</button>
+        </div>
       </div>
+
     </header>
     <main>
       <div id="pokemon-general-info-container">
         <div id="pokemon-name-id-container">
-          <span id="pokemon-name"></span>
-          <span id="pokemon-id"></span>
+          <span id="pokemon-name">Name: </span>
+          <span id="pokemon-id">Pokédex-ID: </span>
         </div>
         <div id="pokemon-size-container">
-          <span id="weight"></span>
-          <span id="height"></span>
+          <span id="weight">Weight: </span>
+          <span id="height">Height: </span>
         </div>
         <div id="pokemon-sprite-container">
+          Sprite goes here
         </div>
         <div id="pokemon-types-container">
           <span id="types"></span>
@@ -36,25 +40,43 @@
       </div>
       <div id="pokemon-stats-container">
         <table>
-          <thead>
+          <caption>
+            Base Stats
+          </caption>
+          <tbody>
             <tr>
-              <th id="base">Base</th>
-              <th id="stats">Stats</th>
+              <th scope="row" id="hp">HP:</th>
+              <td>data</td>
             </tr>
-          </thead>
-          <tbody id="base-stats-container">
             <tr>
-              <td id="hp">HP:</td>
-              <td id="attack">Attack:</td>
-              <td id="defense">Defense:</td>
-              <td id="special-attack">Special Attack:</td>
-              <td id="special-defense">Special Defense:</td>
-              <td id="speed">Speed:</td>
+              <th scope="row" id="attack">Attack:</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th scope="row" id="defense">Defense:</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th scope="row" id="special-attack">Special Attack</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th scope="row" id="special-defense">Special Defense</th>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th scope="row" id="speed">Speed</th>
+              <td>data</td>
             </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" id="total-stats">Total:</th>
+              <td>sum</td>
+            </tr>
+          </tfoot>
         </table>
       </div>
-
     </main>
     <script src="script.js"></script>
   </body>
