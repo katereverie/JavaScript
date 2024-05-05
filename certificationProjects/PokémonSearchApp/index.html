@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Pokémon Search App</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="app-title">Easy Pokédex</h1>
+      <label id="search-input-label" for="search-input">Search Pokémon by Name or ID: </label>
+      <div id="search-container">
+        <input id="search-input" required />
+        <button id="search-button"></button>
+      </div>
+    </header>
+    <main>
+      <div id="pokemon-general-info-container">
+        <div id="pokemon-name-id-container">
+          <span id="pokemon-name"></span>
+          <span id="pokemon-id"></span>
+        </div>
+        <div id="pokemon-size-container">
+          <span id="weight"></span>
+          <span id="height"></span>
+        </div>
+        <div id="pokemon-sprite-container">
+        </div>
+        <div id="pokemon-types-container">
+          <span id="types"></span>
+        </div>
+      </div>
+      <div id="pokemon-stats-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="base">Base</th>
+              <th id="stats">Stats</th>
+            </tr>
+          </thead>
+          <tbody id="base-stats-container">
+            <tr>
+              <td id="hp">HP:</td>
+              <td id="attack">Attack:</td>
+              <td id="defense">Defense:</td>
+              <td id="special-attack">Special Attack:</td>
+              <td id="special-defense">Special Defense:</td>
+              <td id="speed">Speed:</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
