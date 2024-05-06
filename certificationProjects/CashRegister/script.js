@@ -194,3 +194,21 @@ confirmBtn.addEventListener("click", () => {
   calculateChange(price, cashInputFloat);
   clearInput();
 })
+
+cashInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    const cashInputFloat = parseFloat(cashInput.value);
+    console.log("Step 1", price, cashInputFloat);
+    if (cashInputFloat < price) {
+      alert("Customer does not have enough money to purchase the item");
+      return;
+    } else if (cashInputFloat === price) {
+      dueChangeDisplay.textContent = "No change due - customer paid with exact cash";
+      dueChangeDisplay.classList.toggle(".hidden");
+      return;
+    }
+    calculateChange(price, cashInputFloat);
+    clearInput();
+  }
+})

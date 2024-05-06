@@ -14,50 +14,46 @@
     <title>Cash Register</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <h1>Cash Register Simulator</h1>
-        <div id="reference">
-          <span>Penny: $0.01</span>
-          <span>Nickle: $0.05</span>
-          <span>Dime: $0.1</span>
-          <span>Quarter: $0.25</span>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <div id="cash-register-area">
-        <div id="input-area">
-          <label id="input-label" for="cash">Enter Cash Amount From Customers: </label>
-          <input id="cash" type="number"/>
-          <button id="purchase-btn">Confirm</button>  
-          <p id="total">Total: $ <span id="price"></span></p>
-          <div id="change-due" class="hidden"></div>
-        </div>
-        <div id="connect-div"></div>
-        <div id="cash-register-drawer-container">
-          <div id="cash-register-drawer">
-            <label id="change-label" for="cash-register-drawer">Change Inventory</label>
-          </div>
-          <div id="cash-register-keyboard">
-            <div id="one-to-three">
-              <div class="keyboard-number">1</div>
-              <div class="keyboard-number">2</div>
-              <div class="keyboard-number">3</div>
-            </div>
-            <div id="four-to-six">
-              <div class="keyboard-number">4</div>
-              <div class="keyboard-number">5</div>
-              <div class="keyboard-number">6</div>
-            </div>
-            <div id="seven-to-nine">
-              <div class="keyboard-number">7</div>
-              <div class="keyboard-number">8</div>
-              <div class="keyboard-number">9</div>
-            </div>
-          </div> 
-        </div>   
+    <nav>
+      <h1>Cash Register Simulator</h1>
+      <div id="reference">
+        <span><strong>Penny</strong>: $0.01</span>
+        <span><strong>Nickle</strong>: $0.05</span>
+        <span><strong>Dime</strong>: $0.1</span>
+        <span><strong>Quarter</strong>: $0.25</span>
       </div>
+    </nav>
+    <main>
+      <div id="input-area">
+        <label id="input-label" for="cash">Enter Cash Amount From Customers: </label>
+        <input id="cash" type="number"/>
+        <button id="purchase-btn">Confirm</button>  
+        <p id="total">Total: $ <span id="price"></span></p>
+        <div id="change-due" class="hidden"></div>
+      </div>
+      <div id="connect-div"></div>
+      <div id="cash-register-drawer-container">
+        <div id="cash-register-drawer">
+          <label id="change-label" for="cash-register-drawer">Change Inventory</label>
+        </div>
+        <div id="cash-register-keyboard">
+          <div id="one-to-three">
+            <div class="keyboard-number">1</div>
+            <div class="keyboard-number">2</div>
+            <div class="keyboard-number">3</div>
+          </div>
+          <div id="four-to-six">
+            <div class="keyboard-number">4</div>
+            <div class="keyboard-number">5</div>
+            <div class="keyboard-number">6</div>
+          </div>
+          <div id="seven-to-nine">
+            <div class="keyboard-number">7</div>
+            <div class="keyboard-number">8</div>
+            <div class="keyboard-number">9</div>
+          </div>
+        </div> 
+      </div>   
     </main>
     <footer>
       <p id="author">Powered By <span>Katereverie</span></p>
