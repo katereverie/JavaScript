@@ -2,6 +2,17 @@ const userInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-button");
 const pokemonName = document.getElementById("pokemon-name");
 const pokemonId = document.getElementById("pokemon-id");
+const pokemonWeight = document.getElementById("weight");
+const pokemonHeight = document.getElementById("height");
+const pokemonSprite = document.getElementById("pokemon-sprite-container");
+const pokemonHP = document.getElementById("hp");
+const pokemonAttack = document.getElementById("attack");
+const pokemonDefense = document.getElementById("defense");
+const pokemonSpAttack = document.getElementById("special-attack");
+const pokemonSpDefense = document.getElementById("special-defense");
+const pokemonSpeed = document.getElementById("speed");
+const pokemonStatsTotal = document.getElementById("total-stats");
+
 const spriteContainer = document.getElementById("pokemon-sprite-container");
 
 // Use this get id, name, and URL of other data
@@ -10,8 +21,8 @@ const pokemonList = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
 const pokemonData = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/";
 
 let fetchedList;
-let fetchedData;
 let relevantData = [];
+let statsTotal = 0;
 
 const testObjInArr = [
   {
@@ -52,8 +63,9 @@ const fetchData = async (id) => {
   try {
     const res = await fetch(fetchedList[id - 1]["url"]);
     const data = await res.json();
-    const fetchedData = data;
-    console.log("checking if found the correct relevant data:", fetchedData);
+    const relevantData = data;
+    console.log("checking if found the correct relevant data:", relevantData);
+    displayRelevantData(relevantData);
   } catch (err) {
     console.log("There is an error fetching relevant data:", err);
   }
@@ -107,6 +119,23 @@ const displayIdName = (matchedInput, id) => {
   }
   
   fetchData(id);
+}
+
+const displayRelevantData = (relevantData) => {
+  pokemonWeight.innerHTML = `<span>Weight: ${relevantData["weight"]}`;
+  pokemonHeight.innerHTML = `<span>Height: ${relevantData["height"]}`;
+  pokemonSprite.innerHTML = `<img src="${relevantData["sprites"]["front_default"]}"/>`;
+  pokemonHP.textContent = relevantData["stats"][0]["base_stat"];
+  pokemonAttack.textContent = relevantData["stats"][1]["base_stat"];
+  pokemonDefense.textContent = relevantData["stats"][2]["base_stat"];
+  pokemonSpAttack.textContent = relevantData["stats"][3]["base_stat"];
+  pokemonSpDefense.textContent = relevantData["stats"][4]["base_stat"];
+  pokemonSpeed.textContent = relevantData["stats"][5]["base_stat"];
+  relevantData["stats"].forEach((stat) => {
+    statsTotal += stat["base_stat"];
+  })
+  pokemonStatsTotal.textContent = statsTotal;
+  statsTotal = 0;
 }
 
 searchBtn.addEventListener("click", () => {
