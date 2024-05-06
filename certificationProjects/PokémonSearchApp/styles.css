@@ -93,6 +93,7 @@ main {
   align-items: center;
   min-width: 40%;
   min-height: 40%;
+  z-index: 1;
 }
 
 #pokemon-general-info-container {

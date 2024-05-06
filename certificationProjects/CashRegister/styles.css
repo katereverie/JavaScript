@@ -40,27 +40,10 @@ header {
 }
 
 main {
-  border: 1px solid red;
   display: flex;
-  flex-direction: column !important;
-  align-items: center;
-}
-
-#app-title-container {
-  text-align: center;
-  max-width: 200px;
-  border: 10px groove var(--metallic-silver);
-  background-color: var(--dark-rusty-copper);
-}
-
-#div-line {
-  border: 1px solid var(--pure-black);
-  background-color: var(--pure-black);
-}
-
-#app-description {
-  font-size: 16px;
-  padding: 10px;
+  flex-direction: column;
+  position: fixed;
+  top: 200px;
 }
 
 footer {
@@ -92,62 +75,41 @@ footer > p {
 
 /* reference table */
 
-#reference-area {
+nav {
   position: fixed;
+  z-index: 2;
+  top: 0;
   left: 0;
-  top: 15%;
-  bottom: 15%;
+  right: 0;
   display: flex;
-  flex-wrap: wrap;
-  text-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  margin: 2%;
+  width: 90%;
+  margin: auto;
   background-color: var(--pure-white);
   border: 1px none;
   border-radius: 40px;
   box-shadow: 0 0 20px var(--pure-white);
 }
 
-table {
-  position: relative;
-  left: -10px;
+h1 {
+  font-size: 1.5rem;
+  margin-left: 15%;;
+}
+
+#reference {
   display: flex;
-  flex-direction: column;
-  border-collapse: collapse;
-  border-radius: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: wrap;
+  margin-right: 5%;
+}
+
+#reference > span {
   margin: 10px;
-  padding: 20px;
-  width: 90%;
-  height: auto;
-}
-
-caption {
-  position: relative;
-  top: -10%;
-  left: 0;
-  right: 0;
-
-  color: rgba(255, 5, 5, 0.822);
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.table-head {
-  text-align: center;
-  text-decoration: underline;
-}
-
-.unit,
-.amount {
-  text-align: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--metallic-black);
-  opacity: 70%;
-  padding: 15px;
 }
 
 /* cash register */
