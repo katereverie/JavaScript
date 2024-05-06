@@ -65,33 +65,19 @@ const hasMatch = (processedInput) => {
     return valuesArray.includes(processedInput);
   })
 
-  if (foundMatch) {
-    displayIdName(processedInput, indexCount);
-  } else {
-    alert("Pokémon not found");
-  }
-}
-
-const displayIdName = (matchedInput, id) => {
-  const toDisplayName = fetchedList[id-1]["name"].slice();
-
-
-  if (matchedInput === id) {
-    pokemonName.innerHTML = `<span>${toDisplayName.toUpperCase()}</span>`;
-    pokemonId.innerHTML = `<span>${id}</span>`;
-
-  } else {
-    console.log(`user has input ${matchedInput}, its ID is: ${id}`)
-    pokemonName.innerHTML = `<span>${matchedInput.toUpperCase()}</span>`;
-    pokemonId.innerHTML = `<span>${id}</span>`;
+  if (!foundMatch) {
+    return alert("Pokémon not found");
   }
   
-  fetchData(id);
+  fetchData(indexCount);
 }
 
 const displayRelevantData = (relevantData) => {
+  pokemonName.innerHTML = `<span>${relevantData["name"].toUpperCase()}</span>`;
+  pokemonId.innerHTML = `<span>${relevantData["id"]}</span>`;
   pokemonWeight.innerHTML = `<span>${relevantData["weight"]}`;
   pokemonHeight.innerHTML = `<span>${relevantData["height"]}`;
+  pokemonTypes.innerHTML = "";
   relevantData["types"].forEach((type) => {
     pokemonTypes.innerHTML += `<span>${type["type"]["name"].toUpperCase()} </span>`;
   });
@@ -113,14 +99,12 @@ const displayRelevantData = (relevantData) => {
 }
 
 searchBtn.addEventListener("click", () => {
-  pokemonTypes.innerHTML = "";
   processInput();
 });
 
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
-    pokemonTypes.innerHTML = "";
     processInput();
   }
 });

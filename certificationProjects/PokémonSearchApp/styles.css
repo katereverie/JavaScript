@@ -216,6 +216,7 @@ footer {
   right: 5%;
   left: 5%;
 }
+
 footer > p > span {
   color: var(--pokedex-red);
   font-family: Silkscreen, sans-serif;

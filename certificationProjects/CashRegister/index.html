@@ -3,100 +3,95 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Cash Register</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="app">
-      <header>
-        <div id="app-title-container">
-          <h1 id="app-name">
-            Cash Register
-          </h1>
-          <div id="div-line"></div>
-          <p id="app-description">
-            This web application simulates the process of returning change to buying customers.
-          </p>
-        </div>
-        <nav id="reference-area">
-          <label id="reference-label" for="reference-container">For Your Reference:</label>
-          <div class="reference-container">
-            <div class="currency-unit">
-              <h2 class="reference-title">Currency Unit</h2>
-              <div class="currency">Penny</div>
-              <div class="currency">Nickle</div>
-              <div class="currency">Dime</div>
-              <div class="currency">Quarter</div>
-              <div class="currency">Dollar</div>
-              <div class="currency">Five Dollars</div>
-              <div class="currency">Ten Dollars</div>
-              <div class="currency">Twenty Dollars</div>
-              <div class="currency">One Hundred Dollars</div>
-            </div>
-            <div class="currency-unit-amount">
-              <h2 class="reference-title">Amount</h2>
-              <div class="amount">$0.01</div>
-              <div class="amount">$0.05</div>
-              <div class="amount">$0.1</div>
-              <div class="amount">$0.25</div>
-              <div class="amount">$1</div>
-              <div class="amount">$5</div>
-              <div class="amount">$10</div>
-              <div class="amount">$20</div>
-              <div class="amount">$100</div>
-            </div>
+    <header>
+      <nav id="reference-area">
+        <label id="reference-label" for="reference-container">For Your Reference:</label>
+        <div class="reference-container">
+          <div class="currency-unit">
+            <h2 class="reference-title">Currency Unit</h2>
+            <div class="currency">Penny</div>
+            <div class="currency">Nickle</div>
+            <div class="currency">Dime</div>
+            <div class="currency">Quarter</div>
+            <div class="currency">Dollar</div>
+            <div class="currency">Five Dollars</div>
+            <div class="currency">Ten Dollars</div>
+            <div class="currency">Twenty Dollars</div>
+            <div class="currency">One Hundred Dollars</div>
           </div>
-        </nav>
-      </header>
-      <main>
-        <div id="cash-register-area">
-          <div id="input-area">
-            <label id="input-label" for="cash">Enter Cash Amount From Customers: </label>
-            <input id="cash" type="number"/>
-            <button id="purchase-btn">Confirm</button>  
-            <p id="total">Total: $ <span id="price"></span></p>
-            <div id="change-due" class="hidden"></div>
+          <div class="currency-unit-amount">
+            <h2 class="reference-title">Amount</h2>
+            <div class="amount">$0.01</div>
+            <div class="amount">$0.05</div>
+            <div class="amount">$0.1</div>
+            <div class="amount">$0.25</div>
+            <div class="amount">$1</div>
+            <div class="amount">$5</div>
+            <div class="amount">$10</div>
+            <div class="amount">$20</div>
+            <div class="amount">$100</div>
           </div>
-          <div id="connect-div"></div>
-          <div id="cash-register-drawer-container">
-            <div id="cash-register-drawer">
-              <label id="change-label" for="cash-register-drawer">Change Inventory</label>
-            </div>
-            <div id="cash-register-keyboard">
-              <div id="one-to-three">
-                <div class="keyboard-number">1</div>
-                <div class="keyboard-number">2</div>
-                <div class="keyboard-number">3</div>
-              </div>
-              <div id="four-to-six">
-                <div class="keyboard-number">4</div>
-                <div class="keyboard-number">5</div>
-                <div class="keyboard-number">6</div>
-              </div>
-              <div id="seven-to-nine">
-                <div class="keyboard-number">7</div>
-                <div class="keyboard-number">8</div>
-                <div class="keyboard-number">9</div>
-              </div>
-            </div> 
-          </div>   
         </div>
-      </main>
-    </div>
-    <footer>
-      <div id="app-info-container">
-        <div id="app-author">
-          Powered by <span id="author-name">Katereverie</span>
-        </div>
-        <div id="app-date">29. April 2024</div>
-        <div id="app-version">Version: 1.0</div>
+      </nav>
+    </header>
+    <main>
+      <div id="app-title-container">
+        <h1 id="app-name">
+          Cash Register
+        </h1>
+        <div id="div-line"></div>
+        <p id="app-description">
+          This web application simulates the process of returning change to buying customers.
+        </p>
       </div>
+      <div id="cash-register-area">
+        <div id="input-area">
+          <label id="input-label" for="cash">Enter Cash Amount From Customers: </label>
+          <input id="cash" type="number"/>
+          <button id="purchase-btn">Confirm</button>  
+          <p id="total">Total: $ <span id="price"></span></p>
+          <div id="change-due" class="hidden"></div>
+        </div>
+        <div id="connect-div"></div>
+        <div id="cash-register-drawer-container">
+          <div id="cash-register-drawer">
+            <label id="change-label" for="cash-register-drawer">Change Inventory</label>
+          </div>
+          <div id="cash-register-keyboard">
+            <div id="one-to-three">
+              <div class="keyboard-number">1</div>
+              <div class="keyboard-number">2</div>
+              <div class="keyboard-number">3</div>
+            </div>
+            <div id="four-to-six">
+              <div class="keyboard-number">4</div>
+              <div class="keyboard-number">5</div>
+              <div class="keyboard-number">6</div>
+            </div>
+            <div id="seven-to-nine">
+              <div class="keyboard-number">7</div>
+              <div class="keyboard-number">8</div>
+              <div class="keyboard-number">9</div>
+            </div>
+          </div> 
+        </div>   
+      </div>
+    </main>
+    <footer>
+      <p id="author">Powered By <span>Katereverie</span></p>
+      <p id="date">6. May 2024</p>
+      <p id="version">Version: 1.0</p>
     </footer>
     <script src="script.js"></script>
   </body>
