@@ -10,6 +10,23 @@ const pokemonList = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
 const pokemonData = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/";
 
 let fetchedList;
+let fetchedData;
+let relevantData = [];
+
+const testObjInArr = [
+  {
+    id: 1,
+    name: "AsianBoss",
+    stringUrl: "Fake"
+  },
+  {
+    id: 2,
+    name: "EuropeanBoss",
+    stringUrl: "True"
+  }
+]
+
+console.log("testing get the first element of array:", testObjInArr[0]);
 
 const fetchList = async () => {
   console.log("fetching list");
@@ -20,6 +37,9 @@ const fetchList = async () => {
     console.log("first fetch", fetchedList); // object 
     fetchedList = fetchedList["results"];
     console.log("assign first fetch's second property's value to it:", fetchedList); // array
+    console.log("Fetched List is an array?", Array.isArray(fetchedList));
+    console.log(`Its length is ${fetchedList.length}`);
+    console.log("Its first element is an objects:", fetchedList[0]);
   } catch (err) {
     console.log("There is an error:", err);
   }
@@ -27,12 +47,17 @@ const fetchList = async () => {
 
 fetchList();
 
-// const processData = async (data) => {
-//   fetchedResults = data;
-//   console.log(Array.isArray(fetchedResults));
-//   relevantData = fetchedResults.map(({ id, name, height, weight, sprites, stats}) => ({ id, name, height, weight, sprites, stats}));
-//   console.log("Success?", relevantData);
-// }
+const fetchData = async (id) => {
+  console.log("fetching data");
+  try {
+    const res = await fetch(fetchedList[id - 1]["url"]);
+    const data = await res.json();
+    const fetchedData = data;
+    console.log("checking if found the correct relevant data:", fetchedData);
+  } catch (err) {
+    console.log("There is an error fetching relevant data:", err);
+  }
+}
 
 const processInput = () => {
   console.log("processing input");
@@ -59,19 +84,18 @@ const hasMatch = (processedInput) => {
 
   if (foundMatch) {
     console.log("Matched found! This is the ID of the matched Pokemon:", indexCount);
-    displaySearchResults(processedInput, indexCount);
+    displayIdName(processedInput, indexCount);
   } else {
     alert("Pokémon not found");
   }
 }
 
-const displaySearchResults = (matchedInput, id) => {
+const displayIdName = (matchedInput, id) => {
   console.log("Displaying data of matched Pokemon...");
-  // const getUrl = fetchedResults[id-1]["url"];
-  console.log("url data:", extractedIdUrl);
+  const toDisplayName = fetchedList[id-1]["name"].slice();
+
 
   if (matchedInput === id) {
-    const toDisplayName = fetchedList[id-1]["name"].slice();
     console.log("User has input an id:", id, matchedInput);
     pokemonName.innerHTML = `<span>Name: ${toDisplayName.charAt(0).toUpperCase() + toDisplayName.slice(1)}</span>`;
     pokemonId.innerHTML = `<span>Pokédex-ID: ${id}</span>`;
@@ -81,8 +105,8 @@ const displaySearchResults = (matchedInput, id) => {
     pokemonName.innerHTML = `<span>Name: ${matchedInput.charAt(0).toUpperCase() + matchedInput.slice(1)}</span>`;
     pokemonId.innerHTML = `<span>Pokédex-ID: ${id}</span>`;
   }
-
-
+  
+  fetchData(id);
 }
 
 searchBtn.addEventListener("click", () => {
