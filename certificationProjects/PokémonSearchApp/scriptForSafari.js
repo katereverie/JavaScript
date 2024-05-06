@@ -4,7 +4,6 @@ const pokemonName = document.getElementById("pokemon-name");
 const pokemonId = document.getElementById("pokemon-id");
 const pokemonWeight = document.getElementById("weight");
 const pokemonHeight = document.getElementById("height");
-const pokemonTypes = document.getElementById("types");
 const pokemonSprite = document.getElementById("pokemon-sprite-container");
 const pokemonHP = document.getElementById("hp");
 const pokemonAttack = document.getElementById("attack");
@@ -62,7 +61,7 @@ fetchList();
 const fetchData = async (id) => {
   console.log("fetching data");
   try {
-    const res = await fetch(`${pokemonData + id}`);
+    const res = await fetch(fetchedList[id - 1]["url"]);
     const data = await res.json();
     const relevantData = data;
     console.log("checking if found the correct relevant data:", relevantData);
@@ -110,13 +109,13 @@ const displayIdName = (matchedInput, id) => {
 
   if (matchedInput === id) {
     console.log("User has input an id:", id, matchedInput);
-    pokemonName.innerHTML = `<span>${toDisplayName.toUpperCase()}</span>`;
-    pokemonId.innerHTML = `<span>${id}</span>`;
+    pokemonName.innerHTML = `<span>Name: ${toDisplayName.toUpperCase()}</span>`;
+    pokemonId.innerHTML = `<span>Pokédex-ID: ${id}</span>`;
 
   } else {
     console.log(`user has input ${matchedInput}, its ID is: ${id}`)
-    pokemonName.innerHTML = `<span>${matchedInput.toUpperCase()}</span>`;
-    pokemonId.innerHTML = `<span>${id}</span>`;
+    pokemonName.innerHTML = `<span>Name: ${matchedInput.toUpperCase()}</span>`;
+    pokemonId.innerHTML = `<span>Pokédex-ID: ${id}</span>`;
   }
   
   fetchData(id);
@@ -125,10 +124,7 @@ const displayIdName = (matchedInput, id) => {
 const displayRelevantData = (relevantData) => {
   pokemonWeight.innerHTML = `<span>Weight: ${relevantData["weight"]}`;
   pokemonHeight.innerHTML = `<span>Height: ${relevantData["height"]}`;
-  relevantData["types"].forEach((type) => {
-    pokemonTypes.innerHTML += `<span>${type["type"]["name"].toUpperCase()} </span>`;
-  });
-  pokemonSprite.innerHTML = `<img id="sprite" src="${relevantData["sprites"]["front_default"]}"/>`;
+  pokemonSprite.innerHTML = `<img src="${relevantData["sprites"]["front_default"]}"/>`;
   pokemonHP.textContent = relevantData["stats"][0]["base_stat"];
   pokemonAttack.textContent = relevantData["stats"][1]["base_stat"];
   pokemonDefense.textContent = relevantData["stats"][2]["base_stat"];
@@ -144,6 +140,5 @@ const displayRelevantData = (relevantData) => {
 
 searchBtn.addEventListener("click", () => {
   console.log("user clicked search");
-  pokemonTypes.innerHTML = "";
   processInput();
 });
