@@ -4,65 +4,61 @@ const pokemonName = document.getElementById("pokemon-name");
 const pokemonId = document.getElementById("pokemon-id");
 const spriteContainer = document.getElementById("pokemon-sprite-container");
 
-const pokedexURL = " https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
+// Use this get id, name, and URL of other data
+const pokemonList = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
+// concatenate the id or name to this URL to get other data
+const pokemonData = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/";
 
-let fetchedResults;
-let relevantData = [];
+let fetchedList;
 
-const fetchData = async () => {
+const fetchList = async () => {
+  console.log("fetching list");
   try {
-    const res = await fetch(pokedexURL);
+    const res = await fetch(pokemonList);
     const data = await res.json();
-    fetchedResults = data; 
-    console.log("first fetch", fetchedResults); // object 
-    fetchedResults = fetchedResults["results"];
-    console.log("assign first fetch's second property's value to it:", fetchedResults); // array
-    // destructure array
-    fetchedResults.forEach((obj) => {
-      relevantData.push(({id, name, height, weight}) => ({id, name, height, weight} = obj));
-    })
-    console.log("success?", relevantData);
+    fetchedList = data; 
+    console.log("first fetch", fetchedList); // object 
+    fetchedList = fetchedList["results"];
+    console.log("assign first fetch's second property's value to it:", fetchedList); // array
   } catch (err) {
     console.log("There is an error:", err);
   }
 }
 
-fetchData();
+fetchList();
 
-const processData = async (data) => {
-  fetchedResults = data;
-  console.log(Array.isArray(fetchedResults));
-  relevantData = fetchedResults.map(({ id, name, height, weight, sprites, stats}) => ({ id, name, height, weight, sprites, stats}));
-  console.log("Success?", relevantData);
-}
+// const processData = async (data) => {
+//   fetchedResults = data;
+//   console.log(Array.isArray(fetchedResults));
+//   relevantData = fetchedResults.map(({ id, name, height, weight, sprites, stats}) => ({ id, name, height, weight, sprites, stats}));
+//   console.log("Success?", relevantData);
+// }
 
 const processInput = () => {
-  console.log("Step 2");
+  console.log("processing input");
   if (isNaN(userInput.value)) {
     const nameInput = userInput.value.toLowerCase();
-    console.log("user has input a name:", nameInput);
+    console.log(`User has input a name: ${nameInput}`);
     hasMatch(nameInput);
   } else {
     const idInput = parseInt(userInput.value);
-    console.log("user has input an id:", idInput);
+    console.log(`user has input an id: ${idInput}`);
     hasMatch(idInput);
   }
 }
 
 const hasMatch = (processedInput) => {
-  console.log("Step 3");
+  console.log("now searching for a match...");
   let indexCount = 0;
-  const foundMatch = fetchedResults.some(obj => {
+  const foundMatch = fetchedList.some(obj => {
     const valuesArray = Object.values(obj);
     indexCount++;
     console.log(indexCount, valuesArray);
     return valuesArray.includes(processedInput);
   })
 
-  console.log("This is the ID of the matched Pokemon:", indexCount);
-
   if (foundMatch) {
-    console.log("We found a matching! Displaying ...");
+    console.log("Matched found! This is the ID of the matched Pokemon:", indexCount);
     displaySearchResults(processedInput, indexCount);
   } else {
     alert("Pokémon not found");
@@ -70,12 +66,12 @@ const hasMatch = (processedInput) => {
 }
 
 const displaySearchResults = (matchedInput, id) => {
-  console.log("step 4");
+  console.log("Displaying data of matched Pokemon...");
   // const getUrl = fetchedResults[id-1]["url"];
   console.log("url data:", extractedIdUrl);
 
   if (matchedInput === id) {
-    const toDisplayName = fetchedResults[id-1]["name"].slice();
+    const toDisplayName = fetchedList[id-1]["name"].slice();
     console.log("User has input an id:", id, matchedInput);
     pokemonName.innerHTML = `<span>Name: ${toDisplayName.charAt(0).toUpperCase() + toDisplayName.slice(1)}</span>`;
     pokemonId.innerHTML = `<span>Pokédex-ID: ${id}</span>`;
@@ -90,6 +86,6 @@ const displaySearchResults = (matchedInput, id) => {
 }
 
 searchBtn.addEventListener("click", () => {
-  console.log("Step 1");
+  console.log("user clicked search");
   processInput();
 });
