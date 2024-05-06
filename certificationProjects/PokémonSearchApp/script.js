@@ -123,12 +123,12 @@ const displayIdName = (matchedInput, id) => {
 }
 
 const displayRelevantData = (relevantData) => {
-  pokemonWeight.innerHTML = `<span>Weight: ${relevantData["weight"]}`;
-  pokemonHeight.innerHTML = `<span>Height: ${relevantData["height"]}`;
+  pokemonWeight.innerHTML = `<span>${relevantData["weight"]}`;
+  pokemonHeight.innerHTML = `<span>${relevantData["height"]}`;
   relevantData["types"].forEach((type) => {
     pokemonTypes.innerHTML += `<span>${type["type"]["name"].toUpperCase()} </span>`;
   });
-  pokemonSprite.innerHTML = `<img id="sprite" src="${relevantData["sprites"]["front_default"]}"/>`;
+  pokemonSprite.innerHTML = `<img id="sprite" src="${relevantData["sprites"]["front_default"]}" alt="pokemon-sprite"/>`;
   pokemonHP.textContent = relevantData["stats"][0]["base_stat"];
   pokemonAttack.textContent = relevantData["stats"][1]["base_stat"];
   pokemonDefense.textContent = relevantData["stats"][2]["base_stat"];
