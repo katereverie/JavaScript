@@ -109,12 +109,12 @@ const displayIdName = (matchedInput, id) => {
 
   if (matchedInput === id) {
     console.log("User has input an id:", id, matchedInput);
-    pokemonName.innerHTML = `<span>Name: ${toDisplayName.charAt(0).toUpperCase() + toDisplayName.slice(1)}</span>`;
+    pokemonName.innerHTML = `<span>Name: ${toDisplayName.toUpperCase()}</span>`;
     pokemonId.innerHTML = `<span>Pokédex-ID: ${id}</span>`;
 
   } else {
     console.log(`user has input ${matchedInput}, its ID is: ${id}`)
-    pokemonName.innerHTML = `<span>Name: ${matchedInput.charAt(0).toUpperCase() + matchedInput.slice(1)}</span>`;
+    pokemonName.innerHTML = `<span>Name: ${matchedInput.toUpperCase()}</span>`;
     pokemonId.innerHTML = `<span>Pokédex-ID: ${id}</span>`;
   }
   
