@@ -14,6 +14,10 @@
 }
 
 body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,7 +65,7 @@ main {
 
 footer {
   background-color: var(--pure-white);
-  border: 1px none black;
+  border: 1px none;
   border-radius: 40px;
   box-shadow: 0 0 20px var(--pure-white);
   display: flex;
@@ -86,46 +90,64 @@ footer > p {
   right: 70px;
 }
 
-label {
-  font-size: 20px;
-}
-
 /* reference table */
 
 #reference-area {
+  position: fixed;
+  left: 0;
+  top: 15%;
+  bottom: 15%;
   display: flex;
+  flex-wrap: wrap;
+  text-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  margin: 0;
-  padding: 0;
+  justify-content: space-around;
+
+  margin: 2%;
+  background-color: var(--pure-white);
+  border: 1px none;
+  border-radius: 40px;
+  box-shadow: 0 0 20px var(--pure-white);
 }
 
-.reference-container {
+table {
+  position: relative;
+  left: -10px;
   display: flex;
-  flex-direction: row;
-  border: 10px groove var(--metallic-silver);
-  margin-top: 20px;
-  align-items: flex-start;
+  flex-direction: column;
+  border-collapse: collapse;
+  border-radius: 30px;
+  margin: 10px;
+  padding: 20px;
+  width: 90%;
+  height: auto;
 }
 
-.currency-unit, .currency-unit-amount {
-  margin: 0;
+caption {
+  position: relative;
+  top: -10%;
+  left: 0;
+  right: 0;
+
+  color: rgba(255, 5, 5, 0.822);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.table-head {
   text-align: center;
-  border: 1px solid var(--pure-black);
+  text-decoration: underline;
 }
 
-.reference-title {
-  font-family: monospace;
-  font-size: 20px;
-  padding: 0 20px;
-}
-
-.currency, .amount {
-  border: 1px solid var(--pure-black);
-  border-left-style: none;
-  border-right-style: none;
-  padding: 5px 0;
-  background-color: var(--dark-rusty-copper);
+.unit,
+.amount {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--metallic-black);
+  opacity: 70%;
+  padding: 15px;
 }
 
 /* cash register */
