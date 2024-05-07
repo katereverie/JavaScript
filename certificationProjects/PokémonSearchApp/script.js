@@ -100,11 +100,13 @@ const displayRelevantData = (relevantData) => {
 
 searchBtn.addEventListener("click", () => {
   processInput();
+  userInput.value = "";
 });
 
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     processInput();
+    userInput.value = "";
   }
 });

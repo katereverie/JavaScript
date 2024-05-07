@@ -19,77 +19,79 @@
         <p id="app-description">Search Pokémon by Name or ID:</p>
       </div>
       <div id="search-container">
-        <input id="search-input" required />
-        <button id="search-button">Search</button>
+        <input id="search-input" placeholder="type in here" required />
+        <button id="search-button">search</button>
       </div>
     </header>
     <main>
-      <div id="pokemon-general-info-container">
-        <div id="pokemon-name-id-container">
-          <div class="basic-info-container">
-            <label for="pokemon-name" style="margin-right: 10px;">Name: </label>
-            <span id="pokemon-name"></span>
+      <div class="wrapper">
+        <div id="pokemon-general-info-container">
+          <div id="pokemon-name-id-container">
+            <div class="basic-info-container">
+              <label for="pokemon-name" style="margin-right: 10px;">Name: </label>
+              <span id="pokemon-name"></span>
+            </div>
+            <div class="basic-info-container">
+              <label for="pokemon-id" style="margin-right: 10px;">ID: </label>
+              <span id="pokemon-id"></span>
+            </div>
           </div>
-          <div class="basic-info-container">
-            <label for="pokemon-id" style="margin-right: 10px;">ID: </label>
-            <span id="pokemon-id"></span>
+          <div id="pokemon-size-container">
+            <div class="basic-info-container">
+              <label for="weight" style="margin-right: 10px;">Weight: </label>
+              <span id="weight"></span>
+            </div>
+            <div class="basic-info-container">
+              <label for="height" style="margin-right: 10px;">Height: </label>
+              <span id="height"></span>
+            </div>
+          </div>
+          <div id="pokemon-types-container">
+            <label for="types" style="margin-right: 10px;">Types: </label>
+            <span id="types"></span>
+          </div>
+          <div id="pokemon-sprite-container">
           </div>
         </div>
-        <div id="pokemon-size-container">
-          <div class="basic-info-container">
-            <label for="weight" style="margin-right: 10px;">Weight: </label>
-            <span id="weight"></span>
-          </div>
-          <div class="basic-info-container">
-            <label for="height" style="margin-right: 10px;">Height: </label>
-            <span id="height"></span>
-          </div>
+        <div id="pokemon-stats-container">
+          <table>
+            <caption>
+              Base Stats
+            </caption>
+            <tbody>
+              <tr>
+                <th scope="row">HP</th>
+                <td id="hp"></td>
+              </tr>
+              <tr>
+                <th scope="row">Attack</th>
+                <td id="attack"></td>
+              </tr>
+              <tr>
+                <th scope="row">Defense</th>
+                <td id="defense"></td>
+              </tr>
+              <tr>
+                <th scope="row">Sp. Attack</th>
+                <td id="special-attack"></td>
+              </tr>
+              <tr>
+                <th scope="row">Sp. Defense</th>
+                <td id="special-defense"></td>
+              </tr>
+              <tr>
+                <th scope="row">Speed</th>
+                <td id="speed"></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">Total</th>
+                <td id="total-stats"></td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
-        <div id="pokemon-types-container">
-          <label for="types" style="margin-right: 10px;">Types: </label>
-          <span id="types"></span>
-        </div>
-        <div id="pokemon-sprite-container">
-        </div>
-      </div>
-      <div id="pokemon-stats-container">
-        <table>
-          <caption>
-            Base Stats
-          </caption>
-          <tbody>
-            <tr>
-              <th scope="row">HP:</th>
-              <td id="hp"></td>
-            </tr>
-            <tr>
-              <th scope="row">Attack:</th>
-              <td id="attack"></td>
-            </tr>
-            <tr>
-              <th scope="row">Defense:</th>
-              <td id="defense"></td>
-            </tr>
-            <tr>
-              <th scope="row">Special Attack</th>
-              <td id="special-attack"></td>
-            </tr>
-            <tr>
-              <th scope="row">Special Defense</th>
-              <td id="special-defense"></td>
-            </tr>
-            <tr>
-              <th scope="row">Speed</th>
-              <td id="speed"></td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th scope="row">Total:</th>
-              <td id="total-stats"></td>
-            </tr>
-          </tfoot>
-        </table>
       </div>
     </main>
     <footer>

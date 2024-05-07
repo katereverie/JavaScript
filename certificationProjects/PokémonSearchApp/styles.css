@@ -22,13 +22,14 @@ body {
 
 header {
   background-color: var(--pure-white);
-  border: 1px none black;
-  border-radius: 40px;
+  border-radius: 30px;
+  box-sizing: border-box;
   box-shadow: 0 0 20px var(--pure-white);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  
   position: fixed;
   top: 1%;
   right: 5%;
@@ -36,29 +37,29 @@ header {
   z-index: 1;
 }
 
-#title-container {
+header #title-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 5%;
 }
 
 #app-title {
   font-size: 1.5rem;
   color: var(--pokedex-red);
-  margin: 0 20px;
+  margin: 0;
 }
 
 #app-description {
-  font-size: 1.2rem;
   font-weight: 600;
+  margin: 2px;
 }
 
 #search-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 40px;
+  margin-right: 1%;
   padding: 0;
+  box-sizing: border-box;
 }
 
 input:focus {
@@ -76,35 +77,53 @@ button:hover {
 #search-button {
   border: 1px solid var(--pitch-black);
   border-radius: 10px;
+  box-sizing: border-box;
   box-shadow: 0 0 6px var(--pure-white);
-  padding: 5px;
   margin: 3px;
+  padding: 2px;
   font-weight: 600;
   outline: 2px ridge var(--pure-white);
   
   background-color: var(--pichachu-yellow);
 }
 
-main {
+#search-input {
+  max-width: 150px;
+  text-align: center;
+}
+
+#search-button {
+  max-width: 90px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.wrapper {
+  margin: 100px 0 100px 0;
+  max-width: fit-content;
+  min-height: fit-content;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  z-index: 1;
+  grid-template-rows:  1fr 1fr;
 }
 
 #pokemon-general-info-container {
   border: 8px ridge var(--pokedex-red);
   border-radius: 15px;
   box-shadow: 10px 10px 15px var(--pitch-black);
+  box-sizing: border-box;
   background-color: var(--pokedex-red);
-  padding: 10px;
-  margin: 25% 0 3% 0;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  padding: 10px;
+}
+
+#pokemon-stats-container {
+  background-color: var(--pokedex-red);
+  border: 8px ridge var(--pokedex-red);
+  border-radius: 15px;
+  box-shadow: 10px 10px 15px var(--pitch-black);
+  box-sizing: border-box;
+
+  padding: 10px;
 }
 
 #pokemon-name-id-container,
@@ -113,49 +132,39 @@ main {
 #pokemon-sprite-container {
   background-color: var(--pitch-black);
   padding: 5px;
-  margin: 0px;
+  margin: 0 10px;
   border: 3px groove var(--pure-white);
   border-radius: 10px;
   box-shadow: 0 0 5px var(--pitch-black);
-  display:flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
   flex-direction: row;
   align-items: flex-start;
-  
-  width: 90%;
-  height: 100%;
 }
 
 #pokemon-sprite-container {
-  justify-content: space-around;
+  display: flex;
   align-items: center;
-  width: 90%;
-  height: 150px;
+  justify-content: space-around;
+
+  min-height: 130px;
   margin-top: 10px;
 }
 
 #sprite,
 #shiny-sprite {
   object-fit: cover;
+  margin: 2px;
+  width: 100%;
 }
 
-.basic-info-container {
-  min-width: 180px;
-  display: flex;
-  flex-direction: row;
-}
 
-#pokemon-stats-container {
-  background-color: var(--pokedex-red);
-  border: 8px ridge var(--pokedex-red);
-  border-radius: 15px;
-  box-shadow: 10px 10px 15px var(--pitch-black);
-  display: flexbox;
-  
-}
-
-label {
+label,
+th {
   color: var(--pure-white);
 }
+
 span {
   color: var(--creamy-yellow);
 }
@@ -167,25 +176,19 @@ table {
 }
 
 caption {
-  padding: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.2rem;
   background-color: var(--pokedex-red);
-}
-
-tr {
-  display: flexbox;
-  flex-direction: row;
 }
 
 th, 
 td {
   text-align: center;
   background-color: var(--pitch-black);
-  width: 140;
-  height: auto;
-  padding: 5px 55px;
   border: 3px groove var(--pure-white);
+  width: 150px;
   border-radius: 10px;
   box-shadow: 0 0 5px var(--pitch-black);
 }
@@ -196,9 +199,7 @@ td {
   font-weight: 600;
 }
 
-th {
-  color: var(--pure-white);
-}
+
 
 footer {
   background-color: var(--pure-white);
