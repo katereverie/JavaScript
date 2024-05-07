@@ -35,7 +35,9 @@ main {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 200px;
+  top: 15%;
+  bottom: 0;
+  z-index: 2;
 }
 
 footer {
