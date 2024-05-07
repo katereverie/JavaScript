@@ -89,6 +89,11 @@ nav {
 h1 {
   font-size: 1.5rem;
   margin-left: 15%;;
+  font-family: Silkscreen, sans-serif;
+}
+
+label {
+  color: var(--pure-white);
 }
 
 #reference {
@@ -106,30 +111,36 @@ h1 {
 
 /* cash register */
 
-#input-area,
+#input-container,
 #connect-div,
 #cash-register-drawer-container {
   background-color: var(--metallic-dark-grey);
   border: 5px groove var(--metallic-silver);
-  opacity: 70%;
 }
 
-#input-area {
+#input-container,
+#cash-register-drawer-container {
+  box-shadow: 5px 10px 10px var(--pure-white);
+  border-radius: 20px 20px 5px 5px;
+}
+
+#input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 
   color: var(--pure-white);
   
-  
   padding: 20px;
   margin-bottom: 0px;
   position: relative;
   top: 5px;
+
 }
 
 #input-label {
   border: 5px groove var(--pure-black);
+  border-radius: 10px;
   font-size: 16px;
   padding: 10px;
 }
@@ -137,16 +148,22 @@ h1 {
 #cash {
   width: 60%;
   margin: 20px;
+  outline: none;
+  border-radius: 5px;
 }
 
 #purchase-btn {
-  width: 30%;
-  padding: 5px;
-  font-size: 16px;
-  font-weight: normal;
+  font-weight: 600;
   background-color: var(--metallic-silver);
   color: var(--metallic-black);
-  border: 5px groove var(--metallic-silver);
+  transition: 0.3s ease-out;
+}
+
+#purchase-btn:hover {
+  cursor: pointer;
+  color: var(--pure-white);
+  background-color: var(--pure-black);
+  transition: 0.3s ease-in;
 }
 
 #connect-div {
@@ -157,12 +174,13 @@ h1 {
   border-bottom-style: none;
   border-radius: -20px !important;
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
 }
 
 #cash-register-drawer-container {
-  width: 500px;
-  height: 400px;
+  min-width: 400px;
+  min-height: 300px;
+  
   
   display: flex;
   flex-direction: row;
@@ -173,26 +191,32 @@ h1 {
   bottom: 5px;
 }
 
+#drawer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#drawer-container > label {
+  position: relative;
+  left: 10px;
+  margin-bottom: 10px;
+}
+
 #cash-register-drawer {
-  width: 60%;
-  height: 80%;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding: 10px;
   margin-left: 20px;
   border: 2px groove var(--metallic-silver);
   color: var(--pure-white);
 }
 
-#change-label {
-  position: absolute;
-  top: 10px;
-}
-
 #cash-register-keyboard {
-  background-color: var(--metallic-silver);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -201,20 +225,24 @@ h1 {
   margin-right: 20px;
 }
 
-#one-to-three, #four-to-six, #seven-to-nine {
+#one-to-three, 
+#four-to-six, 
+#seven-to-nine {
   display: flex;
   flex-direction: row;
   margin: 2px;
 } 
 
 .keyboard-number {
-  background-color: var(--dark-rusty-copper);
+  background-color: var(--metallic-silver);
   border: 5px groove var(--metallic-silver);
+  border-radius: 50%;
   width: 20px;
   height: 20px;
   text-align: center;
   margin: 2px;
   color: black;
+  user-select: none;
 }
 
 #change-due {
@@ -226,6 +254,7 @@ h1 {
 }
 
 .change {
+  font-size: 0.8rem;
   margin: 3px;
 }
 

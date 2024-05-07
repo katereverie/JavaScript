@@ -39,7 +39,7 @@ cid.forEach((changeType) => {
 )
 
 const updateChangeInDrawer = (updatedChangeInDrawer) => {
-  drawer.innerHTML = `<label id="change-label" for="cash-register-drawer">Change Inventory</label>`;
+  drawer.innerHTML = ``;
   updatedChangeInDrawer.forEach((changeType) => {
     drawer.innerHTML += `
     <div class="change">${changeType[0]}: $${changeType[1]}</div>
@@ -168,10 +168,8 @@ const determineExactChange = (changeDue, currentChangeInDrawer) => {
 
 const calculateChange = (price, cash) => {
   const changeDue = (cash * 100 - price * 100) / 100;
-  console.log("Step 2: change due", changeDue);
 
   const currentChangeInDrawer = updateCurrentChangeTotal();
-  console.log("Step 3: currentChangeInDrawer", currentChangeInDrawer);
 
   determineExactChange(changeDue, currentChangeInDrawer);
 }
@@ -182,7 +180,6 @@ const clearInput = () => {
 
 confirmBtn.addEventListener("click", () => {
   const cashInputFloat = parseFloat(cashInput.value);
-  console.log("Step 1", price, cashInputFloat);
   if (cashInputFloat < price) {
     alert("Customer does not have enough money to purchase the item");
     return;
@@ -199,7 +196,6 @@ cashInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     const cashInputFloat = parseFloat(cashInput.value);
-    console.log("Step 1", price, cashInputFloat);
     if (cashInputFloat < price) {
       alert("Customer does not have enough money to purchase the item");
       return;
