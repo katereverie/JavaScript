@@ -1,10 +1,10 @@
 # Style Elements with Bootstrap, Fontawesome
 
-## Bootstrap provides solutions to reponsive design__
+Bootstrap provides solutions to reponsive design
 
 - Remember that `col` uses a 12-columns-system; so one block is 12 columns wide.
 
-## Fontawesome provides solutions to text-elements, provides pre-built icons, pre-built font-families.
+Fontawesome provides solutions to text-elements, provides pre-built icons, pre-built font-families.
 
 Heed these
 
