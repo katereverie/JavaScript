@@ -226,8 +226,8 @@ Example:
 
 ### what are `props`?
 
-It is short for properties.
-In React, you can pass props, to build child components.
+It is short for properties.</br>
+In React, you can pass props, to build child components.</br>§
 Return to this section, find multiple resources to *understand* props.
 
 Example:
