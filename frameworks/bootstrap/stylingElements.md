@@ -20,6 +20,7 @@ Include:
 Applicable Classes
     *`text-primary` (color: soft-blueish)
     *`text-center` (like `text-align: center;`)
+    *`text-danger` (color: soft-redish)
 
 ## image elements
 
