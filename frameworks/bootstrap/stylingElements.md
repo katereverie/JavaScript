@@ -14,23 +14,23 @@ Heed these
 
 Include:
 
-    * `h*`
-    *
+  `h*`
 
 Applicable Classes
-    *`text-primary` (color: soft-blueish)
-    *`text-center` (like `text-align: center;`)
-    *`text-danger` (color: soft-redish)
+
+  `text-primary` (color: soft-blueish)
+  `text-center` (like `text-align: center;`)
+  `text-danger` (color: soft-redish)
 
 ## image elements
 
 Include:
 
-    * `img`
+  `img`
 
 Applicable Classes
 
-    * `img-responsive`
+  `img-responsive`
 
 ## button elements
 
