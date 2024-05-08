@@ -30,7 +30,7 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
   });
   ```
 
-  `${}` is a *selector.</br>
+  `${}` is a *selector*.</br>
   `button`, `.well`, `#target3` are the targeted element according to their HTML nature, where `button` is an element name, `.well` a class name, and `#target3` an id name.</br>
   Notice that you must surround the selected name with quotation marks.</br>
 
@@ -39,6 +39,21 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
 
 ### remove
 
+1. Similar to `.addClass()`, you can use `removeClass()` to rid an element of the selected class; the syntax is the same.
+
 ### clone
 
 ### modifying different elements
+
+1. Use `.css()` to modify the CSS of an HTML element.
+2. The syntax, though, is different from CSS. Compare:
+
+  ```css
+  #target1 {
+    color: red;
+  }
+  ```
+
+  ```js
+  $("#target1").css("color, red");
+  ```
