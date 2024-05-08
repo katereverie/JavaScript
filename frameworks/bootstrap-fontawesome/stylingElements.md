@@ -36,13 +36,16 @@ Applicable Classes
 
 Include:
 
+  `div`
+
 Applicable Classes
 
 1. Bootstrap
     - `row` (grid-layout: fit for `div` as wrapper/container)
     - `col-xs-*` (basically, all sizes: `col-md-*`, etc.)
+    - `well` (creates a visual sense of depth for e.g. `div` columns for your row)
     - `btn`
-    - `btn-default`
+    - `btn-default` (creates a blank/white rectangle button)
     - `btn-block` (size: its own block)
     - `btn-info` (color: soft-sky-blue)
     - `btn-danger` (color: soft-redish)
@@ -52,16 +55,15 @@ Applicable Classes
     - `fa fa-thumbs-up` (thumbs-up icon)
     - `fa fa-info-circle` (info icon)
     - `fa fa-trash` (trash/delete icon)
-    - ``
+    - `fa fa-paper-plane` (paper plane icon)
 
 ## form elements
 
 Include:
 
-    * checkbox (`input` element of type `checkbox`)
-    * radio button (`input` element of type `radio`)
+  checkbox (`input` element of type `checkbox`)
+  radio button (`input` element of type `radio`)
 
 Applicable Classes
 
-    * `row`
-      * `col-xs-*`
+  `form-control`
