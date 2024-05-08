@@ -18,7 +18,7 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
   $(document).ready(function() {});
   ```
 
-  The code you put inside the function will run as soon as your browser has loaded your page.
+  The code you put inside the function will run as soon as your browser has loaded your page.</br>
   This is crucial because without `document ready function`, your code may run before your HTML is rendered, which could cause bugs.
 3. All jQuery functions start with a `$` (referred to as a dollar sign operator or as bling). Try this:
 
@@ -30,13 +30,13 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
   });
   ```
 
-  `${}` is a *selector.
-  `button`, `.well`, `#target3` are the targeted element according to their HTML nature, where `button` is an element name, `.well` a class name, and `#target3` an id name. 
-  Notice that you must surround the selected name with quotation marks.
+  `${}` is a *selector.</br>
+  `button`, `.well`, `#target3` are the targeted element according to their HTML nature, where `button` is an element name, `.well` a class name, and `#target3` an id name.</br>
+  Notice that you must surround the selected name with quotation marks.</br>
 
   `.addClass()` is a jQuery function, which allows you to add classes to elements.
   `animated bounce`, `animated shake`, `animated fadeOut` come from a pre-provided CSS file.
-  
+
 ### remove
 
 ### clone
