@@ -15,7 +15,7 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
 2. Add inside `script`:
 
   ```js
-  $(document).ready(function() {});
+    $(document).ready(function() {});
   ```
 
   The code you put inside the function will run as soon as your browser has loaded your page.</br>
@@ -23,11 +23,11 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
 3. All jQuery functions start with a `$` (referred to as a dollar sign operator or as bling). Try this:
 
   ```js
-  $(document).ready(function() {
-    $("button").addClass("animated bounce");
-    $(".well").addClass("animated shake");
-    $("#target3").addClass("animated fadeOut");
-  });
+    $(document).ready(function() {
+      $("button").addClass("animated bounce");
+      $(".well").addClass("animated shake");
+      $("#target3").addClass("animated fadeOut");
+    });
   ```
 
   `${}` is a *selector*.</br>
@@ -39,7 +39,7 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
 4. Select the parent element by selecting its child element using `.parent()`.
 
   ```js
-  $("#left-well").parent().css("background-color", "blue");
+    $("#left-well").parent().css("background-color", "blue");
   ```
 
   `$("#left-well").parent()` selects the parent element of the element IDed `#left-well`.
@@ -47,15 +47,17 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
 6. Select/target the right element using `target:nth-child(n)`:
 
   ```js
-  $(".target:nth-child(3)").addClass("animated bounce");
+    $(".target:nth-child(3)").addClass("animated bounce");
   ```
 
   This targets the 3rd child with the class name "target". So, if there are 5 elements with the class name "target", the 3rd will be selected.
 7. Target elements based on their positions using `:odd` or `:even` selectors:
 
   ```js
+    $(".target:even").addClass("animated shake");
+  ```
 
-  ```js
+  This (`:even`) targets the 1st (index=`0`), the 3rd (index=`2`), the 5th (index=`4`) elements, and etc.
 
 ### remove
 
@@ -67,7 +69,7 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
 1. Use `.clone()` to make a copy of an HTML element.
 
     ```js
-    $("#target2").clone().appendTo("#right-well");
+      $("#target2").clone().appendTo("#right-well");
     ```
 
   Here we chained one jQuery function to another; this is called *function chaining*. It makes things easier/convenient.
@@ -79,27 +81,27 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
     CSS:
 
     ```css
-    #target1 {
-      color: red;
-    }
+      #target1 {
+        color: red;
+      }
     ```
 
     JavaScript using jQuery:
 
     ```js
-    $("#target1").css("color, red");
+      $("#target1").css("color, red");
     ```
 
 2. Use `.prop()` to change non-CSS properties of HTML elements:
 
     ```js
-    $("button").prop("disabled", true);
+      $("button").prop("disabled", true);
     ```
 
 3. Use `.html()` to add HTML tags and text within an element; any content within that element will be *replaced* with the added ones:
 
     ```js
-    $("h3").html("<em>jQuery Playground</em>");
+      $("h3").html("<em>jQuery Playground</em>");
     ```
 
 4. Use `.text()` to add *content* in an element instead of replacing the existing elements within the element.
@@ -107,7 +109,7 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
 5. Use `.appendTo()` to select HTML elements and append them to another element:
 
     ```js
-    $("#target4").appendTo("#left-well");
+      $("#target4").appendTo("#left-well");
     ```
 
 ## Summary
