@@ -47,12 +47,16 @@ A: All major browsers handle JavaScript slightly diferently; jQuery *simplifies*
 
 1. Use `.css()` to modify the CSS of an HTML element.
 2. The syntax, though, is different from CSS. Compare:
+  
+  CSS:
 
   ```css
   #target1 {
     color: red;
   }
   ```
+  
+  JavaScript using jQuery:
 
   ```js
   $("#target1").css("color, red");
