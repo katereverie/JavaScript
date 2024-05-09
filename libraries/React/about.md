@@ -748,5 +748,142 @@ The `if` statement checks whether the state component is true. If false, set the
 The confusing part is that I must wrap `{visibility: state.visibility = true}` in `()` because this is still JavaScriopt code. Or else, it will be seen as a block of code.</br>
 The syntax is really a mess.
 
-#### Write a Simple Counter
+##### Write a Simple Counter
+
+A more complex design:
+
+```js
+  class Counter extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        count: 0
+      };
+      // Change code below this line
+      this.increment = this.increment.bind(this);
+      this.decrement = this.decrement.bind(this);
+      this.reset = this.reset.bind(this);
+      // Change code above this line
+    }
+    // Change code below this line
+    increment() {
+      this.setState(state => ({
+        count: state.count + 1
+      }))
+    }
+    decrement() {
+      this.setState(state => ({
+        count: state.count - 1
+      }))
+    }
+    reset() {
+      this.setState(state => ({
+        count: state.count = 0
+      }))
+    }
+    // Change code above this line
+    render() {
+      return (
+        <div>
+          <button className='inc' onClick={this.increment}>Increment!</button>
+          <button className='dec' onClick={this.decrement}>Decrement!</button>
+          <button className='reset' onClick={this.reset}>Reset</button>
+          <h1>Current Count: {this.state.count}</h1>
+        </div>
+      );
+    }
+  };
+```
+
+Just take several looks and let the syntax sink in. I feel explaning it will only confuse me further.
+
+##### Create a Controlled Input
+
+Your app may have more complex interactions between `state` and the rendered UI.</br>
+For example, form control elements for text input, such as `input` and `textarea`, maintain their own state in the DOM as the user types.</br>
+With React, you can move this mutable state into a React component's `state`. The user's input becomes part of the application `state`. So react controls the value of that input field. Typically, if you have React components with input fields the user can type into, it will be a controlled input form.</br>
+
+Example:
+
+```js
+  class ControlledInput extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        input: ''
+      };
+      // Change code below this line
+      this.handleChange = this.handleChange.bind(this);
+      // Change code above this line
+    }
+    // Change code below this line
+    handleChange(event) {
+      this.setState(state => ({
+        input: state.input = event.target.value
+      }))
+    }
+    // Change code above this line
+    render() {
+      return (
+        <div>
+          { /* Change code below this line */}
+          <input value={this.state.input} onChange={this.handleChange}/>
+          { /* Change code above this line */}
+          <h4>Controlled Input:</h4>
+          <p>{this.state.input}</p>
+        </div>
+      );
+    }
+  };
+```
+
+##### Create a Controlled Form
+
+React can also control regular HTML `form` element.
+
+Enjoy
+
+```js
+  class MyForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        input: '',
+        submit: ''
+      };
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleChange(event) {
+      this.setState({
+        input: event.target.value
+      });
+    }
+    handleSubmit(event) {
+      // Change code below this line
+      event.preventDefault();
+      this.setState(state => ({
+        submit: state.input
+      }))
+      // Change code above this line
+    }
+    render() {
+      return (
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            {/* Change code below this line */}
+            <input value={this.state.input} onChange={this.handleChange} />
+            {/* Change code above this line */}
+            <button type='submit' onClick={this.handleSubmit}>Submit!</button>
+          </form>
+          {/* Change code below this line */}
+          <h1>{this.state.submit}</h1>
+          {/* Change code above this line */}
+        </div>
+      );
+    }
+  }
+```
+
+##### Pass States as Props to Child Components
 
