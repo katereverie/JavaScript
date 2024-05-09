@@ -390,3 +390,172 @@ In this example, `propTypes` is defined for the `Items` component to require `qu
 
 #### accessing Props using `this.props`
 
+If you refer to a class component within itself, you use `this` keyword.
+Syntax: `{this.props.name}`
+
+Example:
+
+```js
+  class App extends React.Component {
+    constructor(props) {
+      super(props);
+
+    }
+    render() {
+      return (
+          <div>
+              { /* Change code below this line */ }
+              <Welcome name={"Jiantao"}/>
+              { /* Change code above this line */ }
+          </div>
+      );
+    }
+  };
+
+  class Welcome extends React.Component {
+    constructor(props) {
+      super(props);
+
+    }
+    render() {
+      return (
+          <div>
+            { /* Change code below this line */ }
+            <p>Hello, <strong>{this.props.name}</strong>!</p>
+            { /* Change code above this line */ }
+          </div>
+      );
+    }
+  };
+```
+
+#### reusing Props with Stateless Functional Components
+
+What is state?
+
+- A __stateless functional component__ is any function you write which accepts props and returns JSX.
+- A __stateless component__, on the other hand, is a class that extends `React.Component`, but does not use internal state.
+- A __stateful component__ is a class component that does maintain its own internal state. (Sometimes simply referred to as components or React components).
+
+Why stateless instead of stateful?
+
+- A common pattern is to try to reduce statefulness and create stateless functional components wherever possible, because this helps contain yoru state management to a specific area of your application. In turn, this improves development and maintenance of your app by making it easier to follow how changes to state affect its behavior.
+
+Example:
+
+```js
+  class CampSite extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper />
+      </div>
+    );
+  }
+};
+// Change code below this line
+
+class Camper extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <p>{this.props.name}</p>
+      </div>
+    );
+  }
+}
+
+Camper.propTypes = {name: PropTypes.string.isRequired}
+
+Camper.defaultProps = {
+  name: "CamperBot"
+}
+```
+
+This should output `CamperBot` on the web page.
+
+#### Create a Stateful Component ! Very Important
+
+State consists of any data that changes over time. Your application needs to know about the changes in data because you want to adapt these changes to the UI.</br>
+React offers a solution for the state management of modern web applications. (What about mobile? React Native?)
+
+##### Declaring a `state` property
+
+Syntax:
+
+```js
+  this.state = {
+
+  }
+```
+
+You have access to the state object throught the life of your component:
+
+1. You can update it, render it in your UI, and pass it as props to child components.
+2. Note that you must create a *class* component by extending `React.Component` in order to create a state like this.
+
+Example:
+
+```js
+  class StatefulComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Only change code below this line
+    this.state = {
+      firstName: "Jiantao"
+    }
+    // Only change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.firstName}</h1>
+      </div>
+    );
+  }
+};
+```
+
+##### Rendering State in the UI
+
+You've defined a component's initial state.
+
+1. Now you can display any part of it in the UI that is rendered.
+2. You can access the data with `this.state`; if a component is stateful, it will always have access to the data in `state` in its `render()` method.
+3. You can access a state value within `return` of the render method. You must enclose the value in `{ }`.
+
+React uses a virtual DOM to keep track of changes behind the scenes.</br>
+When state data changes, it triggers a re-render of the components using that data - including child components that received the data as a prop.</br>
+React updates the actual DOM, so you don't have to worry about changing the DOM. You simply declare what the UI should look like.</br>
+
+Note if you make a component stateful, no other components are aware of its `state`. Its `state` is completely encapsulated, or local to that component, unless you pass state data to a child component as `props`.</br>
+This notion of encapsulated `state` is cruical because it allows you to write certain logic, then have that logic contained and isolated in one place in your code.
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: 'freeCodeCamp'
+      }
+    }
+    render() {
+      return (
+        <div>
+          { /* Change code below this line */ }
+          <h1>{this.state.name}</h1>
+          { /* Change code above this line */ }
+        </div>
+      );
+    }
+  };
+```
