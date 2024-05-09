@@ -559,3 +559,82 @@ Example:
     }
   };
 ```
+
+There is also another way of rendering state in the UI</br>
+
+You can actually write JavaScript code inside the render method, just not within the return statement.
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: 'freeCodeCamp'
+      }
+    }
+    render() {
+      // Change code below this line
+      const name = this.state.name;
+      // Change code above this line
+      return (
+        <div>
+          { /* Change code below this line */ }
+          <h1>{name}</h1>
+          { /* Change code above this line */ }
+        </div>
+      );
+    }
+  };
+```
+
+In the example, you access the state data and assign it a const variable called `name` in the render method.
+
+##### Changing State: Set State with `this.setState`
+
+React provides a way to change state: `this.setState()`, passing in an object with key-value pairs, where the key is your state property and the value is your state data.
+
+Syntax:
+
+```js
+  this.setState({
+    username: 'Lewis'
+  });
+```
+React expects you to never modify `state` directly. Instead always use `this.setState()` when state changes occur.</br>
+Caveat: State updates throught `setState` can be asynchronous. To avoid this problem, there is an alternative syntax for `setState`.
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: 'Initial State'
+      };
+      this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick() {
+      // Change code below this line
+      this.setState({
+        name: "React Rocks!"
+      }) 
+      // Change code above this line
+    }
+    render() {
+      return (
+        <div>
+          <button onClick={this.handleClick}>Click Me</button>
+          <h1>{this.state.name}</h1>
+        </div>
+      );
+    }
+  };
+```
+
+In this example, if a user clicks on the button, the button runs the `handleClick` method defined on `MyComponent`. Within the `handleClick` method, the component `state` is updated.
+
+##### Binding `this` to a Class Method
+
