@@ -304,5 +304,89 @@ Output:
   cook dinner, clean dishes, clean apartment
 ```
 
-#### use Default props
+#### use default props
+
+Set a default props in case no value for a prop is specified explicitly.</br>
+React will assign the default prop if necessary.
+
+Syntax:
+
+```js
+  MyComponent.defaultProps = { location: 'San Francisco' }
+```
+
+In this case, you have defined a location prop set to the string 'San Francisco'. Unless specified otherwise, this will be assigned as default to the prop.</br>
+Also, if there is no default prop set previously, React assigns default props if props are undefined. (to `null`).
+
+#### overriding default props
+
+Basically, explicitly setting the prop values for a component *is* overriding the default props.
+
+Example:
+
+```js
+  const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+}
+
+Items.defaultProps = {
+  quantity: 0
+}
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    { /* Change code below this line */ }
+    return <Items quantity={10}/>
+    { /* Change code above this line */ }
+  }
+};
+```
+
+In this example, `Items` is a childcomponent of `ShoppingCart`, where `quantity={10}` is passed in as a prop, which overrides the default prop set in `Items`.
+
+#### PropTypes define the Props You Expect
+
+Scenario:
+Your app makes an API call to get some data that you expect to be of array type, which will then be passed in as a prop.</br>
+Since the data you get may not be of array type, you can set `propTypes` on your component to require the data to be of a certain type.</br>
+If the data you get does not match the type you set, this will throw a warning.</br>
+It is considered best practice to set `propTypes` if you know the type of a prop in advance.
+
+Syntax: `MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }`
+
+In this example, `PropTypes.func` checks that `handleClick` is a *function*.</br>
+Adding `isRequired` tells React that `handleClick` is a required property for that component. A warning will be issued if that prop isn't provided.</br>
+Note that `func` and `bool` are represented differently in React; the other primitive types are the same as in vanilla JavaScript.
+
+Example:
+
+```js
+  const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+};
+
+// Change code below this line
+Items.propTypes = {quantity: PropTypes.number.isRequired }
+// Change code above this line
+
+Items.defaultProps = {
+  quantity: 0
+};
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items />
+  }
+};
+```
+
+In this example, `propTypes` is defined for the `Items` component to require `quantity` as a prop and verify that it is of type `number`.
+
+#### accessing Props using `this.props`
 
