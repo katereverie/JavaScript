@@ -638,3 +638,115 @@ In this example, if a user clicks on the button, the button runs the `handleClic
 
 ##### Binding `this` to a Class Method
 
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        text: "Hello"
+      };
+      // Change code below this line
+      this.handleClick = this.handleClick.bind(this);
+      // Change code above this line
+    }
+    handleClick() {
+      this.setState({
+        text: "You clicked!"
+      });
+    }
+    render() {
+      return (
+        <div>
+          { /* Change code below this line */ }
+          <button onClick={this.handleClick}>Click Me</button>
+          { /* Change code above this line */ }
+          <h1>{this.state.text}</h1>
+        </div>
+      );
+    }
+  };
+```
+
+In this example, you bind `this` to the `handleClick` method inside the `constructor` method.
+
+##### Using State to Toggle an Element
+
+State updates may be asynchronous. It means that React may batch multiple `setState()` calls into a single update and you can't rely on the previous value of `this.state` or `this.props` when calculating the next value. Therefore, avoid syntax as follows:
+
+```js
+  this.setState({
+    counter: this.state.counter + this.props.increment
+  });
+```
+
+Instead, pass a function into `stateState` by using this syntax:
+
+```js
+    this.setState((state, props) => ({
+      counter: state.counter + props.increment
+    }));
+  ```
+
+  Alternatively, if you use a form without `props`:
+
+  ```js
+    this.setState(state => ({
+      counter: state.counter + 1
+    }));
+  ```
+
+  Example:
+
+  ```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        visibility: false
+      };
+      // Change code below this line
+      this.toggleVisibility = this.toggleVisibility.bind(this);
+      // Change code above this line
+    }
+    // Change code below this line
+    toggleVisibility() {
+      if (!this.state.visibility) {
+        this.setState(state => ({
+          visibility: state.visibility = true
+        }));
+      } else {
+        this.setState(state => ({
+          visibility: state.visibility = false
+        }))
+      }
+    }
+    // Change code above this line
+    render() {
+      if (this.state.visibility) {
+        return (
+          <div>
+            <button onClick={this.toggleVisibility}>Click Me</button>
+            <h1>Now you see me!</h1>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <button onClick={this.toggleVisibility}>Click Me</button>
+          </div>
+        );
+      }
+    }
+  }
+```
+
+In this example, I struggle to explain how I did it. But there are some key takeaways here.</br>
+The `toggleVisibility()` function is written like it would have been written in JavaScript.</br>
+The `if` statement checks whether the state component is true. If false, set the state's property ``visibility` to true; if true, set it to false.</br>
+The confusing part is that I must wrap `{visibility: state.visibility = true}` in `()` because this is still JavaScriopt code. Or else, it will be seen as a block of code.</br>
+The syntax is really a mess.
+
+#### Write a Simple Counter
+
