@@ -9,7 +9,7 @@ Quick Facts about JSX:
 
 0. `JSX` is basically HTML elements stored in a variable.
 1. `JSX` is syntactially similar to `HTML` with a few differences.
-2. Include JavaScript code in `{ }` to have it treated as JavaScript code in `JSX`.
+2. Include JavaScript code in `{ }` to have it treated as JavaScript code *in* `JSX`.
 3. `JSX` is not valid JavaScript code. It must be *compiled* into JS.
 4. `Babel` is a popular transpiler tool for compiling `JSX` code into `JavaScript` code.
 5. nested `JSX` must return a *single* element - a parent element nesting all other children elements. Optionally, you can use `()` to wrap the parent element for readability.
@@ -125,7 +125,7 @@ Fruits:
 
 ### Compose React Componets
 
-Example code: 
+Example code:
 
 ```js
   class Fruits extends React.Component {
@@ -193,7 +193,11 @@ Output:
 
 ### render a class component to the DOM
 
-Syntax: `ReactDOM.render(<ComponentToRender />, targetNode)`
+Syntax:
+
+```js
+  ReactDOM.render(<ComponentToRender />, targetNode)
+```
 
 Example:
 
@@ -227,8 +231,13 @@ Example:
 ### what are `props`?
 
 It is short for properties.</br>
-In React, you can pass props, to build child components.</br>§
-Return to this section, find multiple resources to *understand* props.
+In React, you can pass props, to build child components.</br>
+Return to this section, find multiple resources to *understand* props.</br>
+
+Some takeaways returning to understanding `props`
+
+1. `props` are passed from ParentComponent to ChildComponent! It is like a mediating node between the parent and its child(en).
+2. When passing a prop to ChildComponent, remember to include JavaScript code in curly brackets, not the variable name!
 
 Example:
 
@@ -312,11 +321,10 @@ React will assign the default prop if necessary.
 Syntax:
 
 ```js
-  MyComponent.defaultProps = { location: 'San Francisco' }
+  MyComponent.defaultProps = { location: 'Düsseldorf' }
 ```
 
-In this case, you have defined a location prop set to the string 'San Francisco'. Unless specified otherwise, this will be assigned as default to the prop.</br>
-Also, if there is no default prop set previously, React assigns default props if props are undefined. (to `null`).
+In this case, you have defined a location prop set to the string 'San Francisco'. Unless specified otherwise, this will be assigned as default to the prop. Also, React assigns default props if props are undefined. (to `null`).
 
 #### overriding default props
 
@@ -355,7 +363,11 @@ Since the data you get may not be of array type, you can set `propTypes` on your
 If the data you get does not match the type you set, this will throw a warning.</br>
 It is considered best practice to set `propTypes` if you know the type of a prop in advance.
 
-Syntax: `MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }`
+Syntax:
+
+```js
+vvMyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
+```
 
 In this example, `PropTypes.func` checks that `handleClick` is a *function*.</br>
 Adding `isRequired` tells React that `handleClick` is a required property for that component. A warning will be issued if that prop isn't provided.</br>
