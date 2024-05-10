@@ -961,3 +961,268 @@ Don't forget `this` in the child component! I know it's confusing. Since props a
 
 Besides passing `state` data as props to child components, you can also pass handler functions or any method defined on a React component to a child component. This is how you allow child components to interact with their parent components.
 
+Example:
+
+```js
+  class MyApp extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        inputValue: ''
+      }
+      this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event) {
+      this.setState({
+        inputValue: event.target.value
+      });
+    }
+    render() {
+      return (
+        <div>
+          { /* Change code below this line */ }
+          <GetInput input={this.state.inputValue} handleChange={this.handleChange}/>
+          <RenderInput input={this.state.inputValue}/>
+          { /* Change code above this line */ }
+        </div>
+      );
+    }
+  };
+
+  class GetInput extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div>
+          <h3>Get Input:</h3>
+          <input
+            value={this.props.input}
+            onChange={this.props.handleChange}/>
+        </div>
+      );
+    }
+  };
+
+  class RenderInput extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div>
+          <h3>Input Render:</h3>
+          <p>{this.props.input}</p>
+        </div>
+      );
+    }
+  };
+```
+
+Observe how the input gets rendered in real time. This illustrates how data and callbacks can be passed between React components.
+
+#### Use the Lifecycle Method componentWillMount
+
+React components have several special methods taht provide opportunities to perform actions at specific points in the lifecycle of a component. These are called __lifecycle methods__, or __lifecycle hooks__. They allow you to catch components at certain points in time, which can be before they are rendered, before they are updated, before they receive props. before they unmount, and etc.</br>
+
+Here is a list of some of the main lifecycle methods:
+
+`componentWillMount()`, `componentDidMount()`, `shouldComponentUpdate()`, `componentDidUpdate(),` `componentWillUnmount()`.
+
+##### `componentWillMount()`
+
+This method is called before the `render()` method when a component is being mounted to the DOM.
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    componentWillMount() {
+      // Change code below this line
+      console.log("hello kitty");
+      // Change code above this line
+    }
+    render() {
+      return <div />
+    }
+  };
+
+```
+
+You will see the output in your console, but not on the web page. That's the point.
+
+##### `componentDidMount()`
+
+Most web developers, at some point, need to call an API endpoint to retrieve data. If you're working with React, it's important to know where to perform this action.</br>
+The best practice with React is to place API calls or any calls to your server in the lifecycle method `componentDidMount()`, which is called after a component is mounted to the DOM. Any calls to `setState()` here will trigger a re-rendering of your component. When you call an API in this method, and set your state with the data that the API returns, it will automatically trigger an update once your receive the data.
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        activeUsers: null
+      };
+    }
+    componentDidMount() {
+      setTimeout(() => {
+        this.setState({
+          activeUsers: 1273
+        });
+      }, 2500);
+    }
+    render() {
+      return (
+        <div>
+          {/* Change code below this line */}
+          <h1>Active Users: {this.state.activeUsers}</h1>
+          {/* Change code above this line */}
+        </div>
+      );
+    }
+  }
+```
+
+##### Add Event Listeners
+
+`componentDidMount()` is also the best place to attach any event listeners you need to add for specific functionality.
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        message: ''
+      };
+      this.handleEnter = this.handleEnter.bind(this);
+      this.handleKeyPress = this.handleKeyPress.bind(this);
+    }
+    // Change code below this line
+    componentDidMount() {
+      document.addEventListener("keydown", this.handleKeyPress);
+    }
+    
+    componentWillUnmount() {
+      document.removeEventListener("keydown", this.handleKeyPress);
+    }
+    // Change code above this line
+    handleEnter() {
+      this.setState((state) => ({
+        message: state.message + 'You pressed the enter key! '
+      }));
+    }
+    handleKeyPress(event) {
+      if (event.keyCode === 13) {
+        this.handleEnter();
+      }
+    }
+    render() {
+      return (
+        <div>
+          <h1>{this.state.message}</h1>
+        </div>
+      );
+    }
+  };
+```
+
+This example demonstrates an example of good practice: Use lifecycle method to do any clean up on React components before they are unmounted and destroyed. Removing event listeners is one example of one such clean up action.
+
+##### `shouldComponentUpdate`: Optimize Re-Renders
+
+The basic idea is to introduce more control into rendering, in terms of when to render what. Typically, if any component receives new state or new props, it re-renders itself and its children automatically. But React provides this method for you to call when child components receive new state or props, and declares specifically if the components should update or not. This method is a useful way to update performance. For example, even if the props haven't changed, when a component receives new props, it re-renders itself. That would be a waste of energy if nothing actually changes.</br>
+
+This method takes `nextProps` and `nextState` as parameters. You can use `shouldComponentUpdate` to prevent this from happening, by comparing `this.prop` and `nextProps`. The method must return a boolean that tells React whether to update the component.
+
+Example:
+
+```js
+  class OnlyEvens extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+      console.log('Should I update?');
+      // Change code below this line
+      if (nextProps.value % 2 === 0) {
+        return true;      
+      }
+      // Change code above this line
+    }
+    componentDidUpdate() {
+      console.log('Component re-rendered.');
+    }
+    render() {
+      return <h1>{this.props.value}</h1>;
+    }
+  }
+
+  class Controller extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        value: 0
+      };
+      this.addValue = this.addValue.bind(this);
+    }
+    addValue() {
+      this.setState(state => ({
+        value: state.value + 1
+      }));
+    }
+    render() {
+      return (
+        <div>
+          <button onClick={this.addValue}>Add</button>
+          <OnlyEvens value={this.state.value} />
+        </div>
+      );
+    }
+  }
+```
+
+Remember that these lifecycle methods are pre-written, built into React.
+
+#### Syntax of Inline Styles in JSX
+
+Compare Syntax:
+
+HTML:
+
+```HTML
+  <div style="color: yellow; font-size: 16px">Mellow Yellow</div>
+```
+
+JSX:
+
+```js
+  <div style={{color: "yellow", fontSize: 16}}>Mellow Yellow</div>
+```
+
+1. The difference is due to how JSX is transpiled: You can't set the attribute value to a string. Set instead to a JavaScript object.
+2. Also, camelCase for property names without `-` because React does not accept kebab-case keys in the style object.
+
+Example:
+
+```js
+  class Colorful extends React.Component {
+    render() {
+      return (
+        <div style={{color: "red", fontSize: "72px"}}>Big Red</div>
+      );
+    }
+  };
+```
+
+Optionally, you can also set the value for `fontSize` to 72 as a number - that is, without quotes.
+
+##### Add Inline Styles in React
+
