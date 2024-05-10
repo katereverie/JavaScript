@@ -1224,5 +1224,353 @@ Example:
 
 Optionally, you can also set the value for `fontSize` to 72 as a number - that is, without quotes.
 
-##### Add Inline Styles in React
+##### Batch Styles in a Variable
+
+Example:
+
+```js
+  const styles = {
+    color: "purple",
+    fontSize: 40,
+    border: "2px solid purple"
+  }
+  // Change code above this line
+  class Colorful extends React.Component {
+    render() {
+      // Change code below this line
+      return (
+        <div style={styles}>Style Me!</div>
+      );
+      // Change code above this line
+    }
+  };
+```
+
+#### Advanced JavaScript in React Render Method
+
+The basic idea is to write JavaScript code inside `render()` right above the `return` statement. You've summarized this before.</br>
+The advantage is that you don't need to wrap JS code in curly braces.
+
+Example:
+
+```js
+  const inputStyle = {
+    width: 235,
+    margin: 5
+  };
+
+  class MagicEightBall extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        userInput: '',
+        randomIndex: ''
+      };
+      this.ask = this.ask.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+    }
+
+    ask() {
+      if (this.state.userInput) {
+        this.setState({
+          randomIndex: Math.floor(Math.random() * 20),
+          userInput: ''
+        });
+      }
+    }
+
+    handleChange(event) {
+      this.setState({
+        userInput: event.target.value
+      });
+    }
+
+    render() {
+      const possibleAnswers = [
+        'It is certain',
+        'It is decidedly so',
+        'Without a doubt',
+        'Yes, definitely',
+        'You may rely on it',
+        'As I see it, yes',
+        'Outlook good',
+        'Yes',
+        'Signs point to yes',
+        'Reply hazy try again',
+        'Ask again later',
+        'Better not tell you now',
+        'Cannot predict now',
+        'Concentrate and ask again',
+        "Don't count on it",
+        'My reply is no',
+        'My sources say no',
+        'Most likely',
+        'Outlook not so good',
+        'Very doubtful'
+      ];
+
+      const answer = possibleAnswers[this.state.randomIndex]; // Change this line
+      return (
+        <div>
+          <input
+            type='text'
+            value={this.state.userInput}
+            onChange={this.handleChange}
+            style={inputStyle}
+          />
+          <br />
+          <button onClick={this.ask}>Ask the Magic Eight Ball!</button>
+          <br />
+          <h3>Answer:</h3>
+          <p>
+            {/* Change code below this line */}
+            {answer}
+            {/* Change code above this line */}
+          </p>
+        </div>
+      );
+    }
+  }
+```
+
+#### Render with If-Else condition
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        display: true
+      }
+      this.toggleDisplay = this.toggleDisplay.bind(this);
+    }
+    toggleDisplay() {
+      this.setState((state) => ({
+        display: !state.display
+      }));
+    }
+    render() {
+      // Change code below this line
+      if (this.state.display) {
+        return (
+          <div>
+            <button onClick={this.toggleDisplay}>Toggle Display</button>
+            <h1>Displayed!</h1>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <button onClick={this.toggleDisplay}>Toggle Display</button>
+          </div>
+      );
+      }
+    }
+  };
+```
+
+#### Use && for a More Concise Conditional
+
+You can add condition inside `return ( JSX goes in here)`. If a condition is true, it returns a markup. If not, nothing is returned</br>
+
+Syntax:
+
+```js
+  {condition && <p>markup</p>} 
+```
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        display: true
+      }
+      this.toggleDisplay = this.toggleDisplay.bind(this);
+    }
+    toggleDisplay() {
+      this.setState(state => ({
+        display: !state.display
+      }));
+    }
+    render() {
+      // Change code below this line
+      return (
+        <div>
+          <button onClick={this.toggleDisplay}>Toggle Display</button>
+          {this.state.display && <h1>Displayed!</h1>}
+        </div>
+      );
+    }
+  };
+```
+
+#### Use a Ternary Expression for Conditional Rendering
+
+If/else statements cannot be inserted directly into JSX code due to how it is compiled. So they are always written right above the return statement.</br>
+Ternary expressions are an alternative if you want to implement conditional logic *within* your JSX.
+
+Example:
+
+```js
+  const inputStyle = {
+    width: 235,
+    margin: 5
+  };
+
+  class CheckUserAge extends React.Component {
+    constructor(props) {
+      super(props);
+      // Change code below this line
+      this.state = {
+        input: '',
+        userAge: ''
+      }
+      // Change code above this line
+      this.submit = this.submit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
+      this.setState({
+        input: e.target.value,
+        userAge: ''
+      });
+    }
+
+    submit() {
+      this.setState(state => ({
+        userAge: state.input
+      }));
+    }
+
+    render() {
+      const buttonOne = <button onClick={this.submit}>Submit</button>;
+      const buttonTwo = <button>You May Enter</button>;
+      const buttonThree = <button>You Shall Not Pass</button>;
+      return (
+        <div>
+          <h3>Enter Your Age to Continue</h3>
+          <input
+            style={inputStyle}
+            type='number'
+            value={this.state.input}
+            onChange={this.handleChange}
+          />
+          <br />
+          {/* Change code below this line */}
+          {!this.state.userAge? buttonOne: (this.state.userAge < 18? buttonThree: buttonTwo)}
+          {/* Change code above this line */}
+        </div>
+      );
+    }
+  }
+```
+
+#### Render Conditionally from Props
+
+Example:
+
+```js
+  class Results extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      {/* Change code below this line */}
+      return <h1>{this.props.fiftyFifty ? "You Win!": "You Lose!"}</h1>
+        ;
+      {/* Change code above this line */}
+    }
+  }
+
+  class GameOfChance extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        counter: 1
+      };
+      this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+      this.setState(prevState => {
+        // Complete the return statement:
+        return {
+          counter: prevState.counter + 1
+        }
+      });
+    }
+
+    render() {
+      const expression = Math.random() >= .5; // Change this line
+      return (
+        <div>
+          <button onClick={this.handleClick}>Play Again</button>
+          {/* Change code below this line */}
+          <Results fiftyFifty={expression}/>
+          {/* Change code above this line */}
+          <p>{'Turn: ' + this.state.counter}</p>
+        </div>
+      );
+    }
+  }
+```
+
+In this example, the const variable `expression` has a 50% chance of being assigned `true` and 50% of being assigned `false`.
+
+#### Conditional Rendering of Inline CSS Based on Component State
+
+React differs from jQuert in that you must track when elements change and also handle the actual manipulation *directly* in jQuery, while in React you *indirectly* manipulate element changes using the conditional approach. This is the preferred approach when writing in React.
+
+Example:
+
+```js
+  class GateKeeper extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        input: ''
+      };
+      this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+      this.setState({ input: event.target.value })
+    }
+
+    render() {
+      let inputStyle = {
+        border: '1px solid black'
+      };
+      // Change code below this line
+      if (this.state.input.length > 15) {
+        inputStyle = {
+          border: '3px solid red'
+        }
+      }
+      // Change code above this line
+      return (
+        <div>
+          <h3>Don't Type Too Much:</h3>
+          <input
+            type="text"
+            style={inputStyle}
+            value={this.state.input}
+            onChange={this.handleChange} />
+        </div>
+      );
+    }
+  };
+```
+
+##### Use `Array.map()` to Dynamically Render Elements
+
+Conditional rendering inline CSS is useful if a programmer knows what the state of an application. But the truth is that there is no way of knowing the state of the application until runtime because so much depends on a user's interaction with that program. These unknowns must be handled ahead of time.</br>
+
+For example, suppose you create a "To-Do-List" app. You have no way of knowing how many items a user might have on their list. So you need to set up your component to dynamically render the correct number of list elements.
 
