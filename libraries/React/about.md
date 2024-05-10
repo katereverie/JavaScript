@@ -888,7 +888,7 @@ Enjoy
       }))
       // Change code above this line
     }
-    
+
     render() {
       return (
         <div>
@@ -908,4 +908,56 @@ Enjoy
 ```
 
 ##### Pass States as Props to Child Components
+
+A common pattern is to have a stateful component containing the `state` important to your app, that then renders child components, because you want these components to have access to some pieces of that `state` passed in as props.</br>
+
+For example, suppose your app's `state` contains a lot of user information, but your `NavBar` component only needs access to the user's username to display it. In this case, you pass *that* piece of `state` to the `NavBar` component as a prop.</br>
+
+This brings us to some important paradigms in React:
+
+1. __unidirectional data flow__: State flows in one direction down the tree of your application's components, from the stateful parent component to child components, where the child components only receive the data needed there.
+2. __Separation of State Logic and UI Logic__: Complex stateful apps can be broken down into just a few, or maybe a single, stateful component. The rest of your components simply receive state from the parent as props, and render a UI from that state. It begins to create a separation where __state management__ is handled in one part of code and __UI rendering__ in another.
+
+Example:
+
+```js
+  class MyApp extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: 'CamperBot'
+      }
+    }
+    render() {
+      return (
+        <div>
+          {/* Change code below this line */}
+          <Navbar name={this.state.name}/>
+          {/* Change code above this line */}
+        </div>
+      );
+    }
+  };
+
+  class Navbar extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+      <div>
+        {/* Change code below this line */}
+        <h1>Hello, my name is: {this.props.name}</h1>
+        {/* Change code above this line */}
+      </div>
+      );
+    }
+  };
+```
+
+Don't forget `this` in the child component! I know it's confusing. Since props are the connecting point between parent and child component, using `this.props` does not refer to the child component.
+
+##### Pass a Callback as Props
+
+Besides passing `state` data as props to child components, you can also pass handler functions or any method defined on a React component to a child component. This is how you allow child components to interact with their parent components.
 
