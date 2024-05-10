@@ -16,6 +16,7 @@ Quick Facts about JSX:
 
 Quick Facts about React's relation to JSX:
 
+0. React is a JavaScript *view library*.
 1. React renders JSX directly to the HTML DOM using React's rendering API `ReactDOM`: `ReactDOM.render(componentToRender, targetNode)`, where the 1st argument is the React element or component that you want to render, and the 2nd argument is the DOM node that you want to render the component to.
 2. `ReactDOM.render()` must be called *after* the JSX element declarations, just as you must declare variables before using them.
 
@@ -1574,3 +1575,171 @@ Conditional rendering inline CSS is useful if a programmer knows what the state 
 
 For example, suppose you create a "To-Do-List" app. You have no way of knowing how many items a user might have on their list. So you need to set up your component to dynamically render the correct number of list elements.
 
+Example:
+
+```js
+  const textAreaStyles = {
+    width: 235,
+    margin: 5
+  };
+
+  class MyToDoList extends React.Component {
+    constructor(props) {
+      super(props);
+      // Change code below this line
+      this.state = {
+        userInput: '',
+        toDoList: []
+      }
+
+      // Change code above this line
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleSubmit() {
+      const itemsArray = this.state.userInput.split(',');
+      this.setState({
+        toDoList: itemsArray
+      });
+    }
+
+    handleChange(e) {
+      this.setState({
+        userInput: e.target.value
+      });
+    }
+
+    render() {
+      const items = this.state.toDoList.map((item) => {
+        return <li>{item}</li>;
+      }); // Change this line
+      return (
+        <div>
+          <textarea
+            onChange={this.handleChange}
+            value={this.state.userInput}
+            style={textAreaStyles}
+            placeholder='Separate Items With Commas'
+          />
+          <br />
+          <button onClick={this.handleSubmit}>Create List</button>
+          <h1>My "To Do" List:</h1>
+          <ul>{items}</ul>
+        </div>
+      );
+    }
+  }
+```
+
+##### Give Sibling Elements a Unique Key Attribute
+
+Example:
+
+```js
+  const frontEndFrameworks = [
+    'React',
+    'Angular',
+    'Ember',
+    'Knockout',
+    'Backbone',
+    'Vue'
+  ];
+
+  function Frameworks() {
+    const renderFrameworks = frontEndFrameworks.map((framework) => {
+      return <li key={framework}>{framework}</li>
+    }); // Change this line
+    return (
+      <div>
+        <h1>Popular Front End JavaScript Frameworks</h1>
+        <ul>
+          {renderFrameworks}
+        </ul>
+      </div>
+    );
+  };
+```
+
+##### Use `Array.filter() to Dynamically Filter an Array`
+
+Example:
+
+```js
+  class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        users: [
+          {
+            username: 'Jeff',
+            online: true
+          },
+          {
+            username: 'Alan',
+            online: false
+          },
+          {
+            username: 'Mary',
+            online: true
+          },
+          {
+            username: 'Jim',
+            online: false
+          },
+          {
+            username: 'Sara',
+            online: true
+          },
+          {
+            username: 'Laura',
+            online: true
+          }
+        ]
+      };
+    }
+    render() {
+      const usersOnline = this.state.users.filter((user) => user.online === true); // Change this line
+      const renderOnline = usersOnline.map((onlineUser) => {
+        return <li key={onlineUser.username}>{onlineUser.username}</li>
+      }); // Change this line
+      return (
+        <div>
+          <h1>Current Online Users:</h1>
+          <ul>{renderOnline}</ul>
+        </div>
+      );
+    }
+  }
+```
+
+##### Render React on the Server with `renderToString()`
+
+Remember that React is a JavaScript view library. What does that mean? It means you can run JavaScript on the server with Node (which is for using JS to deal with backend stuff). React provides a `renderToString()` method to make it possible to run JavaScript on the server.</br>
+
+Why render JavaScript code on the server?
+
+1. without rendering JS code on the server, your React apps would consist of a relatively empty HTML file and a large bundle of JS code when it's initially loaded to the browser, which is not ideal for *search engine* indexing the content of your pages for people to find you. If you render the initial HTML markup on the server and send this to the client, the initial page load contains all of the page's markup which can be crawled by search engine.
+2. This creates a faster initial page load experience because the rendered HTML is smaller than the JS code of the entire app. React will still be able to recognize your app and manage it after the initial load.
+
+Syntax:
+
+```js
+  ReactDOMServer.renderToString(<ReactClassComponent />)
+```
+
+Example:
+
+```js
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div/>
+  }
+};
+
+// Change code below this line
+ReactDOMServer.renderToString(<App />);
+```
