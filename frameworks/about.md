@@ -422,5 +422,97 @@ Example:
   const store = Redux.createStore(immutableReducer);
 ```
 
-#### The Spread Operator `...` on Arrays
+##### The Spread Operator `[...myArray]` on Arrays
 
+The `...` spreads out the values in `myArray` into a new array.</br>
+
+To add new values, you can write: `[...myArray, "new value"]`, which would return a new array composed of the values in `myArray` and the string `new value` as the *last* value.
+
+Example:
+
+```js
+  const immutableReducer = (state = ['Do not mutate state!'], action) => {
+    switch(action.type) {
+      case 'ADD_TO_DO':
+        // Don't mutate state here or the tests will fail
+        return [...state, action.todo];
+      default:
+        return state;
+    }
+  };
+
+  const addToDo = (todo) => {
+    return {
+      type: 'ADD_TO_DO',
+      todo
+    }
+  }
+
+  const store = Redux.createStore(immutableReducer);
+```
+
+##### Remove an item from an Array
+
+Example:
+
+```js
+  const immutableReducer = (state = [0,1,2,3,4,5], action) => {
+    switch(action.type) {
+      case 'REMOVE_ITEM':
+        // Don't mutate state here or the tests will fail
+        return state.slice(0, action.index).concat(state.slice(action.index + 1));
+      default:
+        return state;
+    }
+  };
+
+  const removeItem = (index) => {
+    return {
+      type: 'REMOVE_ITEM',
+      index
+    }
+  }
+
+  const store = Redux.createStore(immutableReducer);
+```
+
+##### Copy an Object with `Object.assign`
+
+`Object.assign()` takes a target object and source objects and maps properties from the source objects to the target object. Any matching properties are overwritten by properties in the source projects. This behavior is commonly used to make shallow copies of objects by passing an empty object as the first argument followed by the object(s) you want to copy.</br>
+
+Syntax:
+
+```js
+  const newObject = Object.assign({}, obj1, obj2);
+```
+
+This creates `newObject` as a new `object`, which contains the properties that currently exist in `obj1` and `obj2`.
+
+Example:
+
+```js
+  const defaultState = {
+    user: 'CamperBot',
+    status: 'offline',
+    friends: '732,982',
+    community: 'freeCodeCamp'
+  };
+
+  const immutableReducer = (state = defaultState, action) => {
+    switch(action.type) {
+      case 'ONLINE':
+        // Don't mutate state here or the tests will fail
+        return Object.assign({}, defaultState, {status: 'online'});
+      default:
+        return state;
+    }
+  };
+
+  const wakeUp = () => {
+    return {
+      type: 'ONLINE'
+    }
+  };
+
+  const store = Redux.createStore(immutableReducer);
+```
