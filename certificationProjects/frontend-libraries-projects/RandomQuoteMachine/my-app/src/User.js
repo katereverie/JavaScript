@@ -1,7 +1,11 @@
-function User() {
+function User(props) {
+  console.log(props);
+
   return (
     <div>
-      I am a user!
+      <h2>{props.userName}</h2>
+      <p>{props.tweet}</p>
+      <p>{props.userRealName}</p>
     </div>
   );
 }

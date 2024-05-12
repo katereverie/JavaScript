@@ -5,7 +5,10 @@ import User from './User';
 function App() {
   return (
     <div className="App">
-      <User />
+      <User userName='Jiantao Zhang' tweet="I've injuried my lower back, T-T"/>
+      <User userName="Christopher Hindermeyer" tweet="I found a wonderful recipe!"/>
+      <User userName="Qiuqiu" tweet="Meow~~~!"/>
+      <User userName="Jacko" tweet="Look at my piggy!" userRealName="Jacko Hindermeyer"/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
