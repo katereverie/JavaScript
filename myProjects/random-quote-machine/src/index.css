@@ -60,9 +60,43 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #ff0000c5;
   }
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Header Component */
+
+
+/* Card component */
+.card {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsl(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 200px;
+  display: inline-block;
+  
+}
+
+/* !profile picture inside card component */
+.card .profile-picture {
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  border-radius: 50%;
+}
+
+.card .author-name {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: hsl(0, 0%, 20%);
+}
+
+.card .author-title {
+  font-family: 'Times New Roman', Times, serif;
 }
