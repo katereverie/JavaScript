@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const Author = (props) => {
+const AuthorInfo = (props) => {
   return(
     <div className='author-card'>
       <p>Name: {props.name}</p>
@@ -11,17 +11,15 @@ const Author = (props) => {
   );
 }
 
-Author.propTypes = {
+AuthorInfo.propTypes = {
   name: PropTypes.string,
   age: PropTypes.number,
   title: PropTypes.string,
   isAlive: PropTypes.boolean
 }
-Author.defaultProps = {
+AuthorInfo.defaultProps = {
   name: "Guest",
-  age: 0,
   title: "unknown",
-  isAlive: false
 }
 
-export default Author
+export default AuthorInfo

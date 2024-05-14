@@ -68,9 +68,16 @@ button:focus-visible {
   background-color: #ff0000c5;
   display: flex;
   justify-content: space-around;
+  list-style: none;
 }
 .nav-bar-list li a {
   color: white;
+}
+
+/* Quote Component */
+.quote-section {
+  border: 3px solid;
+  background-color: antiquewhite;
 }
 
 /* Card component */
@@ -81,7 +88,7 @@ button:focus-visible {
   padding: 20px;
   margin: 10px;
   text-align: center;
-  max-width: 200px;
+  max-width: 350px;
   display: inline-block;
   
 }

@@ -19,9 +19,13 @@ const History = () => {
   // if saveBtn is clicked, save the current quote to history as a list item
   return(
     <ol>
-      {}
+      {listQuotes}
     </ol>
   );
+}
+
+History.defaultProps = {
+  
 }
 
 export default History
