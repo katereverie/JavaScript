@@ -1,7 +1,7 @@
 
-function Button() {
+function GetQuoteBtn() {
 
-  const styles = {
+  const getQuoteBtnStyles = {
       maxWidth: "200px",
       backgroundColor: "black",
       border: "10px solid transparent",
@@ -13,10 +13,10 @@ function Button() {
       fontWeight: "600px",
       transition: "margin 0.5s, backgroundColor 0.5s",
     };
-
+    
   return(
-    <button style={styles} >New Quote</button>
+    <button style={getQuoteBtnStyles} >New Quote</button>
   );
 }
 
-export default Button
+export default GetQuoteBtn;

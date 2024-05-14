@@ -61,7 +61,12 @@ button:focus-visible {
 }
 
 /* Header Component */
-
+.nav-bar-list {
+  background-color: #ff0000c5;
+}
+.nav-bar-list li a {
+  color: white;
+}
 
 /* Card component */
 .card {
@@ -104,4 +109,17 @@ button:focus-visible {
 }
 .author-card p {
   margin: 0;
+}
+
+/* AuthorGreeting */
+
+.success-message {
+  font-size: 2.5em;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+.success-message em {
+  color: red;
 }
