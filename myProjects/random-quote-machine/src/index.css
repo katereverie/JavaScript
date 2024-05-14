@@ -61,8 +61,13 @@ button:focus-visible {
 }
 
 /* Header Component */
+#head-title {
+  text-align: center;
+}
 .nav-bar-list {
   background-color: #ff0000c5;
+  display: flex;
+  justify-content: space-around;
 }
 .nav-bar-list li a {
   color: white;

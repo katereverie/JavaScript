@@ -1,5 +1,6 @@
 import GetQuoteBtn from './QuoteButton.jsx'
 import SaveBtn from './SaveButton.jsx';
+import SeeHistoryBtn from './SeeHistoryButton.jsx';
 import TweetBtn from './TweetButton.jsx';
 function Header() {
 
@@ -25,6 +26,7 @@ function Header() {
       <div style={btnSectionStyles}>
         <GetQuoteBtn />
         <SaveBtn />
+        <SeeHistoryBtn />
         <TweetBtn />
       </div>
 
