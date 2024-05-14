@@ -1,10 +1,18 @@
 import GetQuoteBtn from './QuoteButton.jsx'
 import TweetBtn from './TweetButton.jsx';
 function Header() {
-  
+
+  const btnSectionStyles = {
+    backgroundColor: "gray",
+    margin: "10px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-around",
+  };
+
   return(
     <header>
-      <h1>Random Quote Machine</h1>
+      <h1 id='head-title'>Random Quote Machine</h1>
       <nav>
         <ul className="nav-bar-list">
           <li><a href="#">Home</a></li>
@@ -13,8 +21,11 @@ function Header() {
           <li><a href="#">Contacts</a></li>
         </ul>
       </nav>
-      <GetQuoteBtn />
-      <TweetBtn />
+      <div style={btnSectionStyles}>
+        <GetQuoteBtn />
+        <TweetBtn />
+      </div>
+
     </header>
   )
 }
