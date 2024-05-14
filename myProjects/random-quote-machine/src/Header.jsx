@@ -2,7 +2,8 @@ import GetQuoteBtn from './QuoteButton.jsx'
 import SaveBtn from './SaveButton.jsx';
 import SeeHistoryBtn from './SeeHistoryButton.jsx';
 import TweetBtn from './TweetButton.jsx';
-function Header() {
+
+const Header = () => {
 
   const btnSectionStyles = {
     backgroundColor: "gray",

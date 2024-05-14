@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function AuthorGreeting(props) {
+const AuthorGreeting = (props) => {
     const welcomeMessage =  <h2 className="success-message">
                               Successfully got a quote from <em>{props.name}</em>
                             </h2>;

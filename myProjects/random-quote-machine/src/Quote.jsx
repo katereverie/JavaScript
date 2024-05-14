@@ -6,8 +6,8 @@ function Quote() {
 
   return(
     <ul>
-      <li>{quote1.toUpperCase()}</li>
-      <li>{quote2.toUpperCase()}</li>
+      <li>{quote1}</li>
+      <li>{quote2}</li>
     </ul>
   );
 }

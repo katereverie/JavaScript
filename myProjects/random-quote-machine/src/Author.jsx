@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-function Author(props) {
+
+const Author = (props) => {
   return(
     <div className='author-card'>
       <p>Name: {props.name}</p>
