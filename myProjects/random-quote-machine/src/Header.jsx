@@ -1,4 +1,5 @@
 import GetQuoteBtn from './QuoteButton.jsx'
+import SaveBtn from './SaveButton.jsx';
 import TweetBtn from './TweetButton.jsx';
 function Header() {
 
@@ -23,6 +24,7 @@ function Header() {
       </nav>
       <div style={btnSectionStyles}>
         <GetQuoteBtn />
+        <SaveBtn />
         <TweetBtn />
       </div>
 
