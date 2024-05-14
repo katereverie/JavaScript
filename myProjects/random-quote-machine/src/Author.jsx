@@ -16,5 +16,11 @@ Author.propTypes = {
   title: PropTypes.string,
   isAlive: PropTypes.boolean
 }
+Author.defaultProps = {
+  name: "Guest",
+  age: 0,
+  title: "unknown",
+  isAlive: false
+}
 
 export default Author
