@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import X_icon from "./icons/X_icon.png";
-import Facebook_Logo from "./icons/Facebook_Logo_2023.png"
 
 const Card = () => {
 
@@ -19,7 +18,16 @@ const Card = () => {
     }
   }
   
-  
+  const saveQuote = () => {
+    // const currentQuote = data.content;
+    // console.log(currentQuote);
+    const history = document.querySelector(".saved-quotes-wrapper");
+    history.innerHTML += `
+      <p id="text">${data.content}</p>
+      <span id="author">--- ${data.author}</span>
+    `;
+  }
+
   useEffect(() => {
     updateQuote();
   }, [])
@@ -32,10 +40,7 @@ const Card = () => {
     let shareUrl;
     if (socialMedia === "twitter") {
       shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-    } else if (socialMedia === "facebook") {
-      shareUrl = `https://www.facebook.com/sharer/sharer.php?text=<URL_ENCODED_LINK>
-      ?text=${encodeURIComponent(shareText)}`;
-    }
+    } 
     window.open(shareUrl, '_blank');
   }
 
@@ -47,6 +52,7 @@ const Card = () => {
       </div>
       <div className="button-wrapper">
         <button id="new-quote" onClick={updateQuote}>New Quote</button>
+        <button id="save-quote" onClick={saveQuote}>Save</button>
         <a 
           id="tweet-quote"
           href="twitter.com/intent/tweet" 
@@ -55,17 +61,7 @@ const Card = () => {
           rel="noopener noreferrer"
           >
           <img src={X_icon} alt="icon" onClick={handleTweetClick("twitter")} style={{ cursor: "pointer" }}/>
-        </a>
-        <a 
-          id="facebook-quote"
-          href="https://www.facebook.com/sharer/sharer.php>"
-          title="Click to share the quote on Facebook!"
-          target="_blank"
-          rel="noopener noreferrer"
-          >
-          <img src={Facebook_Logo} alt="icon" onClick={handleTweetClick("facebook")} style={{ cursor: "pointer" }}/>
-        </a>
-        
+        </a>  
     </div>
     </div>
   );

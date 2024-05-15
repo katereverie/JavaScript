@@ -72,15 +72,18 @@ button:hover {
   transition: ease 0.3s;
 }
 
-#quote-box {
+#quote-box,
+#saved-quotes {
   background-color: var(--primary-color);
   border-radius: 12px;
-  min-width: 500px;
+  min-width: 450px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.quote-wrapper {
+.quote-wrapper,
+.saved-quotes-wrapper {
   background-color: var(--primary-color);
   max-width: 400px;
   margin: 20px;
@@ -90,18 +93,23 @@ button:hover {
   align-items: flex-end;
   justify-content: center;
 }
-.quote-wrapper #text {
-  font-size: 2rem;
-  margin-bottom: 50px;
+.saved-quotes-wrapper {
+  overflow-y: scroll;
+  max-height: 300px;
 }
-.quote-wrapper #author {
+#text {
+  line-height: 1.8;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+#author {
   font-style: italic;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--accent-color);
 }
 
 .button-wrapper {
-  margin: 20px;
+  background-color: var(--primary-color);
   padding: 20px;
   display: flex;
   min-height: 30px;
