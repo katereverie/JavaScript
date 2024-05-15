@@ -5,30 +5,34 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
+  --primary-color: hsl(0, 0%, 0%);
+  --secondary-color: hsl(0, 0%, 100%);
+  --accent-color: hsl(0, 100%, 50%);
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
   margin: 0;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+header {
+  background-color: red;
+  text-align: center;
 }
 
+img {
+  max-width: 40px;
+}
+
+button {
+  padding: 10px;
+}
 button:hover {
   background-color: #646cff !important;
   color: hsl(0, 0%, 80%) !important;
@@ -53,65 +57,30 @@ button:focus-visible {
   }
 }
 
-/* Header Component */
-#head-title {
-  text-align: center;
-}
-.nav-bar-list {
-  background-color: #ff0000c5;
+#quote-box {
+  background-color: gainsboro;
   display: flex;
-  justify-content: space-around;
-  list-style: none;
-}
-.nav-bar-list li a {
-  color: white;
-}
-
-/* Quote Component */
-.quote-section {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  border: 3px solid;
-}
-/* Card component */
-.card {
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px hsl(0, 0%, 0%, 0.1);
-  padding: 20px;
-  margin: 10px;
-  text-align: center;
-  min-width: 250px;
-  max-width: 500px;
-  display: inline-block;
-  
-}
-.card .profile-picture {
-  max-width: 100%;
-  height: auto;
-  max-height: 150px;
-  border-radius: 50%;
-}
-.card .author-name {
-  font-family: Arial, sans-serif;
-  font-weight: 600;
-  margin: 0;
-  color: hsl(0, 0%, 20%);
-}
-.card .author-title {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 1em;
 }
 
-.quote-wrapper {
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px hsl(0, 0%, 0%, 0.1);
-  padding: 20px;
+.text-wrapper,
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: aliceblue;
   margin: 10px;
-  text-align: start;
-  max-width: 280px;
-  display: inline-block;
+}
+
+.text-wrapper {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#text {
+  background-color: gray;
+  width: 400px;
+  min-height: 200px;
 }

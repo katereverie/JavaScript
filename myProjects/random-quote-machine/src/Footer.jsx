@@ -1,5 +1,5 @@
 
-function Footer() {
+const Footer = () => {
   return(
     <footer>
       <p>&copy; {new Date().getFullYear()} Random Quote Machine</p>
