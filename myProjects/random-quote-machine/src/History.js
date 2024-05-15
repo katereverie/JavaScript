@@ -1,8 +1,8 @@
 const History = () => {
 
   return (
-    <div id="saved-quotes">
-      <div className="saved-quotes-wrapper">  
+    <div id="saved-quotes" className="hidden">
+      <div className="saved-quotes-wrapper hidden">  
       </div>
     </div>
 

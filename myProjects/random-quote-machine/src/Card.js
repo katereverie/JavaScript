@@ -28,6 +28,10 @@ const Card = () => {
     `;
   }
 
+  const seeHistroy = () => {
+    document.querySelector(".saved-quotes-wrapper").classList.toggle("hidden");
+  }
+
   useEffect(() => {
     updateQuote();
   }, [])
@@ -53,6 +57,7 @@ const Card = () => {
       <div className="button-wrapper">
         <button id="new-quote" onClick={updateQuote}>New Quote</button>
         <button id="save-quote" onClick={saveQuote}>Save</button>
+        <button id="see-history-btn" onClick={seeHistroy}>History</button>
         <a 
           id="tweet-quote"
           href="twitter.com/intent/tweet" 

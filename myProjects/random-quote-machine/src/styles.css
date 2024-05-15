@@ -93,10 +93,16 @@ button:hover {
   align-items: flex-end;
   justify-content: center;
 }
+
 .saved-quotes-wrapper {
   overflow-y: scroll;
   max-height: 300px;
 }
+
+.hidden {
+  display: none;
+}
+
 #text {
   line-height: 1.8;
   font-size: 1.8rem;
@@ -112,5 +118,6 @@ button:hover {
   background-color: var(--primary-color);
   padding: 20px;
   display: flex;
+  justify-content: space-evenly;
   min-height: 30px;
 }
