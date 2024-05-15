@@ -32,7 +32,7 @@ const Card = () => {
     let shareUrl;
     if (socialMedia === "twitter") {
       shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-    } else if (socialMedia === 'instagram') {
+    } else if (socialMedia === "facebook") {
       shareUrl = `https://www.facebook.com/sharer/sharer.php?text=<URL_ENCODED_LINK>
       ?text=${encodeURIComponent(shareText)}`;
     }
@@ -50,19 +50,20 @@ const Card = () => {
         <a 
           id="tweet-quote"
           href="twitter.com/intent/tweet" 
+          target="_blank"
           title="Click to tweet the quote!"
           rel="noopener noreferrer"
           >
-          <img src={X_icon} alt="icon" onClick={handleTweetClick} style={{ cursor: "pointer" }}/>
+          <img src={X_icon} alt="icon" onClick={handleTweetClick("twitter")} style={{ cursor: "pointer" }}/>
         </a>
         <a 
           id="facebook-quote"
-          href="https://www.facebook.com/sharer/sharer.php>
-" 
+          href="https://www.facebook.com/sharer/sharer.php>"
           title="Click to share the quote on Facebook!"
+          target="_blank"
           rel="noopener noreferrer"
           >
-          <img src={Facebook_Logo} alt="icon" onClick={handleTweetClick} style={{ cursor: "pointer" }}/>
+          <img src={Facebook_Logo} alt="icon" onClick={handleTweetClick("facebook")} style={{ cursor: "pointer" }}/>
         </a>
         
     </div>
