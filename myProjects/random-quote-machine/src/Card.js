@@ -38,13 +38,11 @@ const Card = () => {
 
   if (!data) return null;
 
-  const handleTweetClick = (socialMedia) => (e) => {
+  const handleTweetClick = (e) => {
     e.preventDefault();
     const shareText = `"${data.content}" - ${data.author}`;
-    let shareUrl;
-    if (socialMedia === "twitter") {
-      shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-    } 
+    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+      
     window.open(shareUrl, '_blank');
   }
 
@@ -65,7 +63,7 @@ const Card = () => {
           title="Click to tweet the quote!"
           rel="noopener noreferrer"
           >
-          <img src={X_icon} alt="icon" onClick={handleTweetClick("twitter")} style={{ cursor: "pointer" }}/>
+          <img src={X_icon} alt="icon" onClick={handleTweetClick} style={{ cursor: "pointer" }}/>
         </a>  
     </div>
     </div>
