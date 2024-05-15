@@ -3,20 +3,17 @@ import PropTypes from 'prop-types'
 const AuthorInfo = (props) => {
   return(
     <div className='author-card'>
-      <p>Name: {props.name}</p>
-      <p>Age: {props.age}</p>
-      <p>Title: {props.title}</p>
-      <p>Alive: {props.isAlive ? "Yes" : "No"}</p>
-    </ div>
+      <p className="author-name">{props.authorName}</p>
+      <p className="author-title">{props.authorTitle}</p>
+    </div>
   );
 }
 
 AuthorInfo.propTypes = {
-  name: PropTypes.string,
-  age: PropTypes.number,
-  title: PropTypes.string,
-  isAlive: PropTypes.boolean
+  authorName: PropTypes.string,
+  authorTitle: PropTypes.string,
 }
+
 AuthorInfo.defaultProps = {
   name: "Guest",
   title: "unknown",

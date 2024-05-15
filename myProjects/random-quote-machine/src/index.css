@@ -1,13 +1,11 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.8;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,10 +22,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -76,10 +70,12 @@ button:focus-visible {
 
 /* Quote Component */
 .quote-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
   border: 3px solid;
-  background-color: antiquewhite;
 }
-
 /* Card component */
 .card {
   border: 1px solid hsl(0, 0%, 80%);
@@ -88,32 +84,44 @@ button:focus-visible {
   padding: 20px;
   margin: 10px;
   text-align: center;
-  max-width: 350px;
+  min-width: 250px;
+  max-width: 500px;
   display: inline-block;
   
 }
-
-/* !profile picture inside card component */
 .card .profile-picture {
   max-width: 100%;
   height: auto;
   max-height: 150px;
   border-radius: 50%;
 }
-
 .card .author-name {
   font-family: Arial, sans-serif;
+  font-weight: 600;
   margin: 0;
   color: hsl(0, 0%, 20%);
 }
-
 .card .author-title {
   font-family: 'Times New Roman', Times, serif;
+  font-size: 1em;
 }
+
+.quote-wrapper {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsl(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: start;
+  max-width: 280px;
+  display: inline-block;
+}
+
+/* !profile picture inside card component */
+
 
 /* author card */
 .author-card {
-  background-color: whitesmoke;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   border: 1px solid hsla(0, 0%, 50%, 0.8);
@@ -121,17 +129,4 @@ button:focus-visible {
 }
 .author-card p {
   margin: 0;
-}
-
-/* AuthorGreeting */
-
-.success-message {
-  font-size: 2.5em;
-  background-color: black;
-  color: white;
-  border-radius: 20px;
-  text-align: center;
-}
-.success-message em {
-  color: red;
 }

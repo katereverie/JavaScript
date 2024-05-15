@@ -9,9 +9,9 @@ function App() {
   return(
     <>
       <Header />
-      <Quote authorName={"Karl Marx"}/>
-      <Quote authorName={"Friedrich Nietzsche"}/>
-      <Quote authorName={"Harry Frankfurt"}/>
+      <Quote authorName={"Karl Marx"} authorTitle = {"Economics Theorist/Thinker/Revolutionary"}/>
+      <Quote authorName={"Friedrich Nietzsche"} authorTitle = {"Philosopher/Philologist"}/>
+      <Quote authorName={"Harry Frankfurt"} authorTitle= {"Philosopher"}/>
       <History />
       <Footer />
     </>
