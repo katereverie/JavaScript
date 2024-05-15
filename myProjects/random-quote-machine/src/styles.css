@@ -1,6 +1,17 @@
+* {
+  font-family: Roboto, 'Times New Roman';
+  font-size: 10px;
+}
+
+:root {
+  --primary-color: hsl(0, 0%, 100%);
+  --secondary-color: hsl(0, 0%, 0%);
+  --accent-color: hsl(0, 87%, 41%);
+}
+
 body {
   margin: 0;
-  background-color: rgb(220, 213, 213);
+  background-color: var(--secondary-color);
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   height: 100vh;
@@ -8,31 +19,89 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  scroll-behavior: smooth;
+}
+
+footer {
+  border: transparent;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--primary-color);
+  color: var(--primary-color);
+  padding: 10px;
+  margin: 20px 0;
+}
+footer p, span {
+  margin: 0;
+  font-size: 2.5rem;
+}
+footer #app-author {
+  color: var(--accent-color);
+  font-family: Silkscreen, Roboto, 'Times New Roman';
+}
+
+h1 {
+  font-size: 2.5rem;
+  border: transparent;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--primary-color);
+  color: var(--primary-color);
+
+  padding: 10px;
+  margin: 20px 0;
 }
 
 img {
-  max-width: 30px;
+  border-radius: 50%;
+  max-width: 35px;
+}
+
+button {
+  font-size: 1.6rem;
+  
+  background-color: var(--primary-color);
+  border: transparent;
+  border-radius: 15px;
+  box-shadow: 0 0 5px var(--secondary-color);
+  transition: ease 0.3s;
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+  transition: ease 0.3s;
 }
 
 #quote-box {
-  background-color: white;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  min-width: 500px;
   display: flex;
   flex-direction: column;
 }
 
 .quote-wrapper {
-  background-color: antiquewhite;
+  background-color: var(--primary-color);
+  max-width: 400px;
   margin: 20px;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+}
+.quote-wrapper #text {
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+.quote-wrapper #author {
+  font-style: italic;
+  font-size: 2.2rem;
+  color: var(--accent-color);
 }
 
 .button-wrapper {
-  background-color: antiquewhite;
+  border: 1px solid var(--secondary-color);
   margin: 20px;
   padding: 20px;
   display: flex;

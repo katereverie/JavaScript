@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import X_icon from "./icons/X_icon.png";
+import Facebook_Logo from "./icons/Facebook_Logo_2023.png"
 
 const Card = () => {
 
@@ -25,17 +26,45 @@ const Card = () => {
 
   if (!data) return null;
 
+  const handleTweetClick = (socialMedia) => (e) => {
+    e.preventDefault();
+    const shareText = `"${data.content}" - ${data.author}`;
+    let shareUrl;
+    if (socialMedia === "twitter") {
+      shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+    } else if (socialMedia === 'instagram') {
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?text=<URL_ENCODED_LINK>
+      ?text=${encodeURIComponent(shareText)}`;
+    }
+    window.open(shareUrl, '_blank');
+  }
+
   return (
     <div id="quote-box">
       <div className="quote-wrapper">
         <p id="text">{data.content}</p>
-        <span id="author">{data.author}</span>
+        <span id="author">--- {data.author}</span>
       </div>
       <div className="button-wrapper">
-      <button id="new-quote" onClick={updateQuote}>New Quote</button>
-      <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">
-        <img src={X_icon} alt="icon"/>
-      </a>
+        <button id="new-quote" onClick={updateQuote}>New Quote</button>
+        <a 
+          id="tweet-quote"
+          href="twitter.com/intent/tweet" 
+          title="Click to tweet the quote!"
+          rel="noopener noreferrer"
+          >
+          <img src={X_icon} alt="icon" onClick={handleTweetClick} style={{ cursor: "pointer" }}/>
+        </a>
+        <a 
+          id="facebook-quote"
+          href="https://www.facebook.com/sharer/sharer.php>
+" 
+          title="Click to share the quote on Facebook!"
+          rel="noopener noreferrer"
+          >
+          <img src={Facebook_Logo} alt="icon" onClick={handleTweetClick} style={{ cursor: "pointer" }}/>
+        </a>
+        
     </div>
     </div>
   );
