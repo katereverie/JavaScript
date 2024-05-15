@@ -1,6 +1,9 @@
+import { useState, useEffect } from "react"
 import X_icon from "./icons/X_icon.png";
 
 const Card = () => {
+
+  const [data, setData] = useState("getting a quote");
 
   const API_URL = "https://api.quotable.io/random";
   
@@ -8,18 +11,25 @@ const Card = () => {
     try {
       const response = await fetch(API_URL);
       const data = await response.json();
-      console.log(data);
-
+      console.log("Here is the parsed data:", data);
+      setData(data);
     } catch (error) {
       console.log(`Oops...there is an error fetching data: ${error}`)
     }
   }
+  
+  
+  useEffect(() => {
+    updateQuote();
+  }, [])
+
+  if (!data) return null;
 
   return (
     <div id="quote-box">
       <div className="quote-wrapper">
-        <p id="text">My Quote</p>
-        <span id="author">Author of Quote</span>
+        <p id="text">{data.content}</p>
+        <span id="author">{data.author}</span>
       </div>
       <div className="button-wrapper">
       <button id="new-quote" onClick={updateQuote}>New Quote</button>
