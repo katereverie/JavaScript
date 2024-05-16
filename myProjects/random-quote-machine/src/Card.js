@@ -24,7 +24,6 @@ const Card = ({ addQuoteToHistory, history, toggleHistory}) => {
       alert("You have already saved this quote.")
     } else {
       addQuoteToHistory({ content: data.content, author: data.author});
-      console.log(history);
     }
   }
 
