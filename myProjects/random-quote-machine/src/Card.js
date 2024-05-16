@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import X_icon from "./icons/X_icon.png";
 
-const Card = () => {
+// const savedQuotes = document.querySelector(".saved-quotes-wrapper");
 
-  const [data, setData] = useState("getting a quote");
+const Card = ({ addQuoteToHistory, history, toggleHistory}) => {
+
+  const [data, setData] = useState('');
 
   const API_URL = "https://api.quotable.io/random";
   
@@ -11,7 +13,6 @@ const Card = () => {
     try {
       const response = await fetch(API_URL);
       const data = await response.json();
-      console.log("Here is the parsed data:", data);
       setData(data);
     } catch (error) {
       console.log(`Oops...there is an error fetching data: ${error}`)
@@ -19,17 +20,12 @@ const Card = () => {
   }
   
   const saveQuote = () => {
-    // const currentQuote = data.content;
-    // console.log(currentQuote);
-    const history = document.querySelector(".saved-quotes-wrapper");
-    history.innerHTML += `
-      <p id="text">${data.content}</p>
-      <span id="author">--- ${data.author}</span>
-    `;
-  }
-
-  const seeHistroy = () => {
-    document.querySelector(".saved-quotes-wrapper").classList.toggle("hidden");
+    if (history.some((quote) => quote.content === data.content)) {
+      alert("You have already saved this quote.")
+    } else {
+      addQuoteToHistory({ content: data.content, author: data.author});
+      console.log(history);
+    }
   }
 
   useEffect(() => {
@@ -55,7 +51,7 @@ const Card = () => {
       <div className="button-wrapper">
         <button id="new-quote" onClick={updateQuote}>New Quote</button>
         <button id="save-quote" onClick={saveQuote}>Save</button>
-        <button id="see-history-btn" onClick={seeHistroy}>History</button>
+        <button id="see-history-btn" onClick={toggleHistory}>History</button>
         <a 
           id="tweet-quote"
           href="twitter.com/intent/tweet" 

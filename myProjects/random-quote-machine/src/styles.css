@@ -1,12 +1,13 @@
-* {
-  font-family: Roboto, 'Times New Roman';
-  font-size: 10px;
-}
-
 :root {
   --primary-color: hsl(0, 0%, 100%);
   --secondary-color: hsl(0, 0%, 0%);
   --accent-color: hsl(0, 87%, 41%);
+}
+
+* {
+  font-family: Roboto, 'Times New Roman';
+  font-size: 10px;
+  color: var(--secondary-color);
 }
 
 body {
@@ -18,7 +19,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 footer {
@@ -30,6 +30,7 @@ footer {
   margin: 20px 0;
 }
 footer p, span {
+  color: var(--primary-color);
   margin: 0;
   font-size: 2.5rem;
 }
@@ -56,7 +57,6 @@ img {
 
 button {
   font-size: 1.6rem;
-  
   background-color: var(--primary-color);
   border: transparent;
   border-radius: 15px;
@@ -75,17 +75,20 @@ button:hover {
 #quote-box,
 #saved-quotes {
   background-color: var(--primary-color);
-  border-radius: 12px;
-  min-width: 450px;
+  box-shadow: 0 0 5px var(--primary-color);
+  max-width: 400px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
+#saved-quotes {
+  background-color: var(--secondary-color);
+}
+
 .quote-wrapper,
 .saved-quotes-wrapper {
   background-color: var(--primary-color);
-  max-width: 400px;
   margin: 20px;
   padding: 20px;
   display: flex;
@@ -95,8 +98,10 @@ button:hover {
 }
 
 .saved-quotes-wrapper {
-  overflow-y: scroll;
+  background-color: var(--secondary-color);
+  overflow-y: auto;
   max-height: 300px;
+  padding: 10px;
 }
 
 .hidden {
@@ -120,4 +125,20 @@ button:hover {
   display: flex;
   justify-content: space-evenly;
   min-height: 30px;
+}
+
+#clear-history-btn {
+  margin-top: 20px;
+}
+
+.quote-item {
+  width: 100%;
+  margin-top: 0;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.quote-item > p {
+  color: var(--primary-color);
 }
